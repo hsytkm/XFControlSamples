@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views"
+             mc:Ignorable="d"
+             Title="CheckBox (Standard)"
+             x:DataType="local:ProcessingViewModel"
+             x:Class="XFControlSamples.Views.ProcessingPage">
+
+    <StackLayout>
+        <Label Text="Not implement processing click" />
+
+        <Button Text="StartProcess"
+                HeightRequest="100"
+                Command="{Binding StartProcess, Mode=OneTime}" />
+
+        <Label Margin="0,20"
+               FontSize="Medium"
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="ProgressRatio: "/>
+                    <Span Text="{Binding ProgressRatio, Mode=OneWay, StringFormat='{0:P2}'}" />
+                    <Span Text="{x:Static x:Environment.NewLine}" />
+                    <Span Text="IsProcessing: "/>
+                    <Span Text="{Binding IsProcessing, Mode=OneWay}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <ProgressBar Progress="{Binding ProgressRatio, Mode=OneWay}" />
+        
+        <ActivityIndicator IsRunning="{Binding IsProcessing, Mode=OneWay}" />
+        
+    </StackLayout>
+
+</ContentPage>

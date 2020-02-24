@@ -9,6 +9,18 @@
             BackgroundColor="White" >
 
     <TabbedPage.Children>
+        <NavigationPage Title="Processing" >
+            <x:Arguments>
+                <views:ProcessingPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Picker" >
+            <x:Arguments>
+                <views:PickerPage />
+            </x:Arguments>
+        </NavigationPage>
+
         <NavigationPage Title="CheckBox" >
             <x:Arguments>
                 <views:CheckBoxPage />
