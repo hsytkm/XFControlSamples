@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views"
+             xmlns:vb="clr-namespace:XFControlSamples.Views.Behaviors"
+             mc:Ignorable="d"
+             Title="TextBox (Standard)"
+             x:Class="XFControlSamples.Views.TextBoxPage">
+    <StackLayout>
+        <!-- Charactors -->
+        <Entry Placeholder="Charactors"
+               Text="{Binding CharText, Mode=TwoWay}" />
+        <Label Text="{Binding CharText, Mode=OneWay}" />
+
+        <!-- Numeric -->
+        <Entry Margin="0,20,0,0"
+               Keyboard="Numeric"
+               Placeholder="Numeric (UWP doesn't become numeric keyboard)"
+               Text="{Binding NumericText, Mode=TwoWay}" >
+
+            <!-- 入力数制限の動作がダサい。入力数超えたら戻す動作なので入力文字がチラ見えする -->
+            <Entry.Behaviors>
+                <vb:EntryMaxLengthBehavior MaxLength="3" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="{Binding NumericText, Mode=OneWay}" />
+
+        <!-- Editor can write multi line. -->
+        <Editor Margin="0,20,0,0"
+                Text="{Binding MultiLineText, Mode=TwoWay}"
+                HeightRequest="100" />
+        <Label Text="{Binding MultiLineText, Mode=OneWay}" />
+
+    </StackLayout>
+
+</ContentPage>

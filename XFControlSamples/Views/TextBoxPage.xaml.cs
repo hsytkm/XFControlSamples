@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -13,34 +12,38 @@ using Xamarin.Forms.Xaml;
 namespace XFControlSamples.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SliderPage : ContentPage
+    public partial class TextBoxPage : ContentPage
     {
-        public SliderPage()
+        public TextBoxPage()
         {
             InitializeComponent();
 
-            BindingContext = new SliderViewModel();
+            BindingContext = new TextBoxViewModel();
         }
     }
 
-    class SliderViewModel : INotifyPropertyChanged
+    class TextBoxViewModel : INotifyPropertyChanged
     {
-        public double SliderMin => -5;
-        public double SliderMax => 5;
-
-        public double SliderValue
+        public string CharText
         {
-            get => _sliderValue;
-            set => SetProperty(ref _sliderValue, value);
+            get => _charText;
+            set => SetProperty(ref _charText, value);
         }
-        private double _sliderValue;
+        private string _charText;
 
-        public int SliderIntValue
+        public string NumericText
         {
-            get => _sliderIntValue;
-            set => SetProperty(ref _sliderIntValue, value);
+            get => _numericText;
+            set => SetProperty(ref _numericText, value);
         }
-        private int _sliderIntValue;
+        private string _numericText;
+
+        public string MultiLineText
+        {
+            get => _multiLineText;
+            set => SetProperty(ref _multiLineText, value);
+        }
+        private string _multiLineText;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

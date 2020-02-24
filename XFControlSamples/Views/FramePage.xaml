@@ -56,7 +56,8 @@
                 BorderRadius="0"
                 BorderColor="{StaticResource BackgroundColor1}"
                 BackgroundColor="{StaticResource BackgroundColor2}"
-                Text="BorderSetting in Button Control" />
+                Text="BorderSetting in Button Control"
+                Command="{Binding}" />
 
     </StackLayout>
 

@@ -9,6 +9,12 @@
             BackgroundColor="White" >
 
     <TabbedPage.Children>
+        <NavigationPage Title="TextBox" >
+            <x:Arguments>
+                <views:TextBoxPage />
+            </x:Arguments>
+        </NavigationPage>
+
         <NavigationPage Title="Slider" >
             <x:Arguments>
                 <views:SliderPage />
