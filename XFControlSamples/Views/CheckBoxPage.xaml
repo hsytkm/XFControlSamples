@@ -20,7 +20,8 @@
         <CheckBox IsChecked="{Binding IsEnable}"
                   HorizontalOptions="Center" VerticalOptions="Center" />
 
-        <!-- &#xD; がCRで、&#xA; がLFを表す らしい  https://www.nuits.jp/entry/2016/07/30/213257 -->
+        <!-- 改行 https://www.nuits.jp/entry/2016/07/30/213257 -->
+        <!-- &#xD; がCRで、&#xA; がLFを表す らしい -->
         <Label Text="UWPのみSwich[On]のMouseOver時に&#xD;&#xA;コントロールが見えなくなるんやけど…&#xD;&#xA;デフォStyleがショボ過ぎへん…？" >
             <Label.IsVisible>
                 <OnPlatform x:TypeArguments="x:Boolean" >
@@ -30,7 +31,7 @@
             </Label.IsVisible>
         </Label>
 
-        <Switch IsToggled="{Binding IsEnable}"
+        <Switch IsToggled="{Binding IsEnable, Converter={StaticResource BoolToInvBoolConverter}}"
                 HorizontalOptions="Center" VerticalOptions="Center" />
 
     </StackLayout>

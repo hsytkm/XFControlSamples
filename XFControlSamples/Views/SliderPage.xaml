@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:XFControlSamples.Views"
              xmlns:vb="clr-namespace:XFControlSamples.Views.Behaviors"
              mc:Ignorable="d"
-             Title="Slider/Stepper (Standard)"
+             Title="Slider / Stepper (Standard)"
              x:DataType="local:SliderViewModel"
              x:Class="XFControlSamples.Views.SliderPage">
     <StackLayout Spacing="10" Padding="10">
@@ -19,7 +19,7 @@
         <!-- Slider: Marginがないと画面端が操作しづらい -->
         <!-- Slider: Stepは設定できない -->
         <Label Text="Slider Style test" />
-        <Slider Margin="10,5"
+        <Slider Margin="30,5"
                 MinimumTrackColor="Blue"
                 MaximumTrackColor="Red"
                 ThumbColor="Green"

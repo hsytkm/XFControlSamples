@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 
 using Xamarin.Forms;
@@ -13,7 +14,8 @@ namespace XFControlSamples.Views
         {
             InitializeComponent();
 
-            BindingContext = Models.SampleData.Data;
+            BindingContext = Models.SampleData.Colors
+                .Select(x => new ListViewItem(x)).ToList();
         }
 
         protected override void OnAppearing()
@@ -33,5 +35,14 @@ namespace XFControlSamples.Views
             DisplayAlert($"This is \"{e.SelectedItem.ToString()}\"!", "", "OK");
         }
 
+    }
+
+    public class ListViewItem
+    {
+        public string Name { get; }
+        public Color Color { get; }
+
+        public ListViewItem((string Name, Color Color) x) =>
+            (Name, Color) = (x.Name, x.Color);
     }
 }

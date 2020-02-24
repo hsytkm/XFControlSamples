@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views"
              mc:Ignorable="d"
-             Title="PickerPage (Standard)"
+             Title="Picker (Standard)"
              x:DataType="local:PickerViewModel"
              x:Class="XFControlSamples.Views.PickerPage">
 
@@ -13,7 +13,14 @@
         <Picker ItemsSource="{Binding ItemsSource, Mode=OneTime}"
                 SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
 
-        <Label Text="{Binding SelectedItem}" />
+        <Grid>
+            <BoxView WidthRequest="100" HeightRequest="100"
+                 BackgroundColor="{Binding SelectedColor}" />
+
+            <Label Text="{Binding SelectedItem}"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+
     </StackLayout>
 
 </ContentPage>

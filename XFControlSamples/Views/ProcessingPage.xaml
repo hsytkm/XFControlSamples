@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views"
              mc:Ignorable="d"
-             Title="CheckBox (Standard)"
+             Title="Progress (Standard)"
              x:DataType="local:ProcessingViewModel"
              x:Class="XFControlSamples.Views.ProcessingPage">
 

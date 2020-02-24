@@ -24,14 +24,30 @@ namespace XFControlSamples.Views
 
     class PickerViewModel : INotifyPropertyChanged
     {
-        public IList<string> ItemsSource => Models.SampleData.Data;
+        public IList<string> ItemsSource => Models.SampleData.Colors.Select(x => x.Name).ToList();
 
         public string SelectedItem
         {
             get => _selectedItem;
-            set => SetProperty(ref _selectedItem, value);
+            set
+            {
+                if (SetProperty(ref _selectedItem, value))
+                    SelectedColor = Models.SampleData.Colors.First(x => x.Name == value).Color;
+            }
         }
-        private string _selectedItem = Models.SampleData.Data.First();
+        private string _selectedItem;
+
+        public Color SelectedColor
+        {
+            get => _selectedColor;
+            set => SetProperty(ref _selectedColor, value);
+        }
+        private Color _selectedColor;
+
+        public PickerViewModel()
+        {
+            SelectedItem = Models.SampleData.Colors.First().Name;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

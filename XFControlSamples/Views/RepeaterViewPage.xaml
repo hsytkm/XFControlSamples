@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vc="clr-namespace:XFControlSamples.Views.Controls"
+             xmlns:local="clr-namespace:XFControlSamples.Views"
              mc:Ignorable="d"
              Title="RepeaterView (HoussemDellai)"
              x:Class="XFControlSamples.Views.RepeaterViewPage" >
@@ -16,13 +17,13 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="20" Margin="10"
-                                     BackgroundColor="{StaticResource BackgroundColor2}" >
+                                     BackgroundColor="{Binding Color}" >
                             <View.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="RepeaterViewItem_Tapped" />
                             </View.GestureRecognizers>
-                            
+
                             <Label VerticalTextAlignment="Center"
-                                   Text="{Binding}" />
+                                   Text="{Binding Name}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

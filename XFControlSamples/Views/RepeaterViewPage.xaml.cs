@@ -16,7 +16,8 @@ namespace XFControlSamples.Views
         {
             InitializeComponent();
 
-            BindingContext = Models.SampleData.Data;
+            BindingContext = Models.SampleData.Colors
+                .Select(x => new RepeaterViewItem(x)).ToList();
         }
 
         private void RepeaterViewItem_Tapped(object sender, EventArgs e)
@@ -28,4 +29,13 @@ namespace XFControlSamples.Views
         }
 
     }
+    public class RepeaterViewItem
+    {
+        public string Name { get; }
+        public Color Color { get; }
+
+        public RepeaterViewItem((string Name, Color Color) x) =>
+            (Name, Color) = (x.Name, x.Color);
+    }
+
 }
