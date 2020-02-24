@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Frame (Standard)"
+             x:Class="XFControlSamples.Views.FramePage">
+
+    <!-- 【Xamarin.Forms】LabelにBorderを設定する http://makky12.hatenablog.com/entry/2018/04/12/212826 -->
+
+    <StackLayout Padding="10" >
+        <StackLayout.Style>
+            <Style TargetType="Label" >
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+        </StackLayout.Style>
+        
+        <Frame BorderColor="{StaticResource BackgroundColor1}" >
+            <Label Text="Simple Frame" />
+        </Frame>
+
+        <Frame BorderColor="{StaticResource BackgroundColor2}"
+               CornerRadius="20"
+               HasShadow="True" >
+            <Label Text="Frame Radius=20, HasShadow=True" />
+        </Frame>
+
+        <Frame BorderColor="{StaticResource BackgroundColor1}"
+               BackgroundColor="{StaticResource BackgroundColor2}"
+               Padding="0" CornerRadius="50"
+               WidthRequest="100" HeightRequest="100"
+               VerticalOptions="Center" HorizontalOptions="Center" >
+            <Label Text="Circle" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+        </Frame>
+
+        <Frame HorizontalOptions="Center" VerticalOptions="Center"
+               Padding="10"
+               BackgroundColor="{StaticResource BackgroundColor1}" >
+            <Label Text="Content in Frame" />
+        </Frame>
+
+        <Frame HorizontalOptions="Center" VerticalOptions="Center"
+               Padding="4"
+               BackgroundColor="{StaticResource BackgroundColor1}" >
+            <Frame Padding="10"
+                   VerticalOptions="Fill" HorizontalOptions="Fill" 
+                   BackgroundColor="{StaticResource BackgroundColor2}" >
+                <Label Text="Content in Duplicate Frame" />
+            </Frame>
+        </Frame>
+
+        <Button HorizontalOptions="Center" VerticalOptions="Center"
+                BorderWidth="4"
+                BorderRadius="0"
+                BorderColor="{StaticResource BackgroundColor1}"
+                BackgroundColor="{StaticResource BackgroundColor2}"
+                Text="BorderSetting in Button Control" />
+
+    </StackLayout>
+
+</ContentPage>

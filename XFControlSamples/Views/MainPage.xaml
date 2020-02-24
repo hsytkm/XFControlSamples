@@ -5,9 +5,22 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:XFControlSamples.Views"
-            x:Class="XFControlSamples.Views.MainPage">
+            x:Class="XFControlSamples.Views.MainPage"
+            BackgroundColor="White" >
 
     <TabbedPage.Children>
+
+        <NavigationPage Title="Frame" >
+            <x:Arguments>
+                <views:FramePage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="FlexLayout" >
+            <x:Arguments>
+                <views:FlexLayoutPage />
+            </x:Arguments>
+        </NavigationPage>
 
         <NavigationPage Title="RepeaterView" >
             <x:Arguments>
