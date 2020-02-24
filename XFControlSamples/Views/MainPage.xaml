@@ -9,6 +9,12 @@
             BackgroundColor="White" >
 
     <TabbedPage.Children>
+        <NavigationPage Title="Slider" >
+            <x:Arguments>
+                <views:SliderPage />
+            </x:Arguments>
+        </NavigationPage>
+
         <NavigationPage Title="Processing" >
             <x:Arguments>
                 <views:ProcessingPage />
