@@ -8,18 +8,20 @@
             x:Class="XFControlSamples.Views.MainPage">
 
     <TabbedPage.Children>
-        <NavigationPage Title="Browse">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
+
+        <NavigationPage Title="RepeaterView" >
             <x:Arguments>
-                <views:ItemsPage />
+                <views:RepeaterViewPage />
             </x:Arguments>
         </NavigationPage>
-        
-        <NavigationPage Title="About">
+
+        <NavigationPage Title="ListView" >
+            <x:Arguments>
+                <views:ListViewPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="About" >
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_about.png"/>
@@ -29,6 +31,7 @@
                 <views:AboutPage />
             </x:Arguments>
         </NavigationPage>
+        
     </TabbedPage.Children>
     
 </TabbedPage>

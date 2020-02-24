@@ -1,19 +1,15 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XFControlSamples.Services;
 using XFControlSamples.Views;
 
 namespace XFControlSamples
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new MainPage();
         }
 

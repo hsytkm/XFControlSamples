@@ -14,6 +14,11 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+
+            <Color x:Key="BackgroundColor1">LightBlue</Color>
+            <Color x:Key="BackgroundColor2">LightPink</Color>
+            <Color x:Key="BackgroundColor3">LightYellow</Color>
+
         </ResourceDictionary>
     </Application.Resources>
     

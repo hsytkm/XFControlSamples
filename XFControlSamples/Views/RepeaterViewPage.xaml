@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vc="clr-namespace:XFControlSamples.Views.Controls"
+             mc:Ignorable="d"
+             Title="RepeaterView (HoussemDellai)"
+             x:Class="XFControlSamples.Views.RepeaterViewPage" >
+
+    <!-- https://github.com/HoussemDellai/Xamarin-Forms-RepeaterView -->
+    <StackLayout>
+        <vc:RepeaterView BackgroundColor="{StaticResource BackgroundColor1}"
+                         ItemsSource="{Binding}" >
+            <vc:RepeaterView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="20" Margin="10"
+                                     BackgroundColor="{StaticResource BackgroundColor2}" >
+                            <View.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RepeaterViewItem_Tapped" />
+                            </View.GestureRecognizers>
+                            
+                            <Label VerticalTextAlignment="Center"
+                                   Text="{Binding}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </vc:RepeaterView.ItemTemplate>
+        </vc:RepeaterView>
+    </StackLayout>
+
+</ContentPage>
