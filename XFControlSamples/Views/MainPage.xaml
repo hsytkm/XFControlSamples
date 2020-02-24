@@ -9,6 +9,17 @@
             BackgroundColor="White" >
 
     <TabbedPage.Children>
+        <NavigationPage Title="CheckBox" >
+            <x:Arguments>
+                <views:CheckBoxPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="BoxView" >
+            <x:Arguments>
+                <views:BoxViewPage />
+            </x:Arguments>
+        </NavigationPage>
 
         <NavigationPage Title="Frame" >
             <x:Arguments>

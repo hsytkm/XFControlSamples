@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="BoxView (Standard)"
+             x:Class="XFControlSamples.Views.BoxViewPage"
+             SizeChanged="ContentPage_SizeChanged" >
+
+    <!-- Xamarin.Forms 描画で考慮すべき２つのこと http://furuya02.hatenablog.com/entry/2014/11/23/001448 -->
+
+    <Grid>
+        <!-- コードビハインドにて、Page*90% で描画 -->
+        <BoxView x:Name="boxView"
+                 BackgroundColor="{StaticResource BackgroundColor1}"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <Label x:Name="labelSize"
+               HorizontalOptions="Center" VerticalOptions="Center" />
+    </Grid>
+    
+</ContentPage>
