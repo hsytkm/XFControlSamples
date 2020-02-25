@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views"
+             mc:Ignorable="d"
+             Title="Label (Standard)"
+             x:DataType="local:LabelViewModel"
+             x:Class="XFControlSamples.Views.LabelPage">
+
+    <ScrollView>
+        <StackLayout Spacing="0" >
+            <StackLayout.Style>
+                <Style TargetType="Label" >
+                    <!-- ◆FontSizeを設定したいけど実行時エラーになる。なぜ？
+                           Unable to cast object of type 
+                    <Setter Property="FontSize" Value="20" />
+                    -->
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                </Style>
+            </StackLayout.Style>
+
+            <Label Text="Defaultフォント, Defaultサイズ"
+                   Font="Default" FontSize="Default"/>
+
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Large " FontSize="Large" />
+                            <Span Text="Medium " FontSize="Medium" />
+                            <Span Text="Small " FontSize="Small" />
+                            <Span Text="Micro " FontSize="Micro" />
+                            <Span Text="{x:Static x:Environment.NewLine}" />    <!-- 改行 -->
+                            <Span Text="Title " FontSize="Title" />
+                            <Span Text="Subtitle " FontSize="Subtitle" />
+                            <Span Text="Header " FontSize="Header" />
+                            <Span Text="Caption " FontSize="Caption" />
+                            <Span Text="Body " FontSize="Body" />
+                            <Span Text="Default " FontSize="Default" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="太字(Bold)    " FontAttributes="Bold" TextColor="Red" />
+                            <Span Text="斜体(Italic)    " FontAttributes="Italic" TextColor="Green" />
+                            <Span Text="太字＋斜体(Bold, Italic)" FontAttributes="Bold,Italic" TextColor="Blue" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Underline" TextDecorations="Underline" TextColor="Red" />
+                            <Span Text="       " />
+                            <Span Text="Strikethrough" TextDecorations="Strikethrough" TextColor="Green" />
+                            <Span Text="       " />
+                            <Span Text="Underline + Strikethrough" TextDecorations="Underline, Strikethrough" TextColor="Blue" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!-- 文字間隔 -->
+            <Label Text="Character spaced text" TextColor="DarkKhaki"
+                   CharacterSpacing="10" />
+
+            <!-- 行間 -->
+            <StackLayout BackgroundColor="LightCoral" Padding="10" >
+                <Label Text="{Binding En}"
+                       LineBreakMode="WordWrap"
+                       LineHeight="1.8" />
+            </StackLayout>
+
+            <!-- &#xD; がCRで、&#xA; がLFを表す らしい https://www.nuits.jp/entry/2016/07/30/213257 -->
+            <Label Text="改行文字、何か凄いよね&#xD;&#xA;CR=＆＃ｘＤ；  LF=＆＃ｘＡ；　←これを半角にする"
+                   BackgroundColor="Gray" />
+
+            <StackLayout BackgroundColor="LightBlue" Padding="10" >
+                <Label FontSize="Micro"
+                       Text="上：折り返しなし、中：文字で折り返す設定、下：単語で折り返す設定"
+                       TextColor="Blue" />
+
+                <Label Text="{Binding En}"
+                       LineBreakMode="NoWrap " />
+
+                <Label Text="{Binding En}"
+                       LineBreakMode="CharacterWrap" />
+
+                <Label Text="{Binding En}"
+                       LineBreakMode="WordWrap" />
+            </StackLayout>
+
+            <StackLayout BackgroundColor="LightGreen" Padding="10" >
+                <Label Text="表示する最大行数の指定（2行）" TextColor="Blue" />
+
+                <Label Text="{Binding En}"
+                       FontSize="Large"
+                       LineBreakMode="WordWrap"
+                       MaxLines="2" />
+            </StackLayout>
+
+            <StackLayout BackgroundColor="LightPink" Padding="10" >
+                <Label FontSize="Micro"
+                       Text="文字が収まらない場合に文字を省略(上から先頭、真ん中、最後)"
+                       TextColor="Green" />
+
+                <Label Text="UWPは常に最後が省略されるっぽいね。残念…" TextColor="Red" >
+                    <Label.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" >
+                            <On Platform="UWP" Value="True" />
+                            <On Platform="Android, iOS" Value="False" />
+                        </OnPlatform>
+                    </Label.IsVisible>
+                </Label>
+
+                <Label Text="{Binding Jp}"
+                       LineBreakMode="HeadTruncation"/>
+
+                <Label Text="{Binding Jp}"
+                       LineBreakMode="MiddleTruncation"/>
+
+                <Label Text="{Binding Jp}"
+                       LineBreakMode="TailTruncation"/>
+            </StackLayout>
+
+            <Label Padding="20" BackgroundColor="LightGray" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Click " FontSize="Large" />
+                        <Span Text="here" FontSize="Large" 
+                              TextColor="Blue"
+                              TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"
+                                                      CommandParameter="https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/text/label" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                        <Span Text=" to view Xamarin label documentation." FontSize="Large" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+
+    </ScrollView>
+
+</ContentPage>
