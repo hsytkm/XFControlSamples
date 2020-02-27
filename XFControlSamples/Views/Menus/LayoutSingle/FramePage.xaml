@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Frame (Standard)"
-             x:Class="XFControlSamples.Views.FramePage">
+             x:Class="XFControlSamples.Views.Menus.FramePage">
 
     <!-- 【Xamarin.Forms】LabelにBorderを設定する http://makky12.hatenablog.com/entry/2018/04/12/212826 -->
 
