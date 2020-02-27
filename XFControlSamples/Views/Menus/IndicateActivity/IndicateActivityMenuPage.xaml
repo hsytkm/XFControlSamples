@@ -6,23 +6,17 @@
             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
             NavigationPage.HasNavigationBar="False"
             mc:Ignorable="d"
-            x:Class="XFControlSamples.Views.Menus.LayoutSingleMenuPage">
+            x:Class="XFControlSamples.Views.Menus.IndicateActivityMenuPage">
 
-    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
-        <!-- ContentView -->
 
-        <NavigationPage Title="Frame" >
+        <!-- ActivityIndicator / ProgressBar -->
+        <NavigationPage Title="Processing" >
             <x:Arguments>
-                <local:FramePage />
+                <local:ProcessingPage />
             </x:Arguments>
         </NavigationPage>
-
-        <!-- ScrollView -->
-
-        <!-- TemplatedView -->
-
-        <!-- ContentPresenter -->
 
     </TabbedPage.Children>
     

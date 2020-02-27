@@ -4,10 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vc="clr-namespace:XFControlSamples.Views.Controls"
-             xmlns:local="clr-namespace:XFControlSamples.Views"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
              Title="RepeaterView (HoussemDellai)"
-             x:Class="XFControlSamples.Views.RepeaterViewPage" >
+             x:Class="XFControlSamples.Views.Menus.RepeaterViewPage" >
 
     <!-- https://github.com/HoussemDellai/Xamarin-Forms-RepeaterView -->
     <StackLayout>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,41 +10,37 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XFControlSamples.Views
+namespace XFControlSamples.Views.Menus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TextBoxPage : ContentPage
+    public partial class SliderPage : ContentPage
     {
-        public TextBoxPage()
+        public SliderPage()
         {
             InitializeComponent();
 
-            BindingContext = new TextBoxViewModel();
+            BindingContext = new SliderViewModel();
         }
     }
 
-    class TextBoxViewModel : INotifyPropertyChanged
+    class SliderViewModel : INotifyPropertyChanged
     {
-        public string CharText
-        {
-            get => _charText;
-            set => SetProperty(ref _charText, value);
-        }
-        private string _charText;
+        public double SliderMin => -5;
+        public double SliderMax => 5;
 
-        public string NumericText
+        public double SliderValue
         {
-            get => _numericText;
-            set => SetProperty(ref _numericText, value);
+            get => _sliderValue;
+            set => SetProperty(ref _sliderValue, value);
         }
-        private string _numericText;
+        private double _sliderValue;
 
-        public string MultiLineText
+        public int SliderIntValue
         {
-            get => _multiLineText;
-            set => SetProperty(ref _multiLineText, value);
+            get => _sliderIntValue;
+            set => SetProperty(ref _sliderIntValue, value);
         }
-        private string _multiLineText;
+        private int _sliderIntValue;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

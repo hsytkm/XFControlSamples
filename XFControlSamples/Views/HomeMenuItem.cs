@@ -13,23 +13,30 @@ namespace XFControlSamples.Views
         public enum Type
         {
             About,
-            Browse,
             //Pages,
             LayoutSingle,
-            //Presentation,
-            //InitiateCcommands,
-            //SettingValues,
-            //EditingText,
-            //IndicateActivity,
-            //DisplayCollections,
+            LayoutMultiple,
+            Presentation,
+            //InitiateCommands,
+            SettingValues,
+            EditingText,
+            IndicateActivity,
+            DisplayCollections,
         }
 
         /// <summary>各メニューに対応するページ辞書</summary>
         public static IDictionary<Type, Page> PagesMap => new Dictionary<Type, Page>()
         {
             [Type.About] = new AboutPage(),
-            [Type.Browse] = new TextBoxPage(),
+            //Type.Pages] = new Page(),
             [Type.LayoutSingle] = new LayoutSingleMenuPage(),
+            [Type.LayoutMultiple] = new LayoutMultipleMenuPage(),
+            [Type.Presentation] = new PresentationMenuPage(),
+            //[Type.InitiateCommands] = new InitiateCommandsMenuPage(),
+            [Type.SettingValues] = new SettingValuesMenuPage(),
+            [Type.EditingText] = new EditingTextMenuPage(),
+            [Type.IndicateActivity] = new IndicateActivityMenuPage(),
+            [Type.DisplayCollections] = new DisplayCollectionsMenuPage(),
         };
 
         public Type Id { get; }

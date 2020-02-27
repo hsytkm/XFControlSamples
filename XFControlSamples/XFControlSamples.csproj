@@ -19,25 +19,46 @@
     <Compile Update="Views\DetailMenuPage.xaml.cs">
       <DependentUpon>DetailMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\DisplayCollections\DisplayCollectionsMenuPage.xaml.cs">
+      <DependentUpon>DisplayCollectionsMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\EditingText\EditingTextMenuPage.xaml.cs">
+      <DependentUpon>EditingTextMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\IndicateActivity\IndicateActivityMenuPage.xaml.cs">
+      <DependentUpon>IndicateActivityMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\InitiateCommands\InitiateCommandsMenuPage.xaml.cs">
+      <DependentUpon>InitiateCommandsMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\LayoutMultiple\LayoutMultipleMenuPage.xaml.cs">
+      <DependentUpon>LayoutMultipleMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Presentation\PresentationMenuPage.xaml.cs">
+      <DependentUpon>PresentationMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\SettingValues\SettingValuesMenuPage.xaml.cs">
+      <DependentUpon>SettingValuesMenuPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\BoxViewPage.xaml">
+    <EmbeddedResource Update="Views\Menus\Presentation\BoxViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CheckBoxPage.xaml">
+    <EmbeddedResource Update="Views\Menus\SettingValues\CheckBoxPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FlexLayoutPage.xaml">
+    <EmbeddedResource Update="Views\Menus\LayoutMultiple\FlexLayoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Menus\LayoutSingle\FramePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\LabelPage.xaml">
+    <EmbeddedResource Update="Views\Menus\Presentation\LabelPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ListViewPage.xaml">
+    <EmbeddedResource Update="Views\Menus\DisplayCollections\ListViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DetailMenuPage.xaml">
@@ -46,19 +67,19 @@
     <EmbeddedResource Update="Views\Menus\LayoutSingle\LayoutSingleMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PickerPage.xaml">
+    <EmbeddedResource Update="Views\Menus\DisplayCollections\PickerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ProcessingPage.xaml">
+    <EmbeddedResource Update="Views\Menus\IndicateActivity\ProcessingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\RepeaterViewPage.xaml">
+    <EmbeddedResource Update="Views\Menus\DisplayCollections\RepeaterViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SliderPage.xaml">
+    <EmbeddedResource Update="Views\Menus\SettingValues\SliderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TextBoxPage.xaml">
+    <EmbeddedResource Update="Views\Menus\EditingText\TextBoxPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

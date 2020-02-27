@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+            NavigationPage.HasNavigationBar="False"
+            mc:Ignorable="d"
+            x:Class="XFControlSamples.Views.Menus.DisplayCollectionsMenuPage">
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
+    <TabbedPage.Children>
+        <!-- CarouselView -->
+
+        <!-- CollectionView -->
+
+        <!-- IndicatorView -->
+
+        <NavigationPage Title="ListView" >
+            <x:Arguments>
+                <local:ListViewPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Picker" >
+            <x:Arguments>
+                <local:PickerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!-- TableView -->
+
+        
+        <!-- 以下、自作コントロール -->
+        <NavigationPage Title="RepeaterView" >
+            <x:Arguments>
+                <local:RepeaterViewPage />
+            </x:Arguments>
+        </NavigationPage>
+        
+    </TabbedPage.Children>
+    
+</TabbedPage>

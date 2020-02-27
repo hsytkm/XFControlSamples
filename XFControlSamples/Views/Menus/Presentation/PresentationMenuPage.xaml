@@ -6,24 +6,32 @@
             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
             NavigationPage.HasNavigationBar="False"
             mc:Ignorable="d"
-            x:Class="XFControlSamples.Views.Menus.LayoutSingleMenuPage">
+            x:Class="XFControlSamples.Views.Menus.PresentationMenuPage">
 
-    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
-        <!-- ContentView -->
-
-        <NavigationPage Title="Frame" >
+        <NavigationPage Title="Label" >
             <x:Arguments>
-                <local:FramePage />
+                <local:LabelPage />
             </x:Arguments>
         </NavigationPage>
 
-        <!-- ScrollView -->
+        <!-- Image -->
 
-        <!-- TemplatedView -->
+        <NavigationPage Title="BoxView" >
+            <x:Arguments>
+                <local:BoxViewPage />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- ContentPresenter -->
+        <!-- WebView -->
 
+        <!-- OpenGLView -->
+
+        <!-- Map -->
+
+        <!-- MediaElement -->
+        
     </TabbedPage.Children>
     
 </TabbedPage>

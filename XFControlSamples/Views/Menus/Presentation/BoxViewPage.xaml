@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="BoxView (Standard)"
-             x:Class="XFControlSamples.Views.BoxViewPage"
+             x:Class="XFControlSamples.Views.Menus.BoxViewPage"
              SizeChanged="ContentPage_SizeChanged" >
 
     <!-- Xamarin.Forms 描画で考慮すべき２つのこと http://furuya02.hatenablog.com/entry/2014/11/23/001448 -->

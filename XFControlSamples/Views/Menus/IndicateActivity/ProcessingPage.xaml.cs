@@ -9,7 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XFControlSamples.Views
+namespace XFControlSamples.Views.Menus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProcessingPage : ContentPage

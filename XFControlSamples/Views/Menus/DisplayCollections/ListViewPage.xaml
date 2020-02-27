@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:XFControlSamples.Views"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
              Title="ListView (Standard)"
-             x:Class="XFControlSamples.Views.ListViewPage" >
+             x:Class="XFControlSamples.Views.Menus.ListViewPage" >
 
     <StackLayout>
         <ListView x:Name="mainListView"
