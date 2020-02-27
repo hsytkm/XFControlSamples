@@ -16,7 +16,11 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- Image -->
+        <NavigationPage Title="Image" >
+            <x:Arguments>
+                <local:BlankPage Title="Image" />
+            </x:Arguments>
+        </NavigationPage>
 
         <NavigationPage Title="BoxView" >
             <x:Arguments>
@@ -24,14 +28,30 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- WebView -->
+        <NavigationPage Title="WebView" >
+            <x:Arguments>
+                <local:WebViewPage />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- OpenGLView -->
+        <NavigationPage Title="OpenGLView" >
+            <x:Arguments>
+                <local:BlankPage Title="OpenGLView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- Map -->
+        <NavigationPage Title="Map" >
+            <x:Arguments>
+                <local:BlankPage Title="Map" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- MediaElement -->
-        
+        <NavigationPage Title="MediaElement" >
+            <x:Arguments>
+                <local:BlankPage Title="MediaElement" />
+            </x:Arguments>
+        </NavigationPage>
+
     </TabbedPage.Children>
     
 </TabbedPage>

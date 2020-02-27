@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="TimePickerPage"
+             x:Class="XFControlSamples.Views.Menus.DateTimePickerPage">
+
+    <StackLayout >
+        <StackLayout BackgroundColor="{StaticResource BackgroundColor1}" >
+            <Label Padding="0,20,0,0" Text="DatePicker Default" />
+            <DatePicker />
+
+            <Label Padding="0,20,0,0" Text="Format = MM/dd/yyyy" />
+            <DatePicker TextColor="Red"
+                    Format="MM/dd/yyyy" Date="2020/2/27"/>
+
+            <Label Padding="0,20,0,0" Text="Format = yyyy/MM/dd" />
+            <DatePicker TextColor="Blue"
+                    Format="yyyy/MM/dd" Date="{x:Static x:DateTime.MinValue}"/>
+        </StackLayout>
+
+        <StackLayout BackgroundColor="{StaticResource BackgroundColor2}" >
+            <Label Padding="0,20,0,0" Text="TimePicker Default" />
+            <TimePicker />
+
+            <Label Padding="0,20,0,0" Text="Format = HH_mm_ss_tt" />
+            <TimePicker TextColor="Red"
+                        Format="HH_mm_ss_tt" Time="01:23" />
+
+            <Label Padding="0,20,0,0" Text="Format = tt HH:mm:ss" />
+            <TimePicker TextColor="Blue"
+                        Format="tt HH:mm:ss" Time="23:45" />
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

@@ -8,15 +8,31 @@
             mc:Ignorable="d"
             x:Class="XFControlSamples.Views.Menus.LayoutMultipleMenuPage">
 
-    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
     <TabbedPage.Children>
-        <!-- StackLayout -->
+        <NavigationPage Title="StackLayout" >
+            <x:Arguments>
+                <local:BlankPage Title="StackLayout" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- Grid -->
+        <NavigationPage Title="Grid" >
+            <x:Arguments>
+                <local:BlankPage Title="Grid" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- AbsoluteLayout -->
+        <NavigationPage Title="AbsoluteLayout" >
+            <x:Arguments>
+                <local:BlankPage Title="AbsoluteLayout" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- RelativeLayout -->
+        <NavigationPage Title="RelativeLayout" >
+            <x:Arguments>
+                <local:BlankPage Title="RelativeLayout" />
+            </x:Arguments>
+        </NavigationPage>
 
         <NavigationPage Title="FlexLayout" >
             <x:Arguments>

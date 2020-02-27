@@ -29,5 +29,30 @@ namespace XFControlSamples.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        /// <summary>
+        /// Android戻るボタンの誤操作対応(2回押したら有効にする)
+        /// https://www.dylanberry.com/2020/02/20/how-to-confirm-exit-in-android-with-xamarin-forms/
+        /// </summary>
+        public override void OnBackPressed()
+        {
+            if (!_isBackPressed)
+            {
+                _isBackPressed = true;
+
+                using var toast = Toast.MakeText(this, "Press back again to close", ToastLength.Short);
+                toast.Show();
+
+                // Disable back to exit after 2 seconds.
+                using var handler = new Handler();
+                handler.PostDelayed(() => _isBackPressed = false, 2000);
+            }
+            else
+            {
+                base.OnBackPressed();
+            }
+        }
+        private bool _isBackPressed;
+
     }
 }

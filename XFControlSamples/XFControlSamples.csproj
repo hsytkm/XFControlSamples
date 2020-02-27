@@ -31,11 +31,20 @@
     <Compile Update="Views\Menus\InitiateCommands\InitiateCommandsMenuPage.xaml.cs">
       <DependentUpon>InitiateCommandsMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\InitiateCommands\ButtonPage.xaml.cs">
+      <DependentUpon>ButtonPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\LayoutMultiple\LayoutMultipleMenuPage.xaml.cs">
       <DependentUpon>LayoutMultipleMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\Presentation\WebViewPage.xaml.cs">
+      <DependentUpon>WebViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\Presentation\PresentationMenuPage.xaml.cs">
       <DependentUpon>PresentationMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\SettingValues\DateTimePickerPage.xaml.cs">
+      <DependentUpon>DateTimePickerPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\SettingValues\SettingValuesMenuPage.xaml.cs">
       <DependentUpon>SettingValuesMenuPage.xaml</DependentUpon>
@@ -43,6 +52,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Menus\BlankPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Menus\Presentation\BoxViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

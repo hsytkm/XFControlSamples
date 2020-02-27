@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using XFControlSamples.Views.Menus;
+using XFControlSamples.Extensions;
 
 namespace XFControlSamples.Views
 {
@@ -17,7 +18,7 @@ namespace XFControlSamples.Views
             LayoutSingle,
             LayoutMultiple,
             Presentation,
-            //InitiateCommands,
+            InitiateCommands,
             SettingValues,
             EditingText,
             IndicateActivity,
@@ -32,7 +33,7 @@ namespace XFControlSamples.Views
             [Type.LayoutSingle] = new LayoutSingleMenuPage(),
             [Type.LayoutMultiple] = new LayoutMultipleMenuPage(),
             [Type.Presentation] = new PresentationMenuPage(),
-            //[Type.InitiateCommands] = new InitiateCommandsMenuPage(),
+            [Type.InitiateCommands] = new InitiateCommandsMenuPage(),
             [Type.SettingValues] = new SettingValuesMenuPage(),
             [Type.EditingText] = new EditingTextMenuPage(),
             [Type.IndicateActivity] = new IndicateActivityMenuPage(),
@@ -45,19 +46,8 @@ namespace XFControlSamples.Views
 
         public HomeMenuItem(Type id, string title) => (Id, Title) = (id, title);
 
-        #region static ctor
-        public static IList<HomeMenuItem> AllItems { get; }
-
-        static HomeMenuItem()
-        {
-            var items = new List<HomeMenuItem>();
-            foreach (Type type in Enum.GetValues(typeof(Type)))
-            {
-                items.Add(new HomeMenuItem(type, Enum.GetName(typeof(Type), type)));
-            }
-            AllItems = items;
-        }
-        #endregion
-
+        public static IList<HomeMenuItem> AllItems =>
+            MyArrayExtension.GetEnums<Type>()
+                .Select(t => new HomeMenuItem(t, Enum.GetName(typeof(Type), t))).ToList();
     }
 }

@@ -24,11 +24,18 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- Switch -->
+        <NavigationPage Title="Switch" >
+            <x:Arguments>
+                <local:BlankPage Title="Switch" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- DatePicker -->
-
-        <!-- TimePicker -->
+        <!-- DatePicker/TimePicker -->
+        <NavigationPage Title="DatePicker" >
+            <x:Arguments>
+                <local:DateTimePickerPage />
+            </x:Arguments>
+        </NavigationPage>
 
     </TabbedPage.Children>
     

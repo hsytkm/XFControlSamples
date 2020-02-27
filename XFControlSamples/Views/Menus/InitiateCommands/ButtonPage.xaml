@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="Progress (Standard)"
+             x:Class="XFControlSamples.Views.Menus.ButtonPage">
+
+    <StackLayout>
+        <Label Text="Androidのデフォだと、Button.Text が大文字になりますが、styles.xmlで解除しています。"
+               FontSize="Small" >
+            <!-- 全角アルファベットも大文字化される（Ｒｅｄ→ＲＥＤ） -->
+            <!-- BindingでTextを渡した場合は大文字化されない。表示のみ -->
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" >
+                    <On Platform="Android" Value="True" />
+                    <On Platform="UWP, iOS" Value="False" />
+                </OnPlatform>
+            </Label.IsVisible>
+        </Label>
+
+        <Button Text="Default"
+                Command="{Binding}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="Borderカラー は Ｒｅｄ色 ！"
+                BorderColor="Red"
+                Command="{Binding}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="TextColor = Blue"
+                TextColor="Blue"
+                Command="{Binding}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="TextColor = Green"
+                BackgroundColor="Green"
+                Command="{Binding}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="BorderRadius = 20"
+                BorderRadius="20"
+                Command="{Binding}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="BorderWidth = 10"
+                BorderWidth="10" 
+                BorderColor="{StaticResource BackgroundColor1}"
+                BackgroundColor="{StaticResource BackgroundColor2}"
+                Command="{Binding}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+    </StackLayout>
+
+</ContentPage>

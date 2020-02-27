@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFControlSamples.Android", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFControlSamples.iOS", "XFControlSamples.iOS\XFControlSamples.iOS.csproj", "{8814D7EC-75EA-494B-93AB-AF08705C18CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFControlSamples", "XFControlSamples\XFControlSamples.csproj", "{15067ED2-B47F-4335-BAAA-2BC53DEA5E85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XFControlSamples", "XFControlSamples\XFControlSamples.csproj", "{15067ED2-B47F-4335-BAAA-2BC53DEA5E85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0F08F165-E2EF-4B91-B80E-29F7CD51503B}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

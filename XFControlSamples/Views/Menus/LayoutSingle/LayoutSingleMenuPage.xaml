@@ -10,7 +10,11 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
     <TabbedPage.Children>
-        <!-- ContentView -->
+        <NavigationPage Title="ContentView" >
+            <x:Arguments>
+                <local:BlankPage Title="ContentView" />
+            </x:Arguments>
+        </NavigationPage>
 
         <NavigationPage Title="Frame" >
             <x:Arguments>
@@ -18,11 +22,23 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- ScrollView -->
+        <NavigationPage Title="ScrollView" >
+            <x:Arguments>
+                <local:BlankPage Title="ScrollView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- TemplatedView -->
+        <NavigationPage Title="TemplatedView" >
+            <x:Arguments>
+                <local:BlankPage Title="TemplatedView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- ContentPresenter -->
+        <NavigationPage Title="ContentPresenter" >
+            <x:Arguments>
+                <local:BlankPage Title="ContentPresenter" />
+            </x:Arguments>
+        </NavigationPage>
 
     </TabbedPage.Children>
     

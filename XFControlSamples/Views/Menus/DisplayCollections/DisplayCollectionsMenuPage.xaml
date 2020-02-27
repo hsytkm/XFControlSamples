@@ -10,11 +10,23 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
-        <!-- CarouselView -->
+        <NavigationPage Title="CarouselView" >
+            <x:Arguments>
+                <local:BlankPage Title="CarouselView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- CollectionView -->
+        <NavigationPage Title="CollectionView" >
+            <x:Arguments>
+                <local:BlankPage Title="CollectionView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- IndicatorView -->
+        <NavigationPage Title="IndicatorView" >
+            <x:Arguments>
+                <local:BlankPage Title="IndicatorView" />
+            </x:Arguments>
+        </NavigationPage>
 
         <NavigationPage Title="ListView" >
             <x:Arguments>
@@ -28,9 +40,12 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- TableView -->
+        <NavigationPage Title="TableView" >
+            <x:Arguments>
+                <local:BlankPage Title="TableView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        
         <!-- 以下、自作コントロール -->
         <NavigationPage Title="RepeaterView" >
             <x:Arguments>

@@ -10,15 +10,35 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
-        <!-- Button -->
+        <NavigationPage Title="Button" >
+            <x:Arguments>
+                <local:ButtonPage />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- ImageButton -->
+        <NavigationPage Title="ImageButton" >
+            <x:Arguments>
+                <local:BlankPage Title="ImageButton" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- RefreshView -->
+        <NavigationPage Title="RefreshView" >
+            <x:Arguments>
+                <local:BlankPage Title="RefreshView" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- SearchBar -->
+        <NavigationPage Title="SearchBar" >
+            <x:Arguments>
+                <local:BlankPage Title="SearchBar" />
+            </x:Arguments>
+        </NavigationPage>
 
-        <!-- SwipeView -->
+        <NavigationPage Title="SwipeView" >
+            <x:Arguments>
+                <local:BlankPage Title="SwipeView" />
+            </x:Arguments>
+        </NavigationPage>
 
     </TabbedPage.Children>
     
