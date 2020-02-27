@@ -14,7 +14,7 @@
                   ItemsSource="{Binding}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell x:DataType="local:ColorListViewItem" >
                         <Label VerticalTextAlignment="Center"
                                BackgroundColor="{Binding Color}"
                                Text="{Binding Name}" />

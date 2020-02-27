@@ -14,8 +14,8 @@ namespace XFControlSamples.Views.Menus
         {
             InitializeComponent();
 
-            BindingContext = Models.SampleData.Colors
-                .Select(x => new ListViewItem(x)).ToList();
+            BindingContext = Models.SampleData.XamarinFormsColors
+                .Select(x => new ColorListViewItem(x)).ToList();
         }
 
         protected override void OnAppearing()
@@ -37,12 +37,12 @@ namespace XFControlSamples.Views.Menus
 
     }
 
-    public class ListViewItem
+    class ColorListViewItem
     {
         public string Name { get; }
         public Color Color { get; }
 
-        public ListViewItem((string Name, Color Color) x) =>
+        public ColorListViewItem((string Name, Color Color) x) =>
             (Name, Color) = (x.Name, x.Color);
     }
 }

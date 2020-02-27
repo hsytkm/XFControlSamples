@@ -11,6 +11,7 @@
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
 
+        <!-- CheckBox / Switch -->
         <NavigationPage Title="CheckBox" >
             <x:Arguments>
                 <local:CheckBoxPage />
@@ -21,12 +22,6 @@
         <NavigationPage Title="Slider" >
             <x:Arguments>
                 <local:SliderPage />
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Switch" >
-            <x:Arguments>
-                <local:BlankPage Title="Switch" />
             </x:Arguments>
         </NavigationPage>
 

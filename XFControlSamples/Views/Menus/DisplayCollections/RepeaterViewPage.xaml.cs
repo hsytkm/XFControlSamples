@@ -16,7 +16,7 @@ namespace XFControlSamples.Views.Menus
         {
             InitializeComponent();
 
-            BindingContext = Models.SampleData.Colors
+            BindingContext = Models.SampleData.XamarinFormsColors
                 .Select(x => new RepeaterViewItem(x)).ToList();
         }
 

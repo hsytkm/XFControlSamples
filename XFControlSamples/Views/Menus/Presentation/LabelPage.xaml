@@ -11,16 +11,18 @@
 
     <ScrollView>
         <StackLayout Spacing="0" >
-            <StackLayout.Style>
-                <Style TargetType="Label" >
-                    <!-- ◆FontSizeを設定したいけど実行時エラーになる。なぜ？
-                           Unable to cast object of type 
-                    <Setter Property="FontSize" Value="20" />
-                    -->
-                    <Setter Property="HorizontalOptions" Value="Center" />
-                    <Setter Property="VerticalOptions" Value="Center" />
-                </Style>
-            </StackLayout.Style>
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Label" >
+                        <!-- ◆FontSizeを設定したいけど実行時エラーになる。なぜ？
+                               Unable to cast object of type 
+                        <Setter Property="FontSize" Value="20" />
+                        -->
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                        <Setter Property="VerticalOptions" Value="Center" />
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
 
             <Label Text="Defaultフォント, Defaultサイズ"
                    Font="Default" FontSize="Default"/>

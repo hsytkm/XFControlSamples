@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              xmlns:vb="clr-namespace:XFControlSamples.Views.Behaviors"
              mc:Ignorable="d"
-             Title="Slider / Stepper (Standard)"
+             Title="Slider / Stepper"
              x:DataType="local:SliderViewModel"
              x:Class="XFControlSamples.Views.Menus.SliderPage">
     <StackLayout Spacing="10" Padding="10">

@@ -10,13 +10,15 @@
     <!-- 【Xamarin.Forms】LabelにBorderを設定する http://makky12.hatenablog.com/entry/2018/04/12/212826 -->
 
     <StackLayout Padding="10" >
-        <StackLayout.Style>
-            <Style TargetType="Label" >
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
-        </StackLayout.Style>
-        
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <Style TargetType="{x:Type Label}" >
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                </Style>
+            </ResourceDictionary>
+        </StackLayout.Resources>
+
         <Frame BorderColor="{StaticResource BackgroundColor1}" >
             <Label Text="Simple Frame" />
         </Frame>

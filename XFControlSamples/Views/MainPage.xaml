@@ -5,6 +5,7 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   mc:Ignorable="d"
                   xmlns:views="clr-namespace:XFControlSamples.Views"
+                  xmlns:menus="clr-namespace:XFControlSamples.Views.Menus"
                   x:Class="XFControlSamples.Views.MainPage" >
     
     <MasterDetailPage.MasterBehavior>
@@ -28,8 +29,9 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             
+            <!-- 起動時に表示されるページを指定 -->
             <x:Arguments>
-                <views:AboutPage />
+                <menus:SystemsMenuPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

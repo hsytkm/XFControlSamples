@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+            NavigationPage.HasNavigationBar="False"
+            mc:Ignorable="d"
+            x:Class="XFControlSamples.Views.Menus.SystemsMenuPage">
+
+    <!--
+    <StackLayout Spacing="0" Padding="10,0">
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <Style x:Key="LabelTitleStyle" TargetType="{x:Type Label}" >
+                    <Setter Property="FontSize" Value="Medium" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                </Style>
+                <Style x:Key="LabelValueStyle" TargetType="{x:Type Label}" >
+                    <Setter Property="Margin" Value="10,3,0,0" />
+                </Style>
+            </ResourceDictionary>
+        </StackLayout.Resources>
+
+        <Label Style="{x:StaticResource LabelTitleStyle}"
+               Text="LocalApplicationData" />
+        <Label Style="{x:StaticResource LabelValueStyle}" 
+               Text="{Binding LocalApplicationData, Mode=OneTime}" />
+    </StackLayout>
+    -->
+
+    <TabbedPage.Children>
+        <NavigationPage Title="EnvProp" >
+            <x:Arguments>
+                <local:EnvironmentPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="EnvDir" >
+            <x:Arguments>
+                <local:EnvDirectoryPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Assembly" >
+            <x:Arguments>
+                <local:AssemblyPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="FileVerInfo" >
+            <x:Arguments>
+                <local:FileVerInfoPage />
+            </x:Arguments>
+        </NavigationPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>

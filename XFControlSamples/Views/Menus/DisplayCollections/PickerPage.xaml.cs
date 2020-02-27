@@ -24,7 +24,7 @@ namespace XFControlSamples.Views.Menus
 
     class PickerViewModel : INotifyPropertyChanged
     {
-        public IList<string> ItemsSource => Models.SampleData.Colors.Select(x => x.Name).ToList();
+        public IList<string> ItemsSource => Models.SampleData.XamarinFormsColors.Select(x => x.Name).ToList();
 
         public string SelectedItem
         {
@@ -32,7 +32,7 @@ namespace XFControlSamples.Views.Menus
             set
             {
                 if (SetProperty(ref _selectedItem, value))
-                    SelectedColor = Models.SampleData.Colors.First(x => x.Name == value).Color;
+                    SelectedColor = Models.SampleData.XamarinFormsColors.First(x => x.Name == value).Color;
             }
         }
         private string _selectedItem;
@@ -46,7 +46,7 @@ namespace XFControlSamples.Views.Menus
 
         public PickerViewModel()
         {
-            SelectedItem = Models.SampleData.Colors.First().Name;
+            SelectedItem = Models.SampleData.XamarinFormsColors.First().Name;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

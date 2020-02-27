@@ -13,7 +13,7 @@ namespace XFControlSamples.Views
         // https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/
         public enum Type
         {
-            About,
+            Systems,
             //Pages,
             LayoutSingle,
             LayoutMultiple,
@@ -23,12 +23,13 @@ namespace XFControlSamples.Views
             EditingText,
             IndicateActivity,
             DisplayCollections,
+            About,
         }
 
         /// <summary>各メニューに対応するページ辞書</summary>
         public static IDictionary<Type, Page> PagesMap => new Dictionary<Type, Page>()
         {
-            [Type.About] = new AboutPage(),
+            [Type.Systems] = new SystemsMenuPage(),
             //Type.Pages] = new Page(),
             [Type.LayoutSingle] = new LayoutSingleMenuPage(),
             [Type.LayoutMultiple] = new LayoutMultipleMenuPage(),
@@ -38,6 +39,7 @@ namespace XFControlSamples.Views
             [Type.EditingText] = new EditingTextMenuPage(),
             [Type.IndicateActivity] = new IndicateActivityMenuPage(),
             [Type.DisplayCollections] = new DisplayCollectionsMenuPage(),
+            [Type.About] = new AboutPage(),
         };
 
         public Type Id { get; }

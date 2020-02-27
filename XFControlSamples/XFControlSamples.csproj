@@ -49,6 +49,21 @@
     <Compile Update="Views\Menus\SettingValues\SettingValuesMenuPage.xaml.cs">
       <DependentUpon>SettingValuesMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\Systems\FileVerInfoPage.xaml.cs">
+      <DependentUpon>FileVerInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Systems\AssemblyPage.xaml.cs">
+      <DependentUpon>AssemblyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Systems\EnvDirectoryPage.xaml.cs">
+      <DependentUpon>EnvDirectoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Systems\EnvironmentPage.xaml.cs">
+      <DependentUpon>EnvironmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Systems\SystemsMenuPage.xaml.cs">
+      <DependentUpon>SystemsMenuPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
