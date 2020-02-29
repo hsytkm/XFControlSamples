@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:convs="clr-namespace:XFControlSamples.Views.Converters"
+             mc:Ignorable="d"
+             Title="MultiTrigger"
+             x:Class="XFControlSamples.Views.Menus.MultiTriggerPage">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <convs:TextLengthZeroOverConverter x:Key="textHasBeenEntered" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackLayout Padding="10" >
+        <Entry x:Name="email"
+               Placeholder="E-Mail Address" Text=""
+               Keyboard="Email" />
+
+        <Entry x:Name="phone"
+               Placeholder="Phone Number" Text=""
+               Keyboard="Telephone" />
+
+        <StackLayout Orientation="Horizontal" Spacing="20" >
+            <Button Text="OR" IsEnabled="True" >
+                <Button.Triggers>
+                    <MultiTrigger TargetType="{x:Type Button}">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference email},
+                                                                Path=Text.Length}"
+                                              Value="0" />
+                            <BindingCondition Binding="{Binding Source={x:Reference phone},
+                                                                Path=Text.Length}"
+                                              Value="0" />
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="False" />
+                        <!-- multiple Setter elements are allowed -->
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <Button Text="AND" IsEnabled="False" >
+                <Button.Triggers>
+                    <MultiTrigger TargetType="{x:Type Button}">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference email},
+                                                                Path=Text.Length,
+                                                                Converter={StaticResource textHasBeenEntered}}"
+                                              Value="True" />
+                            <BindingCondition Binding="{Binding Source={x:Reference phone},
+                                                                Path=Text.Length,
+                                                                Converter={StaticResource textHasBeenEntered}}"
+                                              Value="True" />
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="True" />
+                        <!-- multiple Setter elements are allowed -->
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

@@ -64,6 +64,21 @@
     <Compile Update="Views\Menus\Systems\SystemsMenuPage.xaml.cs">
       <DependentUpon>SystemsMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\Triggers\EventTriggerPage.xaml.cs">
+      <DependentUpon>EventTriggerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Triggers\DataTriggerPage.xaml.cs">
+      <DependentUpon>DataTriggerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Triggers\MultiTriggerPage.xaml.cs">
+      <DependentUpon>MultiTriggerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Triggers\PropertyTriggerPage.xaml.cs">
+      <DependentUpon>PropertyTriggerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Triggers\TriggersMenuPage.xaml.cs">
+      <DependentUpon>TriggersMenuPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+            NavigationPage.HasNavigationBar="False"
+            mc:Ignorable="d"
+            x:Class="XFControlSamples.Views.Menus.TriggersMenuPage">
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/triggers -->
+    
+    <TabbedPage.Children>
+        <NavigationPage Title="Prop" >
+            <x:Arguments>
+                <local:PropertyTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Data" >
+            <x:Arguments>
+                <local:DataTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Event" >
+            <x:Arguments>
+                <local:EventTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Multi" >
+            <x:Arguments>
+                <local:MultiTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!-- EnterActions and ExitActions -->
+
+        <!-- Adaptive Trigger (PREVIEW) -->
+
+        <!-- Compare Trigger (PREVIEW) -->
+
+        <!-- Device Trigger (PREVIEW) -->
+
+        <!-- Orientation Trigger (PREVIEW) -->
+
+    </TabbedPage.Children>
+
+</TabbedPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:trigs="clr-namespace:XFControlSamples.Views.Triggers"
+             mc:Ignorable="d"
+             Title="EventTrigger"
+             x:Class="XFControlSamples.Views.Menus.EventTriggerPage">
+
+    <StackLayout>
+
+        <Entry Placeholder="Adult Age Check (under 20 is red color)"
+               Keyboard="Numeric"
+               MaxLength="3" >
+
+            <Entry.Triggers>
+                <EventTrigger Event="TextChanged" >
+                    <trigs:EntryAdultCheckTrigger />
+                </EventTrigger>
+            </Entry.Triggers>
+        </Entry>
+
+    </StackLayout>
+
+</ContentPage>
