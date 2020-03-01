@@ -10,15 +10,15 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
     <TabbedPage.Children>
-        <NavigationPage Title="Stack*" >
+        <NavigationPage Title="Stack" >
             <x:Arguments>
-                <local:BlankPage Title="StackLayout" />
+                <local:StackLayoutPage />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Grid*" >
+        <NavigationPage Title="Grid" >
             <x:Arguments>
-                <local:BlankPage Title="Grid" />
+                <local:GridPage />
             </x:Arguments>
         </NavigationPage>
 
@@ -28,9 +28,9 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Relative*" >
+        <NavigationPage Title="Relative" >
             <x:Arguments>
-                <local:BlankPage Title="RelativeLayout" />
+                <local:RelativeLayoutPage />
             </x:Arguments>
         </NavigationPage>
 

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="RelativeLayout"
+             x:Class="XFControlSamples.Views.Menus.RelativeLayoutPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/relative-layout -->
+    <RelativeLayout BackgroundColor="LightGray" >
+        <!--
+            XConstraint(水平): 基準と同じ
+            YConstraint(垂直): 基準から10%
+            WidthConstraint: 全画面幅の90%
+            HeightConstraint: 全画面高さの80%
+        -->
+        <BoxView x:Name="parentBox"
+                 Color="LightPink"
+                 RelativeLayout.YConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Height, Factor=0.1, Constant=0}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Width, Factor=0.9, Constant=0}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Height, Factor=0.8, Constant=0}" />
+
+        <!--
+            XConstraint(水平): 基準Viewから20ピクセル
+            YConstraint(垂直): 基準Viewから-20ピクセル
+            WidthConstraint: 全画面幅の50%
+            HeightConstraint: 全画面高さの50%
+        -->
+        <BoxView Color="LightBlue"
+                 RelativeLayout.XConstraint="{ConstraintExpression
+                    Type=RelativeToView, ElementName=parentBox, Property=X, Factor=1, Constant=20}"
+                 RelativeLayout.YConstraint="{ConstraintExpression
+                    Type=RelativeToView, ElementName=parentBox, Property=Y, Factor=1, Constant=-20}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Width, Factor=0.5, Constant=0}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Height, Factor=0.5, Constant=0}" />
+
+        <!-- 丸ボタン(枠線のためButtonを二重で配置) -->
+        <Button x:Name="circleBack"
+                BackgroundColor="Maroon"
+                BorderRadius="35"
+                HeightRequest="70" WidthRequest="70"
+                RelativeLayout.XConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-35}"
+                RelativeLayout.YConstraint="{ConstraintExpression
+                    Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-35}" />
+        <Button BackgroundColor="Red"
+                BorderRadius="30"
+                HeightRequest="60" WidthRequest="60"
+                RelativeLayout.XConstraint="{ConstraintExpression
+                    Type=RelativeToView, ElementName=circleBack, Property=X, Factor=1, Constant=5}"
+                RelativeLayout.YConstraint="{ConstraintExpression
+                    Type=RelativeToView, ElementName=circleBack, Property=Y, Factor=1, Constant=5}" />
+
+    </RelativeLayout>
+    
+</ContentPage>

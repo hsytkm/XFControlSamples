@@ -12,9 +12,9 @@
     <TabbedPage.Children>
 
         <!-- Entry -->
-        <NavigationPage Title="TextBox" >
+        <NavigationPage Title="Entry" >
             <x:Arguments>
-                <local:TextBoxPage />
+                <local:EntryPage />
             </x:Arguments>
         </NavigationPage>
 

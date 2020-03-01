@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              xmlns:vb="clr-namespace:XFControlSamples.Views.Behaviors"
              mc:Ignorable="d"
-             Title="TextBox (Standard)"
-             x:Class="XFControlSamples.Views.Menus.TextBoxPage">
+             Title="Entry"
+             x:DataType="local:EntryViewModel"
+             x:Class="XFControlSamples.Views.Menus.EntryPage">
     <ScrollView>
         <StackLayout>
             <Label Text="Entry can be written only single line." />

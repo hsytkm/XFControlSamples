@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Title="FlexLayout (Standard)"
+             Title="FlexLayout"
              x:Class="XFControlSamples.Views.Menus.FlexLayoutPage" >
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/flex-layout -->

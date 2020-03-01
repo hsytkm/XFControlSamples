@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="StackLayout"
+             x:Class="XFControlSamples.Views.Menus.StackLayoutPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/grid -->
+
+    <StackLayout BackgroundColor="LightGray" >
+        <Label BackgroundColor="{Binding [0]}" Text="Default" />
+
+        <Label BackgroundColor="{Binding [1]}" Text="H:Start" HorizontalOptions="Start" />
+        <Label BackgroundColor="{Binding [2]}" Text="H:Center" HorizontalOptions="Center" />
+        <Label BackgroundColor="{Binding [3]}" Text="H:End" HorizontalOptions="End" />
+        <Label BackgroundColor="{Binding [5]}" Text="H:Fill" HorizontalOptions="Fill" />
+
+        <Label BackgroundColor="{Binding [11]}" Text="H:StartAndExpand" HorizontalOptions="StartAndExpand" />
+        <Label BackgroundColor="{Binding [12]}" Text="H:CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        <Label BackgroundColor="{Binding [13]}" Text="H:EndAndExpand" HorizontalOptions="EndAndExpand" />
+        <Label BackgroundColor="{Binding [14]}" Text="H:FillAndExpand" HorizontalOptions="FillAndExpand" />
+
+        <!--
+        <Label BackgroundColor="{Binding [10]}" Text="V:Start" VerticalOptions="Start" />
+        <Label BackgroundColor="{Binding [11]}" Text="V:Center" VerticalOptions="Center" />
+        <Label BackgroundColor="{Binding [12]}" Text="V:End" VerticalOptions="End" />
+        <Label BackgroundColor="{Binding [13]}" Text="V:Fill" VerticalOptions="Fill" />
+
+        <Label BackgroundColor="{Binding [14]}" Text="V:StartAndExpand" VerticalOptions="StartAndExpand" />
+        <Label BackgroundColor="{Binding [15]}" Text="V:CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        <Label BackgroundColor="{Binding [16]}" Text="V:EndAndExpand" VerticalOptions="EndAndExpand" />
+        <Label BackgroundColor="{Binding [17]}" Text="V:FillAndExpand" VerticalOptions="FillAndExpand" />
+        -->
+
+        <Label BackgroundColor="{Binding [17]}" Text="V:FillAndExpand" VerticalOptions="FillAndExpand" />
+
+    </StackLayout>
+
+</ContentPage>

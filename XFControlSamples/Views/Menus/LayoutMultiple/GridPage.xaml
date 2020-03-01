@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Grid"
+             x:Class="XFControlSamples.Views.Menus.GridPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/grid -->
+    <Grid BackgroundColor="LightGray" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="{Binding [0]}" />
+        <BoxView Grid.Row="0" Grid.Column="1" BackgroundColor="{Binding [1]}" />
+        <BoxView Grid.Row="0" Grid.Column="2" BackgroundColor="{Binding [2]}"
+                 Grid.ColumnSpan="2" />
+
+        <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="{Binding [3]}"
+                 Grid.ColumnSpan="3" />
+
+        <BoxView Grid.Row="1" Grid.Column="3" BackgroundColor="{Binding [4]}"
+                 Grid.RowSpan="2" />
+
+        <BoxView Grid.Row="2" Grid.Column="0" BackgroundColor="{Binding [5]}" />
+        <BoxView Grid.Row="2" Grid.Column="1" BackgroundColor="{Binding [6]}" />
+        <BoxView Grid.Row="2" Grid.Column="2" BackgroundColor="{Binding [7]}" />
+
+    </Grid>
+
+</ContentPage>

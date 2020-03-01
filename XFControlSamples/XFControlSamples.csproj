@@ -36,6 +36,9 @@
     <Compile Update="Views\Menus\EditingText\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\EditingText\EntryPage.xaml.cs">
+      <DependentUpon>EntryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\IndicateActivity\IndicateActivityMenuPage.xaml.cs">
       <DependentUpon>IndicateActivityMenuPage.xaml</DependentUpon>
     </Compile>
@@ -53,6 +56,15 @@
     </Compile>
     <Compile Update="Views\Menus\InitiateCommands\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\LayoutMultiple\StackLayoutPage.xaml.cs">
+      <DependentUpon>StackLayoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\LayoutMultiple\GridPage.xaml.cs">
+      <DependentUpon>GridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\LayoutMultiple\RelativeLayoutPage.xaml.cs">
+      <DependentUpon>RelativeLayoutPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\LayoutMultiple\AbsoluteLayoutPage.xaml.cs">
       <DependentUpon>AbsoluteLayoutPage.xaml</DependentUpon>
@@ -147,7 +159,7 @@
     <EmbeddedResource Update="Views\Menus\SettingValues\SliderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Menus\EditingText\TextBoxPage.xaml">
+    <EmbeddedResource Update="Views\Menus\EditingText\EntryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

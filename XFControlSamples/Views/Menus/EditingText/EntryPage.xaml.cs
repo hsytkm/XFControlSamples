@@ -12,17 +12,17 @@ using Xamarin.Forms.Xaml;
 namespace XFControlSamples.Views.Menus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TextBoxPage : ContentPage
+    public partial class EntryPage : ContentPage
     {
-        public TextBoxPage()
+        public EntryPage()
         {
             InitializeComponent();
 
-            BindingContext = new TextBoxViewModel();
+            BindingContext = new EntryViewModel();
         }
     }
 
-    class TextBoxViewModel : INotifyPropertyChanged
+    class EntryViewModel : INotifyPropertyChanged
     {
         public string CharText
         {

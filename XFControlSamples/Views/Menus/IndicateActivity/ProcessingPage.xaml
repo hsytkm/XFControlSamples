@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
-             Title="Progress (Standard)"
+             Title="Progress"
              x:DataType="local:ProcessingViewModel"
              x:Class="XFControlSamples.Views.Menus.ProcessingPage">
 
