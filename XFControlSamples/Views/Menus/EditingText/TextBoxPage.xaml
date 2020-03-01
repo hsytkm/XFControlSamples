@@ -29,6 +29,18 @@
         </Entry>
         <Label Text="{Binding NumericText, Mode=OneWay}" />
 
+        <!-- Password -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Entry Placeholder="Password"
+                   IsPassword="{Binding Source={x:Reference check}, Path=IsChecked}" />
+
+            <CheckBox x:Name="check" Grid.Column="1" IsChecked="True" Margin="20,0" />
+        </Grid>
+
         <!-- Editor can write multi line. -->
         <Label Text="Editor" />
         <Editor Margin="0,20,0,0"

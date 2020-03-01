@@ -10,7 +10,7 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
     <TabbedPage.Children>
-        <NavigationPage Title="StackLayout" >
+        <NavigationPage Title="Stack" >
             <x:Arguments>
                 <local:BlankPage Title="StackLayout" />
             </x:Arguments>
@@ -22,19 +22,19 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="AbsoluteLayout" >
+        <NavigationPage Title="Absolute" >
             <x:Arguments>
-                <local:BlankPage Title="AbsoluteLayout" />
+                <local:AbsoluteLayoutPage />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="RelativeLayout" >
+        <NavigationPage Title="Relative" >
             <x:Arguments>
                 <local:BlankPage Title="RelativeLayout" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="FlexLayout" >
+        <NavigationPage Title="Flex" >
             <x:Arguments>
                 <local:FlexLayoutPage />
             </x:Arguments>

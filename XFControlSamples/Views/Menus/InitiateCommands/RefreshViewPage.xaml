@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"
+             Title="RefreshView"
+             x:DataType="local:RefreshViewPageViewModel"
+             x:Class="XFControlSamples.Views.Menus.RefreshViewPage">
+
+    <!-- UWPでのRefreshView
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/platform/windows/refreshview-pulldirection
+         指示通りにやったけど、UWPでは更新動作が発動しなかった。Why? -->
+
+    <RefreshView windows:RefreshView.RefreshPullDirection="TopToBottom"
+                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                 Command="{Binding RefreshCommand, Mode=OneTime}" >
+
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="IsRefreshing: " />
+                                <Span Text="{Binding IsRefreshing, Mode=OneWay}" TextColor="Red" />
+                                <Span Text="{x:Static x:Environment.NewLine}" />
+                                <Span Text="Add Current Time when refreshed." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label Grid.Row="1"
+                       Text="Refresh does not work in UWP...?"
+                       TextColor="Red" >
+                    <Label.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean" >
+                            <On Platform="UWP" Value="True" />
+                            <On Platform="Android, iOS" Value="False" />
+                        </OnPlatform>
+                    </Label.IsVisible>
+                </Label>
+
+                <FlexLayout Grid.Row="2"
+                            BackgroundColor="LightGray"
+                            Direction="Column"
+                            Wrap="Wrap"
+                            AlignItems="Center"
+                            AlignContent="Center"
+                            BindableLayout.ItemsSource="{Binding Items, Mode=OneWay}" />
+            </Grid>
+        </ScrollView>
+    </RefreshView>
+    
+</ContentPage>

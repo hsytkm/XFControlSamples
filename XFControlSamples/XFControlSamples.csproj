@@ -28,11 +28,17 @@
     <Compile Update="Views\Menus\IndicateActivity\IndicateActivityMenuPage.xaml.cs">
       <DependentUpon>IndicateActivityMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\InitiateCommands\RefreshViewPage.xaml.cs">
+      <DependentUpon>RefreshViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\InitiateCommands\InitiateCommandsMenuPage.xaml.cs">
       <DependentUpon>InitiateCommandsMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\InitiateCommands\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\LayoutMultiple\AbsoluteLayoutPage.xaml.cs">
+      <DependentUpon>AbsoluteLayoutPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\LayoutMultiple\LayoutMultipleMenuPage.xaml.cs">
       <DependentUpon>LayoutMultipleMenuPage.xaml</DependentUpon>

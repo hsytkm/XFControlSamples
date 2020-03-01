@@ -24,7 +24,7 @@
 
         <NavigationPage Title="RefreshView" >
             <x:Arguments>
-                <local:BlankPage Title="RefreshView" />
+                <local:RefreshViewPage />
             </x:Arguments>
         </NavigationPage>
 

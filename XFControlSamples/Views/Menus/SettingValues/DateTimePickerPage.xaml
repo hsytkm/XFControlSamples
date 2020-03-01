@@ -9,67 +9,69 @@
              x:DataType="local:DateTimePickerViewModel"
              x:Class="XFControlSamples.Views.Menus.DateTimePickerPage">
 
-    <StackLayout Spacing="0" >
-        <StackLayout.Resources>
-            <ResourceDictionary>
-                <Style TargetType="{x:Type Label}" >
-                    <Setter Property="Padding" Value="0,8,0,0" />
-                </Style>
-            </ResourceDictionary>
-        </StackLayout.Resources>
+    <ScrollView>
+        <StackLayout Spacing="0" >
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type Label}" >
+                        <Setter Property="Padding" Value="0,8,0,0" />
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
 
-        <StackLayout BackgroundColor="{StaticResource BackgroundColor1}" >
-            <Label Text="DatePicker Default" />
-            <DatePicker />
+            <StackLayout BackgroundColor="{StaticResource BackgroundColor1}" >
+                <Label Text="DatePicker Default" />
+                <DatePicker />
 
-            <Label Text="Format = MM/dd/yyyy" />
-            <DatePicker TextColor="Red"
-                        HorizontalOptions="EndAndExpand"
-                        Format="MM/dd/yyyy" Date="2020/2/27"/>
+                <Label Text="Format = MM/dd/yyyy" />
+                <DatePicker TextColor="Red"
+                            HorizontalOptions="EndAndExpand"
+                            Format="MM/dd/yyyy" Date="2020/2/27"/>
 
-            <Label Text="Format = yyyy/MM/dd" />
-            <DatePicker TextColor="Green"
-                        HorizontalOptions="StartAndExpand"
-                        Format="yyyy/MM/dd" Date="{x:Static x:DateTime.MinValue}"/>
+                <Label Text="Format = yyyy/MM/dd" />
+                <DatePicker TextColor="Green"
+                            HorizontalOptions="StartAndExpand"
+                            Format="yyyy/MM/dd" Date="{x:Static x:DateTime.MinValue}"/>
 
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Selected Date: "/>
-                        <Span Text="{Binding UserDate, Mode=OneWay}" TextColor="Blue" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <DatePicker HorizontalOptions="FillAndExpand"
-                        Format="yyyy/MM/dd" Date="{Binding UserDate, Mode=TwoWay}" />
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Selected Date: "/>
+                            <Span Text="{Binding UserDate, Mode=OneWay}" TextColor="Blue" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <DatePicker HorizontalOptions="FillAndExpand"
+                            Format="yyyy/MM/dd" Date="{Binding UserDate, Mode=TwoWay}" />
+            </StackLayout>
+
+            <StackLayout BackgroundColor="{StaticResource BackgroundColor2}" >
+                <Label Text="TimePicker Default" />
+                <TimePicker />
+
+                <Label Text="Format = HH_mm_ss_tt" />
+                <TimePicker TextColor="Red"
+                            HorizontalOptions="EndAndExpand"
+                            Format="HH_mm_ss_tt" Time="01:23" />
+
+                <Label Text="Format = tt HH:mm:ss" />
+                <TimePicker TextColor="Green"
+                            HorizontalOptions="CenterAndExpand"
+                            Format="tt HH:mm:ss" Time="23:45" />
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Selected Time: "/>
+                            <Span Text="{Binding UserTime, Mode=OneWay}" TextColor="Blue" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <TimePicker HorizontalOptions="FillAndExpand"
+                            Format="tt HH:mm:ss" Time="{Binding UserTime, Mode=TwoWay}" />
+            </StackLayout>
+
         </StackLayout>
-
-        <StackLayout BackgroundColor="{StaticResource BackgroundColor2}" >
-            <Label Text="TimePicker Default" />
-            <TimePicker />
-
-            <Label Text="Format = HH_mm_ss_tt" />
-            <TimePicker TextColor="Red"
-                        HorizontalOptions="EndAndExpand"
-                        Format="HH_mm_ss_tt" Time="01:23" />
-
-            <Label Text="Format = tt HH:mm:ss" />
-            <TimePicker TextColor="Green"
-                        HorizontalOptions="CenterAndExpand"
-                        Format="tt HH:mm:ss" Time="23:45" />
-
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Selected Time: "/>
-                        <Span Text="{Binding UserTime, Mode=OneWay}" TextColor="Blue" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <TimePicker HorizontalOptions="FillAndExpand"
-                        Format="tt HH:mm:ss" Time="{Binding UserTime, Mode=TwoWay}" />
-        </StackLayout>
-
-    </StackLayout>
+    </ScrollView>
 
 </ContentPage>

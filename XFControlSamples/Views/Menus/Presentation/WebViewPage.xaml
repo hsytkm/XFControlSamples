@@ -9,6 +9,6 @@
              x:DataType="local:LabelViewModel"
              x:Class="XFControlSamples.Views.Menus.WebViewPage">
 
-    <WebView Source="https://www.yahoo.co.jp/" />
+    <WebView Source="https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/" />
 
 </ContentPage>

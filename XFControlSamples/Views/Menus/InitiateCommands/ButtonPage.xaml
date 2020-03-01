@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
-             Title="Progress (Standard)"
+             Title="Button"
              x:Class="XFControlSamples.Views.Menus.ButtonPage">
 
     <StackLayout>
@@ -51,6 +51,16 @@
                 BackgroundColor="{StaticResource BackgroundColor2}"
                 Command="{Binding}"
                 CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <AbsoluteLayout AbsoluteLayout.LayoutBounds="0, 0, 0.5 ,1"
+                        AbsoluteLayout.LayoutFlags="WidthProportional, HeightProportional" >
+            <Button Text="円"
+                    BackgroundColor="Red" BorderRadius="20"
+                    AbsoluteLayout.LayoutBounds="5, 0.5, 40, 40"
+                    AbsoluteLayout.LayoutFlags="YProportional" 
+                    Command="{Binding}"
+                    CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+        </AbsoluteLayout>
 
     </StackLayout>
 
