@@ -11,10 +11,17 @@
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
 
-        <!-- Entry / Editor -->
+        <!-- Entry -->
         <NavigationPage Title="TextBox" >
             <x:Arguments>
                 <local:TextBoxPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!-- Editor -->
+        <NavigationPage Title="Editor" >
+            <x:Arguments>
+                <local:EditorPage />
             </x:Arguments>
         </NavigationPage>
 

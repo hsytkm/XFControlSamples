@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="ImageButton"
+             x:DataType="local:ImageButtonViewModel"
+             x:Class="XFControlSamples.Views.Menus.ImageButtonPage">
+
+    <StackLayout>
+        <StackLayout BackgroundColor="LightBlue" Padding="20" Spacing="10" >
+            <!-- Androidでは背景がグレーになるが BackgroundColor="Transparent" を指定すると解消する -->
+            <ImageButton Source="xamarin_logo.png"
+                         HeightRequest="40"
+                         Command="{Binding ButtonClick}"
+                         CommandParameter="Button1-1 clicked." />
+
+            <!-- Androidでは背景がグレーになるが BackgroundColor="Transparent" を指定すると解消する -->
+            <ImageButton Source="xamarin_logo.png"
+                         BackgroundColor="Transparent"
+                         HeightRequest="40"
+                         Command="{Binding ButtonClick}"
+                         CommandParameter="Button1-2 clicked." />
+        </StackLayout>
+
+        <Label Text="Image is stored in shared project." />
+        <!-- https://www.buildinsider.net/mobile/xamarintips/0035 -->
+        <ImageButton Source="{Binding ImageResource, Mode=OneTime}"
+                     HeightRequest="100"
+                     Command="{Binding ButtonClick}"
+                     CommandParameter="Button2 clicked." />
+
+        <StackLayout BackgroundColor="LightPink" Spacing="0" >
+            <Label Text="Image is stored in each project." />
+
+            <StackLayout Orientation="Horizontal" >
+                <CheckBox x:Name="check" IsChecked="False" IsEnabled="False"/>
+                <Label Text="ImageButton cannot play animated gif." VerticalOptions="Center" />
+            </StackLayout>
+
+            <ImageButton Source="os_logo.gif"
+                         BackgroundColor="Transparent"
+                         HeightRequest="100"
+                         Command="{Binding ButtonClick}"
+                         CommandParameter="Button3 clicked." />
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,6 +29,10 @@ namespace XFControlSamples.Views.Menus
             set => SetProperty(ref _isEnable, value);
         }
         private bool _isEnable;
+
+        public ICommand SwitchIsEnableCommand => _switchIsEnableCommand ??
+            (_switchIsEnableCommand = new Command(() => IsEnable = !IsEnable));
+        private ICommand _switchIsEnableCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

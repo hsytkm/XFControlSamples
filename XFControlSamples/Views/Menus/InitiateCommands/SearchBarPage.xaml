@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:vb="clr-namespace:XFControlSamples.Views.Behaviors"
+             mc:Ignorable="d"
+             Title="SearchBar"
+             x:DataType="local:SearchBarViewModel"
+             x:Class="XFControlSamples.Views.Menus.SearchBarPage">
+
+    <StackLayout>
+        <SearchBar Placeholder="Search items..."
+                   CancelButtonColor="Red"
+                   PlaceholderColor="Green"
+                   TextColor="Blue"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium"
+                   FontAttributes="Italic"
+                   Keyboard="Email"
+                   SearchCommand="{Binding PerformSearch, Mode=OneTime}"
+                   SearchCommandParameter="{Binding Text, Source={RelativeSource Self}}" >
+            
+            <!-- Invoke command when text changed -->
+            <VisualElement.Behaviors>
+                <vb:SearchBarTextChangedCommandBehavior />
+            </VisualElement.Behaviors>
+        </SearchBar>
+
+        <ListView ItemsSource="{Binding Colors, Mode=OneWay}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:DataType="local:ColorListViewItem" >
+                        <Label VerticalTextAlignment="Center"
+                               BackgroundColor="{Binding Color}"
+                               Text="{Binding Name}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

@@ -18,7 +18,7 @@
 
         <NavigationPage Title="Image" >
             <x:Arguments>
-                <local:BlankPage Title="Image" />
+                <local:ImagePage />
             </x:Arguments>
         </NavigationPage>
 
@@ -34,19 +34,19 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="OpenGLView" >
+        <NavigationPage Title="OpenGLView*" >
             <x:Arguments>
                 <local:BlankPage Title="OpenGLView" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Map" >
+        <NavigationPage Title="Map*" >
             <x:Arguments>
                 <local:BlankPage Title="Map" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="MediaElement" >
+        <NavigationPage Title="MediaElement*" >
             <x:Arguments>
                 <local:BlankPage Title="MediaElement" />
             </x:Arguments>

@@ -10,19 +10,19 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
-        <NavigationPage Title="CarouselView" >
+        <NavigationPage Title="Carousel*" >
             <x:Arguments>
                 <local:BlankPage Title="CarouselView" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="CollectionView" >
+        <NavigationPage Title="Collection*" >
             <x:Arguments>
                 <local:BlankPage Title="CollectionView" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="IndicatorView" >
+        <NavigationPage Title="Indicator*" >
             <x:Arguments>
                 <local:BlankPage Title="IndicatorView" />
             </x:Arguments>
@@ -40,7 +40,7 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="TableView" >
+        <NavigationPage Title="Table*" >
             <x:Arguments>
                 <local:BlankPage Title="TableView" />
             </x:Arguments>

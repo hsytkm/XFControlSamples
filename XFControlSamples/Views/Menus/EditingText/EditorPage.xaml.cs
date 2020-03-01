@@ -12,31 +12,24 @@ using Xamarin.Forms.Xaml;
 namespace XFControlSamples.Views.Menus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TextBoxPage : ContentPage
+    public partial class EditorPage : ContentPage
     {
-        public TextBoxPage()
+        public EditorPage()
         {
             InitializeComponent();
 
-            BindingContext = new TextBoxViewModel();
+            BindingContext = new EditorViewModel();
         }
     }
 
-    class TextBoxViewModel : INotifyPropertyChanged
+    class EditorViewModel : INotifyPropertyChanged
     {
-        public string CharText
+        public string MultiLineText
         {
-            get => _charText;
-            set => SetProperty(ref _charText, value);
+            get => _multiLineText;
+            set => SetProperty(ref _multiLineText, value);
         }
-        private string _charText;
-
-        public string NumericText
-        {
-            get => _numericText;
-            set => SetProperty(ref _numericText, value);
-        }
-        private string _numericText;
+        private string _multiLineText;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

@@ -11,7 +11,7 @@
     <!-- Xamarin.Forms 描画で考慮すべき２つのこと http://furuya02.hatenablog.com/entry/2014/11/23/001448 -->
 
     <Grid>
-        <!-- コードビハインドにて、Page*90% で描画 -->
+        <!-- コードビハインドにて Page*90% で描画 (割合指定するならAbsoluteLayoutの方がシンプル)-->
         <BoxView x:Name="boxView"
                  BackgroundColor="{StaticResource BackgroundColor1}"
                  HorizontalOptions="Center" VerticalOptions="Center" />

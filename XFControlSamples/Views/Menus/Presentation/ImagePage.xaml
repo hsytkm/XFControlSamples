@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Image"
+             x:Class="XFControlSamples.Views.Menus.ImagePage" >
+
+    <!-- Xamarin.Forms でのイメージ
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/images?tabs=windows -->
+
+    <StackLayout>
+        <StackLayout BackgroundColor="LightBlue" >
+            <Image Source="xamarin_logo.png"  HeightRequest="40" />
+        </StackLayout>
+
+        <Label Text="Image is stored in shared project." />
+        <!-- https://www.buildinsider.net/mobile/xamarintips/0035 -->
+        <Image Source="{Binding}" HeightRequest="100" />
+
+        <StackLayout BackgroundColor="LightGray" Spacing="0" >
+            <Label Text="Image is stored in each project." />
+            
+            <StackLayout Orientation="Horizontal" >
+                <CheckBox x:Name="check" IsChecked="False" />
+                <Label Text="Play animated gif" VerticalOptions="Center" />
+            </StackLayout>
+            
+            <Image Source="os_logo.gif"
+                   HeightRequest="100"
+                   IsAnimationPlaying="{Binding Source={x:Reference check}, Path=IsChecked}" />
+        </StackLayout>
+
+    </StackLayout>
+    
+</ContentPage>

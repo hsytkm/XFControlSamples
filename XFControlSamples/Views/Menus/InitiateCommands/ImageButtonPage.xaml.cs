@@ -5,38 +5,31 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace XFControlSamples.Views.Menus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TextBoxPage : ContentPage
+    public partial class ImageButtonPage : ContentPage
     {
-        public TextBoxPage()
+        public ImageButtonPage()
         {
             InitializeComponent();
 
-            BindingContext = new TextBoxViewModel();
+            BindingContext = new ImageButtonViewModel();
         }
     }
 
-    class TextBoxViewModel : INotifyPropertyChanged
+    class ImageButtonViewModel : INotifyPropertyChanged
     {
-        public string CharText
-        {
-            get => _charText;
-            set => SetProperty(ref _charText, value);
-        }
-        private string _charText;
+        private const string _resourceName = "XFControlSamples.Resources.Images.xama_logo_in_shared_project.png";
+        public ImageSource ImageResource => ImageSource.FromResource(_resourceName);
 
-        public string NumericText
-        {
-            get => _numericText;
-            set => SetProperty(ref _numericText, value);
-        }
-        private string _numericText;
+        public ICommand ButtonClick => _buttonClick ??
+            (_buttonClick = new Command<string>(text => Application.Current.MainPage.DisplayAlert(text, "", "OK")));
+        private ICommand _buttonClick;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

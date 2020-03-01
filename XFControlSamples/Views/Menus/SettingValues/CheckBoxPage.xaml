@@ -12,13 +12,41 @@
     <StackLayout Padding="100" >
         <StackLayout.Spacing>
             <OnPlatform x:TypeArguments="x:Double" >
-                <On Platform="Android, iOS" Value="100" />
+                <On Platform="Android, iOS" Value="80" />
                 <On Platform="UWP" Value="20" />
             </OnPlatform>
         </StackLayout.Spacing>
-        
-        <CheckBox IsChecked="{Binding IsEnable}"
-                  HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <StackLayout Orientation="Horizontal" Spacing="0" BackgroundColor="Gray" >
+            <CheckBox IsChecked="{Binding IsEnable, Mode=TwoWay}"
+                      HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <!-- ◆LabelクリックでCheckBoxを切り替えてるけど、もっと良い実装ない？
+                   xamlだけでCheckBoxのTapイベントを呼べたら最高なんやけどなぁ… -->
+            <Label Text="This is CheckBox control." VerticalOptions="Center" >
+                <View.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SwitchIsEnableCommand, Mode=OneTime}" />
+                </View.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <CheckBox IsChecked="{Binding IsEnable, Mode=TwoWay}"
+                  BackgroundColor="LightBlue" >
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates" >
+                    <VisualState x:Name="Normal" >
+                        <VisualState.Setters>
+                            <Setter Property="Color" Value="Purple" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="IsChecked" >
+                        <VisualState.Setters>
+                            <Setter Property="Color" Value="Green" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </CheckBox>
 
         <Label>
             <Label.IsVisible>

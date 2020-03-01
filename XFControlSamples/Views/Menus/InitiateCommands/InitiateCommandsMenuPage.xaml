@@ -18,7 +18,7 @@
 
         <NavigationPage Title="ImageButton" >
             <x:Arguments>
-                <local:BlankPage Title="ImageButton" />
+                <local:ImageButtonPage />
             </x:Arguments>
         </NavigationPage>
 
@@ -30,11 +30,11 @@
 
         <NavigationPage Title="SearchBar" >
             <x:Arguments>
-                <local:BlankPage Title="SearchBar" />
+                <local:SearchBarPage />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="SwipeView" >
+        <NavigationPage Title="SwipeView*" >
             <x:Arguments>
                 <local:BlankPage Title="SwipeView" />
             </x:Arguments>
