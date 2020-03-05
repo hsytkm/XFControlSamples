@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="Gesture"
+             x:DataType="local:GesturesPageViewModel"
+             x:Class="XFControlSamples.Views.Menus.GesturesPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/gestures/ -->
+    <StackLayout Padding="20" >
+        <StackLayout Orientation="Horizontal" >
+            <Label FontSize="Large"
+                   HorizontalOptions="StartAndExpand"
+                   Text="{Binding Message, Mode=OneWay}" />
+
+            <Button Text="Clear"
+                    HorizontalOptions="End"
+                    HeightRequest="40"
+                    Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                    CommandParameter="" />
+        </StackLayout>
+
+        <Grid VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Gesture Area: Tap(1~2 times), Swipe (4 Directions)" />
+            <BoxView Grid.Row="1" BackgroundColor="LightBlue" >
+                <View.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                                          CommandParameter="Tapped (1 time)" />
+
+                    <TapGestureRecognizer Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                                          CommandParameter="Tapped (2 times)"
+                                          NumberOfTapsRequired="2" />
+
+                    <SwipeGestureRecognizer Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                                            CommandParameter="Swiped (Right)"
+                                            Direction="Right" />
+
+                    <SwipeGestureRecognizer Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                                            CommandParameter="Swiped (Left)"
+                                            Direction="Left" />
+
+                    <SwipeGestureRecognizer Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                                            CommandParameter="Swiped (Up)"
+                                            Direction="Up" />
+
+                    <SwipeGestureRecognizer Command="{Binding UpdateMessageCommand, Mode=OneTime}"
+                                            CommandParameter="Swiped (Down)"
+                                            Direction="Down" />
+                </View.GestureRecognizers>
+            </BoxView>
+
+            <Label Grid.Row="2" Text="Gesture Area: Pinch, Pan" />
+            <BoxView Grid.Row="3" BackgroundColor="LightPink" >
+                <View.GestureRecognizers>
+                    <!-- These gestures don't have command... Why? -->
+                    <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
+                    <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+                </View.GestureRecognizers>
+            </BoxView>
+        </Grid>        
+    </StackLayout>
+</ContentPage>

@@ -15,9 +15,24 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:DataType="local:ColorListViewItem" >
+                        <!-- SimpleViewCell
                         <Label VerticalTextAlignment="Center"
                                BackgroundColor="{Binding Color}"
                                Text="{Binding Name}" />
+                        -->
+                        <ContentView Padding="0">
+                            <Frame OutlineColor="Accent" Padding="10" BackgroundColor="White" >
+                                <StackLayout Orientation="Horizontal" >
+                                    <BoxView Color="{Binding Color, Mode=OneTime}"
+                                             WidthRequest="30" HeightRequest="30" />
+                                    <Label FontSize="Medium"
+                                           HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                                           Text="{Binding Name, Mode=OneTime}"/>
+                                    <Label HorizontalOptions="End" VerticalOptions="Center"
+                                           Text="{Binding ColorLevel, Mode=OneTime}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

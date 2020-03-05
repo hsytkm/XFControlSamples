@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="Popup"
+             x:DataType="local:PopupPageViewModel"
+             x:Class="XFControlSamples.Views.Menus.PopupPage" >
+
+    <StackLayout Spacing="20" >
+        <Button Text="DisplayAlert"
+                Command="{Binding OkCommand, Mode=OneTime}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="Question"
+                Command="{Binding YesNoCommand, Mode=OneTime}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="SomeChoices1"
+                Command="{Binding SomeChoicesCommand1, Mode=OneTime}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="SomeChoices (With Cancel)"
+                Command="{Binding SomeChoicesCommand2, Mode=OneTime}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Button Text="SomeChoices (With Cancel and Destruction)"
+                Command="{Binding SomeChoicesCommand3, Mode=OneTime}"
+                CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+
+        <Label Text="The DisplayPromptAsync method is currently only implemented on iOS and Android. 2020/3/4 " TextColor="Red" >
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" >
+                    <On Platform="UWP" Value="True" />
+                    <On Platform="Android, iOS" Value="False" />
+                </OnPlatform>
+            </Label.IsVisible>
+        </Label>
+        <Button Text="Prompt"
+                Command="{Binding PromptCommand, Mode=OneTime}" />
+
+    </StackLayout>
+    
+</ContentPage>

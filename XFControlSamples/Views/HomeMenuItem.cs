@@ -15,6 +15,7 @@ namespace XFControlSamples.Views
         {
             Systems,
             //Pages,
+            UIFunctions,
             LayoutSingle,
             LayoutMultiple,
             Presentation,
@@ -32,6 +33,7 @@ namespace XFControlSamples.Views
         {
             [Type.Systems] = new SystemsMenuPage(),
             //Type.Pages] = new Page(),
+            [Type.UIFunctions] = new UIFunctionsMenuPage(),
             [Type.LayoutSingle] = new LayoutSingleMenuPage(),
             [Type.LayoutMultiple] = new LayoutMultipleMenuPage(),
             [Type.Presentation] = new PresentationMenuPage(),

@@ -39,6 +39,12 @@
     <Compile Update="Views\Menus\EditingText\EntryPage.xaml.cs">
       <DependentUpon>EntryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\Gestures\PopupPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Gestures\GesturesMenuPage.xaml.cs">
+      <DependentUpon>GesturesMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\IndicateActivity\IndicateActivityMenuPage.xaml.cs">
       <DependentUpon>IndicateActivityMenuPage.xaml</DependentUpon>
     </Compile>
@@ -71,6 +77,15 @@
     </Compile>
     <Compile Update="Views\Menus\LayoutMultiple\LayoutMultipleMenuPage.xaml.cs">
       <DependentUpon>LayoutMultipleMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\UIFunctions\GesturesPage.xaml.cs">
+      <DependentUpon>GesturesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\UIFunctions\PopupPage.xaml.cs">
+      <DependentUpon>PopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\UIFunctions\UIFunctionsMenuPage.xaml.cs">
+      <DependentUpon>UIFunctionsMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\Presentation\ImagePage.xaml.cs">
       <DependentUpon>ImagePage.xaml</DependentUpon>
