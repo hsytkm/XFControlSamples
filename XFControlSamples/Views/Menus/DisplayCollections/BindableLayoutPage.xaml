@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="BindableLayout"
+             x:Class="XFControlSamples.Views.Menus.BindableLayoutPage" >
+
+    <!-- https://devblogs.microsoft.com/xamarin/xamarin-forms-bindable-layout/
+         When you need to display a lot of data Xamarin.Forms has you covered with awesome controls
+         such as ListView, CollectionView, or CarouselView. These controls are great as they have
+         built in support for scrolling, advanced layouts, and pull-to-refresh.
+         Sometimes, you don't need the full power of these controls and just want to repeat a control bound to a list of data.
+    -->
+    <StackLayout BackgroundColor="LightBlue" >
+        <Label Text="you don't need the full power of standard controls." />
+        
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         BackgroundColor="LightGray"
+                         BindableLayout.ItemsSource="{Binding ., Mode=OneTime}" >
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame x:DataType="local:ColorListViewItem" 
+                               CornerRadius="25"
+                               Padding="0"
+                               HorizontalOptions="Center"
+                               HasShadow="True"
+                               BackgroundColor="{Binding Color, Mode=OneTime}" >
+                            <Label Text="{Binding Name, Mode=OneTime}" />
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped"
+                                                      CommandParameter="{Binding ColorLevel, Mode=OneTime}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

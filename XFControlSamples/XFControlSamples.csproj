@@ -30,6 +30,9 @@
     <Compile Update="Views\Menus\DisplayCollections\DisplayCollectionsMenuPage.xaml.cs">
       <DependentUpon>DisplayCollectionsMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\DisplayCollections\BindableLayoutPage.xaml.cs">
+      <DependentUpon>BindableLayoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\EditingText\EditingTextMenuPage.xaml.cs">
       <DependentUpon>EditingTextMenuPage.xaml</DependentUpon>
     </Compile>

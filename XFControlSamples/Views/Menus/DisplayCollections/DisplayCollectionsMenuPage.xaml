@@ -10,6 +10,12 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
     <TabbedPage.Children>
+        <NavigationPage Title="Bindable" >
+            <x:Arguments>
+                <local:BindableLayoutPage />
+            </x:Arguments>
+        </NavigationPage>
+
         <NavigationPage Title="Carousel*" >
             <x:Arguments>
                 <local:BlankPage Title="CarouselView" />

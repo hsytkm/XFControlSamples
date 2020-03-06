@@ -9,6 +9,7 @@
              x:DataType="local:LabelViewModel"
              x:Class="XFControlSamples.Views.Menus.LabelPage">
 
+    <!-- For perf: Set the LineBreakMode of any Label instances to NoWrap whenever possible. -->
     <ScrollView>
         <StackLayout Spacing="0" >
             <StackLayout.Resources>
@@ -117,14 +118,8 @@
                        Text="文字が収まらない場合に文字を省略(上から先頭、真ん中、最後)"
                        TextColor="Green" />
 
-                <Label Text="UWPは常に最後が省略されるっぽいね。残念…" TextColor="Red" >
-                    <Label.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean" >
-                            <On Platform="UWP" Value="True" />
-                            <On Platform="Android, iOS" Value="False" />
-                        </OnPlatform>
-                    </Label.IsVisible>
-                </Label>
+                <Label Text="UWPは常に最後が省略されるっぽいね。残念…" TextColor="Red"
+                       IsVisible="{OnPlatform False, UWP=True}" />
 
                 <Label Text="{Binding Jp}"
                        LineBreakMode="HeadTruncation"/>

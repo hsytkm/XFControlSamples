@@ -8,6 +8,13 @@
              Title="ListView"
              x:Class="XFControlSamples.Views.Menus.ListViewPage" >
 
+    <!-- # Use CollectionView instead of ListView
+         CollectionView is a view for presenting lists of data using different layout specifications.
+         It provides a more flexible, and performant alternative to ListView.
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/deploy-test/performance
+    -->
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/listview/performance -->
     <StackLayout>
         <ListView x:Name="mainListView"
                   BackgroundColor="{StaticResource BackgroundColor1}"
