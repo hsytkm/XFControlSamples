@@ -17,25 +17,16 @@ namespace XFControlSamples.Views.Menus
             InitializeComponent();
 
             BindingContext = Models.SampleData.XamarinFormsColors
-                .Select(x => new RepeaterViewItem(x)).ToList();
+                .Select(x => new ColorListViewItem(x)).ToList();
         }
 
         private void RepeaterViewItem_Tapped(object sender, EventArgs e)
         {
             if (!(sender is View view)) return;
+            if (!(view.BindingContext is ColorListViewItem item)) return;
 
-            var tappedData = view.BindingContext.ToString();
-            DisplayAlert($"This is \"{tappedData}\"!", "", "OK");
+            DisplayAlert($"This is \"{item.Name}\"!", "", "OK");
         }
-
-    }
-    public class RepeaterViewItem
-    {
-        public string Name { get; }
-        public Color Color { get; }
-
-        public RepeaterViewItem((string Name, Color Color) x) =>
-            (Name, Color) = (x.Name, x.Color);
     }
 
 }

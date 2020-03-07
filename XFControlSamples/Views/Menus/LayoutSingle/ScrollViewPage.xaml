@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="ScrollView"
+             x:Class="XFControlSamples.Views.Menus.ScrollViewPage">
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/scroll-view -->
+    <!-- ScrollViewのOffsetを相互に連動するとハンチングする…ですよね -->
+
+    <!-- Can not set the BindableProperty "ScrollY" because it is readonly. -->
+
+    <StackLayout Padding="10" BackgroundColor="LightGray" >
+        <StackLayout Orientation="Horizontal" >
+            <Label Text="Link scroll     Animation Flag  -> " />
+            <CheckBox IsChecked="{Binding ScrollAnimated, Mode=TwoWay}" />
+        </StackLayout>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ScrollView x:Name="ScrollViewL"
+                        HorizontalScrollBarVisibility="Never"
+                        ScrollY="{Binding ScrollOffsetY, Mode=OneWayToSource}"
+                        Scrolled="ScrollViewL_Scrolled" >
+                <StackLayout BackgroundColor="LightBlue"
+                             BindableLayout.ItemsSource="{Binding Items, Mode=OneTime}" >
+                </StackLayout>
+            </ScrollView>
+
+            <ScrollView x:Name="ScrollViewR"
+                        Grid.Column="1"
+                        HorizontalScrollBarVisibility="Never" >
+                <StackLayout BackgroundColor="LightPink"
+                             BindableLayout.ItemsSource="{Binding Items, Mode=OneTime}" >
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

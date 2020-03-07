@@ -24,6 +24,7 @@ namespace XFControlSamples.Views
             EditingText,
             IndicateActivity,
             DisplayCollections,
+            ItemTemplate,
             Triggers,
             About,
         }
@@ -42,6 +43,7 @@ namespace XFControlSamples.Views
             [Type.EditingText] = new EditingTextMenuPage(),
             [Type.IndicateActivity] = new IndicateActivityMenuPage(),
             [Type.DisplayCollections] = new DisplayCollectionsMenuPage(),
+            [Type.ItemTemplate] = new ItemTemplateMenuPage(),
             [Type.Triggers] = new TriggersMenuPage(),
             [Type.About] = new AboutPage(),
         };

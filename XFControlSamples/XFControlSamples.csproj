@@ -27,6 +27,9 @@
     <Compile Update="Views\DetailMenuPage.xaml.cs">
       <DependentUpon>DetailMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\DisplayCollections\TableViewPage.xaml.cs">
+      <DependentUpon>TableViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\DisplayCollections\DisplayCollectionsMenuPage.xaml.cs">
       <DependentUpon>DisplayCollectionsMenuPage.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,12 @@
     <Compile Update="Views\Menus\InitiateCommands\ButtonPage.xaml.cs">
       <DependentUpon>ButtonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\ItemTemplate\ItemTemplateSelectorPage.xaml.cs">
+      <DependentUpon>ItemTemplateSelectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\ItemTemplate\ItemTemplateMenuPage.xaml.cs">
+      <DependentUpon>ItemTemplateMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\LayoutMultiple\StackLayoutPage.xaml.cs">
       <DependentUpon>StackLayoutPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +89,9 @@
     </Compile>
     <Compile Update="Views\Menus\LayoutMultiple\LayoutMultipleMenuPage.xaml.cs">
       <DependentUpon>LayoutMultipleMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\LayoutSingle\ScrollViewPage.xaml.cs">
+      <DependentUpon>ScrollViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\UIFunctions\GesturesPage.xaml.cs">
       <DependentUpon>GesturesPage.xaml</DependentUpon>

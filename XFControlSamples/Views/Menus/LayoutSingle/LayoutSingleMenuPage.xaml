@@ -22,9 +22,9 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="ScrollView*" >
+        <NavigationPage Title="Scroll" >
             <x:Arguments>
-                <local:BlankPage Title="ScrollView" />
+                <local:ScrollViewPage />
             </x:Arguments>
         </NavigationPage>
 

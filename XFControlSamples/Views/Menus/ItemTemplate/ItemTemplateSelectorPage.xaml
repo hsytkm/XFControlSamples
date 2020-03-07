@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="ItemTemplateSelector"
+             x:Class="XFControlSamples.Views.Menus.ItemTemplateSelectorPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/dotnet/api/xamarin.forms.datatemplateselector?view=xamarin-forms -->
+    <!-- https://qiita.com/hsytkm/items/ef2e97c7a7b56a888299 -->
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/bindable-layouts
+         ItemTemplate と ItemTemplateSelector が両方設定された場合は、ItemTemplate プロパティが優先されます。 -->
+
+    <ScrollView Padding="20" BackgroundColor="Gray" >
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     BackgroundColor="LightGray"
+                     BindableLayout.ItemsSource="{Binding ., Mode=OneTime}"
+                     BindableLayout.ItemTemplateSelector="{StaticResource MySelector}" >
+
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <DataTemplate x:Key="MyTemplateBool" >
+                        <CheckBox IsChecked="{Binding Data}" BackgroundColor="LightGreen" />
+                    </DataTemplate>
+                    
+                    <DataTemplate x:Key="MyTemplateInt" >
+                        <Label Text="{Binding Data}" BackgroundColor="LightCyan"
+                               FontSize="Medium" HorizontalTextAlignment="End" />
+                    </DataTemplate>
+                    
+                    <DataTemplate x:Key="MyTemplateString" >
+                        <Entry Text="{Binding Data}" BackgroundColor="LightPink" />
+                    </DataTemplate>
+                    
+                    <local:ObjectContainerTemplateSelector
+                        x:Key="MySelector"
+                        Template1="{StaticResource MyTemplateBool}"
+                        Template2="{StaticResource MyTemplateInt}"
+                        Template3="{StaticResource MyTemplateString}" />
+                </ResourceDictionary>
+            </StackLayout.Resources>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="TableView"
+             x:Class="XFControlSamples.Views.Menus.TableViewPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/tableview -->
+    <!-- https://docs.microsoft.com/ja-jp/dotnet/api/xamarin.forms.cell?view=xamarin-forms -->
+
+    <!-- Intent=意図
+         TableIntentは、各プラットフォームで TableView がどのように表示されるかに影響します。
+         明確な違いがない場合でも使用方法に最も近い TableIntent を選択することをお勧めします。
+         UWP, Android : 以下のViewCellsではIntent切り替えても何もView変わってない気がする…
+    -->
+
+    <TableView Intent="Settings" HasUnevenRows="True" >
+        <TableRoot>
+            <!-- UWPやとTitleが小文字に変換されるなぁ…(Androidは入力通りに表示される) -->
+            <TableSection Title="ViewCells (Intent=Settings)" >
+
+                <TextCell Text="SwitchCell" TextColor="Blue"
+                          Detail="This cell is TextCell."  DetailColor="Red" />
+                <SwitchCell Text="Default Style (Not operated)" OnChanged="SwitchCell_OnChanged" />
+                <SwitchCell Text="Init=On, OnColor=Green" On="True" OnColor="Green" />
+
+                <TextCell Text="EntryCell" />
+                <EntryCell />
+                <EntryCell Label="Label" LabelColor="Green" 
+                           Placeholder="Placeholder" Text="Text" />
+
+                <TextCell Text="ImageCell" />
+                <ImageCell Text="Text" Detail="Detail"
+                           ImageSource="os_logo.gif" />
+
+                <TextCell Text="ViewCell(Custom)" />
+
+                <!-- 下記Tap切り替えを使うには TableView.HasUnevenRows を True にする必要がある (UWPでは False でも動作したけど…)-->
+                <ViewCell x:Name="VisibleSwitchViewCell"
+                          Tapped="VisibleSwitchViewCell_Tapped" >
+                    <StackLayout Padding="20,0" >
+                        <!-- There is a strong possibility of performance degradation if this feature is overused. -->
+                        <Label Padding="0,20" Text="Tap this cell."
+                               TextDecorations="Underline" FontSize="Medium" />
+                        <Label x:Name="VisibleSwitchLabel"
+                               Text="The cell has changed visible."
+                               TextColor="Red"
+                               IsVisible="False" />
+                    </StackLayout>
+                </ViewCell>
+
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="20,0" >
+                        <Label Text="Left" TextColor="Blue" BackgroundColor="LightBlue" />
+                        <Label HorizontalOptions="EndAndExpand"
+                               Text="Right" TextColor="Red" BackgroundColor="LightPink" />
+                    </StackLayout>
+                </ViewCell>
+
+            </TableSection>
+        </TableRoot>
+    </TableView>
+
+</ContentPage>

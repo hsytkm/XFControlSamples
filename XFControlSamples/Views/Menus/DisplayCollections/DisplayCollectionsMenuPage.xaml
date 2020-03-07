@@ -46,14 +46,14 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Table*" >
+        <NavigationPage Title="Table" >
             <x:Arguments>
-                <local:BlankPage Title="TableView" />
+                <local:TableViewPage />
             </x:Arguments>
         </NavigationPage>
 
         <!-- 以下、自作コントロール -->
-        <NavigationPage Title="RepeaterView" >
+        <NavigationPage Title="Repeater" >
             <x:Arguments>
                 <local:RepeaterViewPage />
             </x:Arguments>
