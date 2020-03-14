@@ -32,6 +32,13 @@
             </x:Arguments>
         </NavigationPage>
 
+        <!-- Radio -->
+        <NavigationPage Title="Radio" >
+            <x:Arguments>
+                <local:RadioButtonPage />
+            </x:Arguments>
+        </NavigationPage>
+
     </TabbedPage.Children>
     
 </TabbedPage>

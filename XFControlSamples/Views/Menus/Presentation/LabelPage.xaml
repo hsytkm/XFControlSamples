@@ -9,6 +9,20 @@
              x:DataType="local:LabelViewModel"
              x:Class="XFControlSamples.Views.Menus.LabelPage">
 
+    <!-- Xamarin.Forms でのフォント
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/text/fonts
+            メンバ    iOS And UWP
+            Default   16  14  14
+            Micro     11  10  15.667
+            Small     13  14  18.667
+            Medium    16  17  22.667
+            Large     20  22  32
+            Body      17  16  14
+            Header    17  96  46
+            Title     28  24  24
+            Subtitle  22  16  20
+            Caption   12  12  12
+    -->
     <!-- For perf: Set the LineBreakMode of any Label instances to NoWrap whenever possible. -->
     <ScrollView>
         <StackLayout Spacing="0" >
