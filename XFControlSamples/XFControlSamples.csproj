@@ -27,6 +27,9 @@
     <Compile Update="Views\DetailMenuPage.xaml.cs">
       <DependentUpon>DetailMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\DisplayCollections\CollectionViewPage.xaml.cs">
+      <DependentUpon>CollectionViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\DisplayCollections\TableViewPage.xaml.cs">
       <DependentUpon>TableViewPage.xaml</DependentUpon>
     </Compile>

@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
              Title="ListView"
+             x:DataType="local:ListViewModel"
              x:Class="XFControlSamples.Views.Menus.ListViewPage" >
 
     <!-- # Use CollectionView instead of ListView
@@ -16,9 +17,18 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/listview/performance -->
     <StackLayout>
+        <Label Padding="10,3"
+               HorizontalTextAlignment="Center"
+               FontSize="Large"
+               BackgroundColor="LightGray"
+               TextColor="{Binding SelectedColor.Color, Mode=OneWay}"
+               Text="{Binding SelectedColor.Name, Mode=OneWay}" />
+
         <ListView x:Name="mainListView"
+                  SelectionMode="Single"
                   BackgroundColor="{StaticResource BackgroundColor1}"
-                  ItemsSource="{Binding}" >
+                  ItemsSource="{Binding SourceColors, Mode=OneTime}"
+                  SelectedItem="{Binding SelectedColor, Mode=TwoWay}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:DataType="local:ColorListViewItem" >
@@ -27,7 +37,7 @@
                                BackgroundColor="{Binding Color}"
                                Text="{Binding Name}" />
                         -->
-                        <ContentView Padding="0">
+                        <ContentView Padding="0" >
                             <Frame OutlineColor="Accent" Padding="10" BackgroundColor="White" >
                                 <StackLayout Orientation="Horizontal" >
                                     <BoxView Color="{Binding Color, Mode=OneTime}"

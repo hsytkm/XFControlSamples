@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,8 +15,7 @@ namespace XFControlSamples.Views.Menus
         {
             InitializeComponent();
 
-            BindingContext = Models.SampleData.XamarinFormsColors
-                .Select(x => new ColorListViewItem(x)).ToList();
+            BindingContext = new ListViewModel();
         }
 
         protected override void OnAppearing()
@@ -34,6 +34,33 @@ namespace XFControlSamples.Views.Menus
         {
             if (!(e.SelectedItem is ColorListViewItem item)) return;
             DisplayAlert($"This is \"{item.Name}\"!", "", "OK");
+        }
+    }
+
+    class ListViewModel : INotifyPropertyChanged
+    {
+        public IList<ColorListViewItem> SourceColors { get; } =
+            Models.SampleData.XamarinFormsColors.Select(x => new ColorListViewItem(x)).ToList();
+
+        public ColorListViewItem SelectedColor
+        {
+            get => _selectedColor;
+            set => SetProperty(ref _selectedColor, value);
+        }
+        private ColorListViewItem _selectedColor;
+
+        public ListViewModel()
+        {
+            SelectedColor = SourceColors[4];    // Initialize
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)
+        {
+            if (Equals(field, value)) return false;
+            field = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return true;
         }
     }
 }

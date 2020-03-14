@@ -22,9 +22,9 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Collection*" >
+        <NavigationPage Title="Collection" >
             <x:Arguments>
-                <local:BlankPage Title="CollectionView" />
+                <local:CollectionViewPage />
             </x:Arguments>
         </NavigationPage>
 

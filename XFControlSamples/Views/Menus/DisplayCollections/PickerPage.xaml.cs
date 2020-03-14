@@ -24,7 +24,8 @@ namespace XFControlSamples.Views.Menus
 
     class PickerViewModel : INotifyPropertyChanged
     {
-        public IList<string> ItemsSource => Models.SampleData.XamarinFormsColors.Select(x => x.Name).ToList();
+        public IList<string> ItemsSource { get; } =
+            Models.SampleData.XamarinFormsColors.Select(x => x.Name).ToList();
 
         public string SelectedItem
         {

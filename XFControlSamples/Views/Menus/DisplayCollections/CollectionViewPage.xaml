@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="CollectionView"
+             x:DataType="local:CollectionViewModel"
+             x:Class="XFControlSamples.Views.Menus.CollectionViewPage" >
+
+    <!-- # Use CollectionView instead of ListView
+         CollectionView is a view for presenting lists of data using different layout specifications.
+         It provides a more flexible, and performant alternative to ListView.
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/deploy-test/performance
+    -->
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/collectionview/
+         CollectionView and ListView differences
+         CollectionView api と ListView api は似ていますが、いくつかの重要な違いがあります。
+          - CollectionViewには、データを垂直方向または水平方向にリストまたはグリッドで表示できる柔軟なレイアウトモデルがあります。
+          - CollectionViewは、単一選択と複数選択をサポートします。
+          - CollectionViewには、セルの概念がありません。 代わりに、データテンプレートを使用して、リストのデータの各アイテムの外観を定義します。
+          - CollectionViewは、基になるネイティブコントロールによって提供される仮想化を自動的に利用します。
+          - CollectionViewにより、 ListViewの API サーフェイスが減少します。 ListViewからの多くのプロパティとイベントは、CollectionViewには存在しません。
+          - CollectionViewには、組み込みの区切り記号は含まれません。
+          - ItemsSourceが UI スレッドから更新された場合、 CollectionViewは例外をスローします。
+    -->
+    
+    <StackLayout>
+        <Label TextColor="Red" BackgroundColor="Gray"
+               Text="CollectionView is available on iOS and Android, but is only partially available on the UWP." >
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" >
+                    <On Platform="Android, iOS" Value="False" />
+                    <On Platform="UWP" Value="True" />
+                </OnPlatform>
+            </Label.IsVisible>
+        </Label>
+
+        <!-- SelectedItem(Single/Multi) -->
+        <Label Padding="5" BackgroundColor="LightGray" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="SelectedItem(s):  " />
+                        <Span Text="{Binding Message, Mode=OneWay}" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- Toggle Item SelectionMode -->
+        <StackLayout Orientation="Horizontal" >
+            <CheckBox Margin="20,0" IsChecked="{Binding IsSelectionMulti, Mode=TwoWay}" />
+            <Label VerticalTextAlignment="Center" Text="SelectionMode.Multi" />
+        </StackLayout>
+
+        <CollectionView Footer="This area is Footer."
+                        EmptyView="アイテムがない場合に表示される。SearchBarとの組合せで便利っぽい"
+                        ItemsSource="{Binding ColorsSource, Mode=OneTime}"
+                        SelectionMode="{Binding SelectionMode, Mode=OneWay}"
+                        SelectionChangedCommand="{Binding SelectionChangedCommand, Mode=OneTime}"
+                        SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}"
+                        SelectedItems="{Binding NotifySelectedColors, Mode=OneWay}" >
+
+            <CollectionView.Header>
+                <StackLayout BackgroundColor="Gray" >
+                    <Label Margin="10,3"
+                           Text="XamarinColors (Header)"
+                           FontSize="Small" TextColor="White" FontAttributes="Bold" />
+                </StackLayout>
+            </CollectionView.Header>
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:DataType="local:ColorListViewItem"
+                          Padding="10" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <BoxView Grid.RowSpan="2"
+                                 Color="{Binding Color, Mode=OneTime}"
+                                 HeightRequest="60"
+                                 WidthRequest="60" />
+                        
+                        <Label Grid.Column="1"
+                               Text="{Binding Name, Mode=OneTime}"
+                               FontAttributes="Bold" />
+                        
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding ColorLevel, Mode=OneTime}"
+                               FontAttributes="Italic"
+                               VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+    </StackLayout>
+
+</ContentPage>
