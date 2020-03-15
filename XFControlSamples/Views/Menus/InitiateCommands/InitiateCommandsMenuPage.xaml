@@ -22,7 +22,7 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="RefreshView" >
+        <NavigationPage Title="Refresh" >
             <x:Arguments>
                 <local:RefreshViewPage />
             </x:Arguments>
@@ -34,9 +34,9 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="SwipeView*" >
+        <NavigationPage Title="Swipe" >
             <x:Arguments>
-                <local:BlankPage Title="SwipeView(Preview)" />
+                <local:SwipeViewPage />
             </x:Arguments>
         </NavigationPage>
 

@@ -22,6 +22,9 @@ namespace XFControlSamples.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            // Xamarin.Forms4.4以降で SwipeView を使用するため、Forms.Initを呼び出す前に設定が必要 ◆動作未確認
+            global::Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

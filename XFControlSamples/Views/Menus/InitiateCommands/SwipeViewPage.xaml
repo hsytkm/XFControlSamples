@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="SwipeView(Preview)"
+             x:DataType="local:SwipeViewModel"
+             x:Class="XFControlSamples.Views.Menus.SwipeViewPage">
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/swipeview
+        SwipeView は Xamarin.Forms 4.4 で使用できます。
+        ただし現在は実験的で、Forms.Initを呼び出す前に以下のコード行を追加する必要があります。
+            Forms.SetFlags("SwipeView_Experimental");
+            iOS の AppDelegate クラス / Android の MainActivity クラス /  UWP の App クラス
+    -->
+
+    <StackLayout Spacing="20" Padding="0,20" >
+        <Label LineHeight="2.0" FontSize="Micro" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Xamarin4.5ではPreviewなので各プロジェクトに下記コードが必要" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Xamarin.Forms.Forms.SetFlags(&quot;SwipeView_Experimental&quot;);" TextColor="Blue" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Swipe 4 way (Left / Top / Right / Bottom)" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label TextColor="Red" >
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" >
+                    <On Platform="Android, iOS" Value="False" />
+                    <On Platform="UWP" Value="True" />
+                </OnPlatform>
+            </Label.IsVisible>
+
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="UWPでは Top/Bottom を有効にすると、Content が表示されなくなる。" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="UWPでは Swipe が効かない(表示されない)。Gestureは効くのになぁ。まだPreviewやから？" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <SwipeView>
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItem Text="Left1"
+                               BackgroundColor="LightPink"
+                               Command="{Binding PushCommand, Mode=OneTime}"
+                               CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                </SwipeItems>
+            </SwipeView.LeftItems>
+
+            <SwipeView.RightItems>
+                <SwipeItems>
+                    <SwipeItem Text="Right1"
+                               BackgroundColor="LightGreen"
+                               Command="{Binding PushCommand, Mode=OneTime}"
+                               CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                    <SwipeItem Text="Right2"
+                               BackgroundColor="LightYellow"
+                               Command="{Binding PushCommand, Mode=OneTime}"
+                               CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                </SwipeItems>
+            </SwipeView.RightItems>
+
+            <!-- Top/Buttomを有効にすると UWP で Content が表示されなくなる。まぁ使わんからええけど。
+            <SwipeView.TopItems>
+                <SwipeItems>
+                    <SwipeItem Text="Top1"
+                               BackgroundColor="LightBlue"
+                               Command="{Binding PushCommand, Mode=OneTime}"
+                               CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                    <SwipeItem Text="Top2"
+                               BackgroundColor="LightSalmon"
+                               Command="{Binding PushCommand, Mode=OneTime}"
+                               CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                </SwipeItems>
+            </SwipeView.TopItems>
+
+            <SwipeView.BottomItems>
+                <SwipeItems>
+                    <SwipeItem Text="Bottom1"
+                               BackgroundColor="LightCoral"
+                               Command="{Binding PushCommand, Mode=OneTime}"
+                               CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                </SwipeItems>
+            </SwipeView.BottomItems>
+            -->
+
+            <Grid HeightRequest="100" BackgroundColor="LightGray" >
+                <Label Text="Swipe Label"
+                       HorizontalOptions="Center" VerticalOptions="Center" />
+            </Grid>
+        </SwipeView>
+
+        <Label Text="{Binding Message, Mode=OneWay}"
+               TextColor="Green"
+               FontSize="Large"
+               HorizontalOptions="Center" />
+    </StackLayout>
+
+</ContentPage>

@@ -49,6 +49,24 @@ namespace XFControlSamples.Views.Menus
         }
         private ColorListViewItem _selectedColor;
 
+        public bool IsSelectionSingle
+        {
+            get => _isSelectionSingle;
+            set
+            {
+                if (SetProperty(ref _isSelectionSingle, value))
+                    SelectionMode = value ? ListViewSelectionMode.Single : ListViewSelectionMode.None;
+            }
+        }
+        private bool _isSelectionSingle;
+
+        public ListViewSelectionMode SelectionMode
+        {
+            get => _selectionMode;
+            private set => SetProperty(ref _selectionMode, value);
+        }
+        private ListViewSelectionMode _selectionMode = ListViewSelectionMode.None;
+
         public ListViewModel()
         {
             SelectedColor = SourceColors[4];    // Initialize

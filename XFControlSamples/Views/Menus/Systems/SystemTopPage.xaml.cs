@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,8 @@ namespace XFControlSamples.Views.Menus
 
     class SystemTopViewModel
     {
+        public string AppName { get; } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+
         public IList<NameValueKey> Items { get; }
 
         public SystemTopViewModel()
@@ -51,7 +54,6 @@ namespace XFControlSamples.Views.Menus
                 new NameValueKey(nameof(Device.Info.ScaledScreenSize), Device.Info.ScaledScreenSize.ToString()),
                 new NameValueKey(nameof(Device.Info.CurrentOrientation), Device.Info.CurrentOrientation.ToString()),
             };
-
         }
     }
 }

@@ -17,6 +17,12 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/listview/performance -->
     <StackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <CheckBox IsChecked="{Binding IsSelectionSingle, Mode=TwoWay}" />
+            <Label FontSize="Large" VerticalTextAlignment="Center"
+                   Text="ListViewSelectionMode.Single" />
+        </StackLayout>
+
         <Label Padding="10,3"
                HorizontalTextAlignment="Center"
                FontSize="Large"
@@ -25,7 +31,7 @@
                Text="{Binding SelectedColor.Name, Mode=OneWay}" />
 
         <ListView x:Name="mainListView"
-                  SelectionMode="Single"
+                  SelectionMode="{Binding SelectionMode, Mode=OneWay}"
                   BackgroundColor="{StaticResource BackgroundColor1}"
                   ItemsSource="{Binding SourceColors, Mode=OneTime}"
                   SelectedItem="{Binding SelectedColor, Mode=TwoWay}" >

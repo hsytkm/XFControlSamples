@@ -38,6 +38,15 @@
             </Label.IsVisible>
         </Label>
 
+        <!-- Item SelectionMode -->
+        <StackLayout Orientation="Horizontal" >
+            <Label Text="SelectionMode: " FontSize="Large"
+                   HorizontalOptions="Start" VerticalOptions="Center" />
+            <Picker HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding SelectionModeSource, Mode=OneTime}"
+                    SelectedItem="{Binding SelectedSelectionMode, Mode=TwoWay}" />
+        </StackLayout>
+
         <!-- SelectedItem(Single/Multi) -->
         <Label Padding="5" BackgroundColor="LightGray" >
             <Label.FormattedText>
@@ -50,16 +59,10 @@
             </Label.FormattedText>
         </Label>
 
-        <!-- Toggle Item SelectionMode -->
-        <StackLayout Orientation="Horizontal" >
-            <CheckBox Margin="20,0" IsChecked="{Binding IsSelectionMulti, Mode=TwoWay}" />
-            <Label VerticalTextAlignment="Center" Text="SelectionMode.Multi" />
-        </StackLayout>
-
         <CollectionView Footer="This area is Footer."
                         EmptyView="アイテムがない場合に表示される。SearchBarとの組合せで便利っぽい"
                         ItemsSource="{Binding ColorsSource, Mode=OneTime}"
-                        SelectionMode="{Binding SelectionMode, Mode=OneWay}"
+                        SelectionMode="{Binding SelectedSelectionMode, Mode=OneWay}"
                         SelectionChangedCommand="{Binding SelectionChangedCommand, Mode=OneTime}"
                         SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}"
                         SelectedItems="{Binding NotifySelectedColors, Mode=OneWay}" >

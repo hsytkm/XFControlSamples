@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFControlSamples.Extensions;
 
 namespace XFControlSamples.Views.Menus
 {
@@ -31,34 +32,26 @@ namespace XFControlSamples.Views.Menus
         public string Message
         {
             get => _message;
-            set => SetProperty(ref _message, value);
+            private set => SetProperty(ref _message, value);
         }
         private string _message;
 
-        public bool IsSelectionMulti
-        {
-            get => _isSelectionMulti;
-            set
-            {
-                if (SetProperty(ref _isSelectionMulti, value))
-                    SelectionMode = value ? SelectionMode.Multiple : SelectionMode.Single;
-            }
-        }
-        private bool _isSelectionMulti;
+        public IList<SelectionMode> SelectionModeSource { get; } =
+            MyArrayExtension.GetEnums<SelectionMode>().ToList();
 
-        public SelectionMode SelectionMode
+        public SelectionMode SelectedSelectionMode
         {
-            get => _selectionMode;
-            set => SetProperty(ref _selectionMode, value);
+            get => _selectedSelectionMode;
+            set => SetProperty(ref _selectedSelectionMode, value);
         }
-        private SelectionMode _selectionMode = SelectionMode.Single;
+        private SelectionMode _selectedSelectionMode = SelectionMode.None;
 
         public ICommand SelectionChangedCommand => _selectionChangedCommand ??
             (_selectionChangedCommand = new Command<ColorListViewItem>(selectedItem =>
             {
                 // パラメータの SelectedItem は、SelectionMode.Single 時のみ更新される
                 // (なので、SelectionMode.Multi で選択が変化した時は Single 時に選んだ項目が繰り返し通知される)
-                if (SelectionMode == SelectionMode.Single)
+                if (SelectedSelectionMode == SelectionMode.Single)
                 {
                     Message = selectedItem?.Name;
                 }

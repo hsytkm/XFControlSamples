@@ -57,6 +57,9 @@
     <Compile Update="Views\Menus\IndicateActivity\IndicateActivityMenuPage.xaml.cs">
       <DependentUpon>IndicateActivityMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\InitiateCommands\SwipeViewPage.xaml.cs">
+      <DependentUpon>SwipeViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\InitiateCommands\SearchBarPage.xaml.cs">
       <DependentUpon>SearchBarPage.xaml</DependentUpon>
     </Compile>
