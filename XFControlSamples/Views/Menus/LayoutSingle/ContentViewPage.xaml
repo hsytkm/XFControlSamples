@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="ContentView"
+             x:Class="XFControlSamples.Views.Menus.ContentViewPage">
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/layouts/contentview
+         ContentViewクラスは、単一の子要素を含む型の Layout であり、
+         通常はカスタムの再利用可能なコントロールを作成するために使用されます
+    -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="CardViewCompressed" >
+                <Frame Margin="30,0"
+                       HasShadow="False"
+                       BorderColor="{TemplateBinding BorderColor}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame HasShadow="False"
+                               BackgroundColor="{TemplateBinding CardColor}" >
+                            <Label Text="{TemplateBinding CardTitle}"
+                                   TextColor="{TemplateBinding TextColor}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   FontSize="Title" FontAttributes="Bold,Italic" />
+                        </Frame>
+
+                        <Label Grid.Column="1"
+                               TextColor="DarkGray" FontSize="Subtitle" LineHeight="1.5" 
+                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="{TemplateBinding CardTitle}" />
+                                        <Span Text="{x:Static x:Environment.NewLine}" />
+                                        <Span Text="{TemplateBinding CardDescription}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Frame>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20,5">
+        <Label Text="Default Card" />
+        <local:CardView />
+
+        <Label Text="Default Template Card" Margin="0,20,0,0" />
+        <local:CardView CardTitle="au"
+                        CardDescription="CashCard"
+                        CardColor="White" 
+                        TextColor="DarkOrange"
+                        BorderColor="LightGray" />
+
+        <Label Text="Override Custom Template Card" Margin="0,20,0,0" />
+        <local:CardView ControlTemplate="{StaticResource CardViewCompressed}" 
+                        CardTitle="CocaCora"
+                        CardDescription="PointCard"
+                        CardColor="Red" 
+                        TextColor="White"
+                        BorderColor="Red" />
+
+    </StackLayout>
+</ContentPage>

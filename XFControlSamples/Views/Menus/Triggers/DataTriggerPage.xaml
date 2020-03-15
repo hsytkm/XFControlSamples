@@ -8,6 +8,7 @@
              x:Class="XFControlSamples.Views.Menus.DataTriggerPage">
 
     <StackLayout>
+        <Label Text="文字が入力されたらButtonを有効にする" />
 
         <!-- Text.Length を評価するときは Text="" にしないと、null になりトリガーが意図通りに動作しない -->
         <Entry x:Name="entry"

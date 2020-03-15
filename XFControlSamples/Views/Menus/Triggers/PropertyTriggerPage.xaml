@@ -8,7 +8,8 @@
              x:Class="XFControlSamples.Views.Menus.PropertyTriggerPage">
 
     <StackLayout>
-
+        <Label Text="IsFocused プロパティが True なら背景色を変える" />
+        
         <Entry Placeholder="enter name" >
             <Entry.Triggers>
                 <Trigger TargetType="Entry"

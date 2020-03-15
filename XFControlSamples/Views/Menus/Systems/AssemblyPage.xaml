@@ -16,9 +16,9 @@
                     <ViewCell x:DataType="models:NameValueKey" >
                         <StackLayout Spacing="0" >
                             <Label FontSize="Small" FontAttributes="Bold"
-                                   Text="{Binding Name}" />
+                                   Text="{Binding Name, Mode=OneTime}" />
                             <Label Margin="10,0,0,3" FontSize="Micro" MaxLines="3" 
-                                   Text="{Binding Value}" />
+                                   Text="{Binding Value, Mode=OneTime}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -9,6 +9,7 @@
              x:Class="XFControlSamples.Views.Menus.EventTriggerPage">
 
     <StackLayout>
+        <Label Text="入力値に応じて何かする" />
 
         <Entry Placeholder="Adult Age Check (under 20 is red color)"
                Keyboard="Numeric"

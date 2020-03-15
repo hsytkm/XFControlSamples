@@ -48,7 +48,7 @@
 
         <NavigationPage Title="MediaElement*" >
             <x:Arguments>
-                <local:BlankPage Title="MediaElement" />
+                <local:BlankPage Title="MediaElement(Preview)" />
             </x:Arguments>
         </NavigationPage>
 

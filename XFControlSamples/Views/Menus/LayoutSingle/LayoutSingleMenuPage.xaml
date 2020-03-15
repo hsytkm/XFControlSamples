@@ -10,9 +10,9 @@
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/layouts -->
     <TabbedPage.Children>
-        <NavigationPage Title="ContentView*" >
+        <NavigationPage Title="ContentView" >
             <x:Arguments>
-                <local:BlankPage Title="ContentView" />
+                <local:ContentViewPage />
             </x:Arguments>
         </NavigationPage>
 
@@ -28,7 +28,7 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="TemplatedView*" >
+        <NavigationPage Title="Templated*" >
             <x:Arguments>
                 <local:BlankPage Title="TemplatedView" />
             </x:Arguments>

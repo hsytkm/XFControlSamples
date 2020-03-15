@@ -36,7 +36,7 @@
 
         <NavigationPage Title="SwipeView*" >
             <x:Arguments>
-                <local:BlankPage Title="SwipeView" />
+                <local:BlankPage Title="SwipeView(Preview)" />
             </x:Arguments>
         </NavigationPage>
 

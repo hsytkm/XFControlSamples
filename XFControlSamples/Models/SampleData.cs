@@ -8,15 +8,6 @@ using XFControlSamples.Extensions;
 
 namespace XFControlSamples.Models
 {
-    class NameValueKey
-    {
-        public string Name { get; }
-        public string Value { get; }
-
-        public NameValueKey(string name, string value) =>
-            (Name, Value) = (name, value);
-    }
-
     static class SampleData
     {
         public static IList<string> Data =>

@@ -14,7 +14,7 @@
     <StackLayout Padding="100"
                  BackgroundColor="{Binding SelectedColor, Mode=OneWay}" >
 
-        <Label Text="RadioButton will work since Xamarin 4.6" TextColor="Red" />
+        <Label Text="RadioButton will work from Xamarin 4.6" TextColor="Red" />
 
         <Label Text="BackgroundColor" FontSize="Large" />
         

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="XFControlSamples.Views.Menus.CardView">
+
+    <Frame BindingContext="{x:Reference this}"
+           BackgroundColor="{Binding CardColor}"
+           BorderColor="{Binding BorderColor, FallbackValue='Gray'}" >
+        <StackLayout>
+            <Label FontAttributes="Bold" FontSize="Large" 
+                   Text="{Binding CardTitle, FallbackValue='Card Title'}"
+                   TextColor="{Binding TextColor, FallbackValue='Black'}" />
+            <Label Padding="20,0,0,0"
+                   Text="{Binding CardDescription, FallbackValue='Card description text.'}"
+                   TextColor="{Binding TextColor, FallbackValue='Black'}" />
+        </StackLayout>
+    </Frame>
+
+</ContentView>

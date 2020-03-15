@@ -18,7 +18,7 @@
 
         <NavigationPage Title="Carousel*" >
             <x:Arguments>
-                <local:BlankPage Title="CarouselView" />
+                <local:BlankPage Title="CarouselView(Preview)" />
             </x:Arguments>
         </NavigationPage>
 
@@ -30,7 +30,7 @@
 
         <NavigationPage Title="Indicator*" >
             <x:Arguments>
-                <local:BlankPage Title="IndicatorView" />
+                <local:BlankPage Title="IndicatorView(Preview)" />
             </x:Arguments>
         </NavigationPage>
 

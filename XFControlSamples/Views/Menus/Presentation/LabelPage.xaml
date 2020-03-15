@@ -92,6 +92,10 @@
             <Label Text="Character spaced text" TextColor="DarkKhaki"
                    CharacterSpacing="10" />
 
+            <!-- エスケープ -->
+            <Label Text="&lt;Panel Margin=&quot;10,0&quot; /&gt;   &amp;" FontSize="Large" />
+            <Label Text="{}{で始まる場合は先頭に {} 付ける（先頭の{}は表示されない)" />
+
             <!-- 行間 -->
             <StackLayout BackgroundColor="LightCoral" Padding="10" >
                 <Label Text="{Binding En}"
