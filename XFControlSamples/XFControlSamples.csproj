@@ -105,6 +105,9 @@
     <Compile Update="Views\Menus\Systems\SystemTopPage.xaml.cs">
       <DependentUpon>SystemTopPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\UIFunctions\RotateDisplayPage.xaml.cs">
+      <DependentUpon>RotateDisplayPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\UIFunctions\GesturesPage.xaml.cs">
       <DependentUpon>GesturesPage.xaml</DependentUpon>
     </Compile>

@@ -23,6 +23,12 @@
             </x:Arguments>
         </NavigationPage>
 
+        <NavigationPage Title="Rotate" >
+            <x:Arguments>
+                <local:RotateDisplayPage />
+            </x:Arguments>
+        </NavigationPage>
+
     </TabbedPage.Children>
     
 </TabbedPage>

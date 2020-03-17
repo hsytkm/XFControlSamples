@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="RotateDisplay"
+             x:DataType="local:RotateDisplayViewModel"
+             x:Class="XFControlSamples.Views.Menus.RotateDisplayPage" >
+
+    <!-- https://itblogdsi.blog.fc2.com/blog-entry-306.html -->
+
+    <Grid BackgroundColor="LightGray" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Column="1" Grid.Row="1"
+                     Spacing="0"
+                     BackgroundColor="LightBlue"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                   FontSize="Micro" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="BoxWidth = PageWidth * 40%" />
+                            <Span Text="{x:Static x:Environment.NewLine}" />
+                            <Span Text="BoxHeight = PageHeight * 60%" />
+                            <Span Text="{x:Static x:Environment.NewLine}" />
+                            <Span Text="{x:Static x:Environment.NewLine}" />
+                            <Span Text="  PageSize History (f2)" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Margin="10,0,10,3"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"
+                   BackgroundColor="LightPink"
+                   FontSize="Micro" LineBreakMode="NoWrap"
+                   MaxLines="7"
+                   Text="{Binding Message, Mode=OneWay}" />
+        </StackLayout>
+    </Grid>
+    
+</ContentPage>
