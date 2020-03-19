@@ -39,6 +39,15 @@ namespace XFControlSamples.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+#if DEBUG
+            // https://stackoverflow.com/questions/29364607/what-are-the-two-numbers-in-top-left-of-uap-app-using-vs2015-and-windows-10
+            //   Left number is the FPS counter for your app.
+            //   Right number is the CPU usage for each frame in % (only for computations in the UI thread).
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                this.DebugSettings.EnableFrameRateCounter = true;
+            }
+#endif
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (!(Window.Current.Content is Frame rootFrame))

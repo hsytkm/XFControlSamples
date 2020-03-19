@@ -6,40 +6,19 @@
             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
             NavigationPage.HasNavigationBar="False"
             mc:Ignorable="d"
-            x:Class="XFControlSamples.Views.Menus.TriggersMenuPage">
+            x:Class="XFControlSamples.Views.Menus.StateTriggersMenuPage">
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/triggers -->
-    
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/visual-state-manager -->
+
     <TabbedPage.Children>
-        <NavigationPage Title="Prop" >
+        <!-- State Trigger (PREVIEW) -->
+        <NavigationPage Title="State*" >
             <x:Arguments>
-                <local:PropertyTriggerPage />
+                <local:BlankPage Title="State(Preview)" />
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Data" >
-            <x:Arguments>
-                <local:DataTriggerPage />
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Event" >
-            <x:Arguments>
-                <local:EventTriggerPage />
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Multi" >
-            <x:Arguments>
-                <local:MultiTriggerPage />
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Enter" >
-            <x:Arguments>
-                <local:EnterExitTriggerPage />
-            </x:Arguments>
-        </NavigationPage>
 
         <!-- Adaptive Trigger (PREVIEW) -->
 

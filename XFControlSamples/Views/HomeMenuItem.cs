@@ -26,6 +26,7 @@ namespace XFControlSamples.Views
             DisplayCollections,
             ItemTemplate,
             Triggers,
+            StateTriggers,
             About,
         }
 
@@ -45,6 +46,7 @@ namespace XFControlSamples.Views
             [Type.DisplayCollections] = new DisplayCollectionsMenuPage(),
             [Type.ItemTemplate] = new ItemTemplateMenuPage(),
             [Type.Triggers] = new TriggersMenuPage(),
+            [Type.StateTriggers] = new StateTriggersMenuPage(),
             [Type.About] = new AboutPage(),
         };
 

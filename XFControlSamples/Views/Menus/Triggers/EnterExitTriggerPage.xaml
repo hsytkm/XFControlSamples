@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:trig="clr-namespace:XFControlSamples.Views.Triggers"
+             mc:Ignorable="d"
+             Title="Enter/Exit Actions"
+             x:DataType="local:EnterExitTriggerViewModel"
+             x:Class="XFControlSamples.Views.Menus.EnterExitTriggerPage" >
+
+    <!-- EnterActions/ExitActions
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/triggers
+         https://kamusoft.hatenablog.jp/entry/2019/12/01/161823
+    -->
+    <StackLayout Spacing="30" >
+        <!-- Sample1 -->
+        <StackLayout BackgroundColor="LightGray" Padding="20,10">
+            <VisualElement.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="{x:Type Entry}" >
+                        <Setter Property="TextColor" Value="Gray" />
+                        <Style.Triggers>
+                            <Trigger TargetType="{x:Type Entry}"
+                                     Property="Entry.IsFocused" Value="True">
+                                <Trigger.EnterActions>
+                                    <trig:FadeTriggerAction StartsFrom="0" />
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <trig:FadeTriggerAction StartsFrom="1" />
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
+            </VisualElement.Resources>
+
+            <Entry Placeholder="enter text 1" Text="Xamarin" />
+            <Entry Placeholder="enter text 2" Text="" />
+        </StackLayout>
+
+        <!-- Sample2 -->
+        <StackLayout Orientation="Horizontal" Margin="30,0" >
+            <CheckBox x:Name="checkBox" IsChecked="False" />
+            <Label FontSize="Large" Text="Enter and Exit BoxView" />
+        </StackLayout>
+
+        <BoxView CornerRadius="60"
+                 HeightRequest="120" WidthRequest="120"
+                 BackgroundColor="LightBlue"
+                 HorizontalOptions="Center" VerticalOptions="Center"
+                 Opacity="0" >
+            <BoxView.Triggers>
+                <DataTrigger TargetType="{x:Type BoxView}"
+                             Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                             Value="True" >
+                    <DataTrigger.EnterActions>
+                        <trig:MoveTriggerAction IsActive="True" />
+                    </DataTrigger.EnterActions>
+
+                    <DataTrigger.ExitActions>
+                        <trig:MoveTriggerAction IsActive="False" />
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </BoxView.Triggers>
+        </BoxView>
+    </StackLayout>
+    
+</ContentPage>
