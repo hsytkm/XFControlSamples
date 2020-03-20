@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="AdaptiveTrigger"
+             x:Class="XFControlSamples.Views.Menus.AdaptiveTriggerPage" >
+
+    <!-- Xamarin.Forms VisualStateManager Support -->
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StackLayoutAdaptiveStyle" TargetType="{x:Type StackLayout}" >
+                <Setter Property="Padding" Value="20,10" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+                            <VisualState x:Name="Hori">
+                                <VisualState.StateTriggers>
+                                    <AdaptiveTrigger MinWindowWidth="0" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="StackLayout.Orientation"
+                                            Value="Horizontal" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Vert">
+                                <VisualState.StateTriggers>
+                                    <AdaptiveTrigger MinWindowWidth="{Binding .}" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="StackLayout.Orientation"
+                                            Value="Vertical" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackLayout Padding="20,10" >
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Adaptive Trigger" FontSize="Large" />
+                        <Span Text="   (Preview XF4.5~)" FontSize="Medium" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="  VisualState で Orientation を切り替える" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+
+                        <Span Text="  WindowWidth が " />
+                        <Span Text="{Binding .}" />
+                        <Span Text=" 以上なら Vertical になる" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+
+                        <Span Text="  R → G → B の順序" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <StackLayout Style="{StaticResource StackLayoutAdaptiveStyle}"
+                     BackgroundColor="LightGray"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Red" />
+            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Green" />
+            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Blue" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

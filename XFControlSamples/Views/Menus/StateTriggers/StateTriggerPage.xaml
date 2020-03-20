@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="StateTrigger"
+             x:DataType="local:StateTriggerViewModel"
+             x:Class="XFControlSamples.Views.Menus.StateTriggerPage" >
+
+    <!-- StateTrigger(状態トリガー)  Xamarin.Forms 4.5 より導入
+         App.xaml.cs ファイルに "StateTriggers_Experimental" フラグが必要
+    -->
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GridStateStyle" TargetType="{x:Type Grid}" >
+                <Setter Property="Padding" Value="20,10"/>
+                <Setter Property="VisualStateManager.VisualStateGroups" >
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+                            <VisualState x:Name="Checked" >
+                                <VisualState.StateTriggers>
+                                    <StateTrigger IsActive="{Binding IsToggled}"
+                                                  IsActiveChanged="OnCheckedStateIsActiveChanged" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="Grid.BackgroundColor"
+                                            Value="LightPink" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Unchecked" >
+                                <VisualState.StateTriggers>
+                                    <StateTrigger IsActive="{Binding IsToggled, Converter={StaticResource BoolToInvBoolConverter}}"
+                                                  IsActiveChanged="OnUncheckedStateIsActiveChanged" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="Grid.BackgroundColor"
+                                            Value="LightBlue" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Style="{StaticResource GridStateStyle}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="State Trigger" FontSize="Large" />
+                        <Span Text="   (Preview XF4.5~)" FontSize="Medium" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="  VisualState で BackgroundColor を切り替える" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <CheckBox Grid.Row="1" IsChecked="{Binding IsToggled, Mode=TwoWay}" />
+
+        <Button Grid.Row="2"
+                Text="Clear Text"
+                Command="{Binding ClearMessage, Mode=OneTime}" />
+            
+        <ScrollView Grid.Row="3" BackgroundColor="LightGray" Margin="10,5">
+            <Label Text="{Binding Message, Mode=OneWay}" />
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

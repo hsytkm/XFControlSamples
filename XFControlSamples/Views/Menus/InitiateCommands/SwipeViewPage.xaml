@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
-             Title="SwipeView(Preview)"
+             Title="SwipeView"
              x:DataType="local:SwipeViewModel"
              x:Class="XFControlSamples.Views.Menus.SwipeViewPage">
 
@@ -21,7 +21,7 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="Xamarin4.5ではPreviewなので各プロジェクトに下記コードが必要" />
+                        <Span Text="Xamarin4.4ではPreviewなので各プロジェクトに下記コードが必要" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="Xamarin.Forms.Forms.SetFlags(&quot;SwipeView_Experimental&quot;);" TextColor="Blue" />
                         <Span Text="{x:Static x:Environment.NewLine}" />

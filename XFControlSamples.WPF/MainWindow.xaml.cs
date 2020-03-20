@@ -11,8 +11,14 @@ namespace XFControlSamples.WPF
         {
             InitializeComponent();
 
-            // Xamarin.Forms4.4以降で SwipeView を使用するため、Forms.Initを呼び出す前に設定が必要
-            Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental"); // 有効にしても動かない。Previewやしね。
+            // Preview機能を使用するには、Forms.Initを呼び出す前にフラグ設定が必要
+            Xamarin.Forms.Forms.SetFlags(
+                "SwipeView_Experimental",       // Xamarin.Forms4.4以降(有効にしても動かない。Previewやしね)
+                "StateTriggers_Experimental"    // Xamarin.Forms4.5以降
+                //"IndicatorView_Experimental",
+                //"CarouselView_Experimental",
+                //"MediaElement_Experimental"
+                );
 
             Xamarin.Forms.Forms.Init();
             LoadApplication(new XFControlSamples.App());

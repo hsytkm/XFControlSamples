@@ -102,6 +102,12 @@
     <Compile Update="Views\Menus\LayoutSingle\ScrollViewPage.xaml.cs">
       <DependentUpon>ScrollViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\StateTriggers\AdaptiveTriggerPage.xaml.cs">
+      <DependentUpon>AdaptiveTriggerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\StateTriggers\StateTriggerPage.xaml.cs">
+      <DependentUpon>StateTriggerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\StateTriggers\StateTriggersMenuPage.xaml.cs">
       <DependentUpon>StateTriggersMenuPage.xaml</DependentUpon>
     </Compile>

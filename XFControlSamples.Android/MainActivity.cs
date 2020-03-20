@@ -19,8 +19,14 @@ namespace XFControlSamples.Droid
 
             base.OnCreate(savedInstanceState);
 
-            // Xamarin.Forms4.4以降で SwipeView を使用するため、Forms.Initを呼び出す前に設定が必要
-            global::Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
+            // Preview機能を使用するには、Forms.Initを呼び出す前にフラグ設定が必要
+            global::Xamarin.Forms.Forms.SetFlags(
+                "SwipeView_Experimental",       // Xamarin.Forms4.4以降
+                "StateTriggers_Experimental"    // Xamarin.Forms4.5以降
+                //"IndicatorView_Experimental",
+                //"CarouselView_Experimental",
+                //"MediaElement_Experimental"
+                );
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

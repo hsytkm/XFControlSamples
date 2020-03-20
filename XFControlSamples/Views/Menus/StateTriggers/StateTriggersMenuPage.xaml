@@ -8,25 +8,36 @@
             mc:Ignorable="d"
             x:Class="XFControlSamples.Views.Menus.StateTriggersMenuPage">
 
-    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/triggers -->
-    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/visual-state-manager -->
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/triggers
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/visual-state-manager
+         https://javiersuarezruiz.wordpress.com/2020/02/19/xamarin-forms-statetriggers/
+         https://ticktack.hatenablog.jp/entry/2018/03/31/163529
+    -->
 
     <TabbedPage.Children>
-        <!-- State Trigger (PREVIEW) -->
-        <NavigationPage Title="State*" >
+        <NavigationPage Title="State" >
             <x:Arguments>
-                <local:BlankPage Title="State(Preview)" />
+                <local:StateTriggerPage />
             </x:Arguments>
         </NavigationPage>
 
-
-        <!-- Adaptive Trigger (PREVIEW) -->
+        <NavigationPage Title="Adaptive" >
+            <x:Arguments>
+                <local:AdaptiveTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
 
         <!-- Compare Trigger (PREVIEW) -->
 
         <!-- Device Trigger (PREVIEW) -->
 
         <!-- Orientation Trigger (PREVIEW) -->
+
+        <NavigationPage Title="Blank" >
+            <x:Arguments>
+                <local:BlankPage Title="Blank" />
+            </x:Arguments>
+        </NavigationPage>
 
     </TabbedPage.Children>
 
