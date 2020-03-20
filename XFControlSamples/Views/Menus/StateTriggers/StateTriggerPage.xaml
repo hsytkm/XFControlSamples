@@ -60,10 +60,11 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="State Trigger" FontSize="Large" />
+                        <Span Text="StateTrigger" FontSize="Large" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="   (Preview XF4.5~)" FontSize="Medium" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
-                        <Span Text="  VisualState で BackgroundColor を切り替える" />
+                        <Span Text="IsActiveプロパティが変更されたときに、VisualState で BackgroundColor を切り替える" />
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="DeviceStateTrigger"
+             x:Class="XFControlSamples.Views.Menus.DeviceStateTriggerPage" >
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StackLayoutDeviceStateStyle" TargetType="{x:Type StackLayout}" >
+                <Setter Property="Padding" Value="20,10" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+                            <VisualState x:Name="Android">
+                                <VisualState.StateTriggers>
+                                    <DeviceStateTrigger Device="Android" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightPink" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="iOS">
+                                <VisualState.StateTriggers>
+                                    <DeviceStateTrigger Device="iOS" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightYellow" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="UWP">
+                                <VisualState.StateTriggers>
+                                    <DeviceStateTrigger Device="UWP" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightBlue" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="WPF">
+                                <VisualState.StateTriggers>
+                                    <DeviceStateTrigger Device="WPF" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightGreen" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackLayout Padding="20,10" >
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="DeviceStateTrigger" FontSize="Large" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="   (Preview XF4.5~)" FontSize="Medium" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="実行デバイスのPFに基づいて、VisualState で BackgroundColor を切り替える" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <StackLayout Style="{StaticResource StackLayoutDeviceStateStyle}" >
+            <Frame BackgroundColor="White"
+                   CornerRadius="12" Margin="24"
+                   HorizontalOptions="Center" VerticalOptions="Center" >
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Android: LightPink" TextColor="LightPink" />
+                                <Span Text="{x:Static x:Environment.NewLine}" />
+                                <Span Text="iOS: LightYellow" TextColor="LightYellow" />
+                                <Span Text="{x:Static x:Environment.NewLine}" />
+                                <Span Text="UWP: LightBlue" TextColor="LightBlue" />
+                                <Span Text="{x:Static x:Environment.NewLine}" />
+                                <Span Text="WPF: LightGreen" TextColor="LightGreen" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

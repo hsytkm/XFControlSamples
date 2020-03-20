@@ -27,15 +27,21 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- Compare Trigger (PREVIEW) -->
-
-        <!-- Device Trigger (PREVIEW) -->
-
-        <!-- Orientation Trigger (PREVIEW) -->
-
-        <NavigationPage Title="Blank" >
+        <NavigationPage Title="Compare" >
             <x:Arguments>
-                <local:BlankPage Title="Blank" />
+                <local:CompareStateTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Device" >
+            <x:Arguments>
+                <local:DeviceStateTriggerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Orient" >
+            <x:Arguments>
+                <local:OrientationStateTriggerPage />
             </x:Arguments>
         </NavigationPage>
 

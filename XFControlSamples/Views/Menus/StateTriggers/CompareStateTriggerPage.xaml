@@ -5,35 +5,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
-             Title="AdaptiveTrigger"
-             x:Class="XFControlSamples.Views.Menus.AdaptiveTriggerPage" >
+             Title="CompareStateTrigger"
+             x:Class="XFControlSamples.Views.Menus.CompareStateTriggerPage" >
 
     <!-- Xamarin.Forms VisualStateManager Support -->
 
     <Page.Resources>
         <ResourceDictionary>
-            <Style x:Key="StackLayoutAdaptiveStyle" TargetType="{x:Type StackLayout}" >
+            <Style x:Key="StackLayoutCompareStateStyle" TargetType="{x:Type StackLayout}" >
                 <Setter Property="Padding" Value="20,10" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup>
-                            <VisualState x:Name="Hori">
+                            <VisualState x:Name="Checked">
                                 <VisualState.StateTriggers>
-                                    <AdaptiveTrigger MinWindowWidth="0" />
+                                    <CompareStateTrigger
+                                        Property="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                        Value="True" />
                                 </VisualState.StateTriggers>
                                 <VisualState.Setters>
-                                    <Setter Property="StackLayout.Orientation"
-                                            Value="Horizontal" />
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightPink" />
                                 </VisualState.Setters>
                             </VisualState>
 
-                            <VisualState x:Name="Vert">
+                            <VisualState x:Name="Unchecked">
                                 <VisualState.StateTriggers>
-                                    <AdaptiveTrigger MinWindowWidth="{Binding .}" />
+                                    <CompareStateTrigger
+                                        Property="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                        Value="False" />
                                 </VisualState.StateTriggers>
                                 <VisualState.Setters>
-                                    <Setter Property="StackLayout.Orientation"
-                                            Value="Vertical" />
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightBlue" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -48,31 +52,31 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="AdaptiveTrigger" FontSize="Large" />
+                        <Span Text="CompareStateTrigger" FontSize="Large" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="   (Preview XF4.5~)" FontSize="Medium" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
-                        <Span Text="ウィンドウが指定した高さ/幅になると、VisualState で Orientation を切り替える" />
+                        <Span Text="プロパティが特定の値と等しいときに、VisualState で BackgroundColor を切り替える" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
-
-                        <Span Text="WindowWidth が " />
-                        <Span Text="{Binding .}" />
-                        <Span Text=" 以上なら Vertical になる" />
-                        <Span Text="{x:Static x:Environment.NewLine}" />
-
-                        <Span Text="R → G → B の順序" />
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
 
-        <StackLayout Style="{StaticResource StackLayoutAdaptiveStyle}"
-                     BackgroundColor="LightGray"
-                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Red" />
-            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Green" />
-            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Blue" />
-        </StackLayout>
+        <Grid Style="{StaticResource StackLayoutCompareStateStyle}" >
+            <Frame BackgroundColor="White"
+                   CornerRadius="12"
+                   Margin="24"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal" >
+                    <CheckBox x:Name="checkBox"
+                              VerticalOptions="Center" />
+                    <Label Text="Check the CheckBox to modify the Grid background color."
+                           VerticalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </Grid>
     </StackLayout>
 
 </ContentPage>

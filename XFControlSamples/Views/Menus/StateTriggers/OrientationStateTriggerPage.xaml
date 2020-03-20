@@ -5,35 +5,32 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
-             Title="AdaptiveTrigger"
-             x:Class="XFControlSamples.Views.Menus.AdaptiveTriggerPage" >
-
-    <!-- Xamarin.Forms VisualStateManager Support -->
+             Title="OrientationStateTrigger"
+             x:Class="XFControlSamples.Views.Menus.OrientationStateTriggerPage" >
 
     <Page.Resources>
         <ResourceDictionary>
-            <Style x:Key="StackLayoutAdaptiveStyle" TargetType="{x:Type StackLayout}" >
+            <Style x:Key="StackLayoutOrientationStateStyle" TargetType="{x:Type StackLayout}" >
                 <Setter Property="Padding" Value="20,10" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup>
-                            <VisualState x:Name="Hori">
+                            <VisualState x:Name="Portrait">
                                 <VisualState.StateTriggers>
-                                    <AdaptiveTrigger MinWindowWidth="0" />
+                                    <OrientationStateTrigger Orientation="Portrait" />
                                 </VisualState.StateTriggers>
                                 <VisualState.Setters>
-                                    <Setter Property="StackLayout.Orientation"
-                                            Value="Horizontal" />
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightPink" />
                                 </VisualState.Setters>
                             </VisualState>
-
-                            <VisualState x:Name="Vert">
+                            <VisualState x:Name="Landscape">
                                 <VisualState.StateTriggers>
-                                    <AdaptiveTrigger MinWindowWidth="{Binding .}" />
+                                    <OrientationStateTrigger Orientation="Landscape" />
                                 </VisualState.StateTriggers>
                                 <VisualState.Setters>
-                                    <Setter Property="StackLayout.Orientation"
-                                            Value="Vertical" />
+                                    <Setter Property="StackLayout.BackgroundColor"
+                                            Value="LightBlue" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -48,30 +45,33 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="AdaptiveTrigger" FontSize="Large" />
+                        <Span Text="OrientationStateTrigger" FontSize="Large" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="   (Preview XF4.5~)" FontSize="Medium" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
-                        <Span Text="ウィンドウが指定した高さ/幅になると、VisualState で Orientation を切り替える" />
+                        <Span Text="デバイスの向きに基づいて、VisualState で BackgroundColor を切り替える" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
-
-                        <Span Text="WindowWidth が " />
-                        <Span Text="{Binding .}" />
-                        <Span Text=" 以上なら Vertical になる" />
-                        <Span Text="{x:Static x:Environment.NewLine}" />
-
-                        <Span Text="R → G → B の順序" />
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
 
-        <StackLayout Style="{StaticResource StackLayoutAdaptiveStyle}"
-                     BackgroundColor="LightGray"
-                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Red" />
-            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Green" />
-            <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Blue" />
+        <StackLayout Style="{StaticResource StackLayoutOrientationStateStyle}" >
+            <Frame BackgroundColor="White"
+                   CornerRadius="12" Margin="24"
+                   HorizontalOptions="Center" VerticalOptions="Center" >
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Portrait: LightPink" TextColor="LightPink" />
+                                <Span Text="{x:Static x:Environment.NewLine}" />
+                                <Span Text="Landscape: LightBlue" TextColor="LightBlue" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
         </StackLayout>
     </StackLayout>
 
