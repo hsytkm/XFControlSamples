@@ -17,20 +17,24 @@
             </OnPlatform>
         </StackLayout.Spacing>
 
-        <StackLayout Orientation="Horizontal" Spacing="0" BackgroundColor="Gray" >
+        <StackLayout Orientation="Horizontal"
+                     Spacing="0" Padding="20"
+                     BackgroundColor="Gray" >
+
+            <!-- ◆StackLayoutクリックでCheckBoxを切り替えてるけど、もっと良い実装ない？
+                   xamlだけでCheckBoxのTapイベントを呼べたら最高なんやけどなぁ… -->
+            <View.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SwitchIsEnableCommand, Mode=OneTime}" />
+            </View.GestureRecognizers>
+
             <CheckBox IsChecked="{Binding IsEnable, Mode=TwoWay}"
                       HorizontalOptions="Center" VerticalOptions="Center" />
 
-            <!-- ◆LabelクリックでCheckBoxを切り替えてるけど、もっと良い実装ない？
-                   xamlだけでCheckBoxのTapイベントを呼べたら最高なんやけどなぁ… -->
-            <Label Text="This is CheckBox control." VerticalOptions="Center" >
-                <View.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SwitchIsEnableCommand, Mode=OneTime}" />
-                </View.GestureRecognizers>
-            </Label>
+            <Label Text="This is CheckBox control." VerticalOptions="Center" />
         </StackLayout>
 
         <CheckBox IsChecked="{Binding IsEnable, Mode=TwoWay}"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
                   BackgroundColor="LightBlue" >
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates" >

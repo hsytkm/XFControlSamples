@@ -20,6 +20,15 @@ namespace XFControlSamples.Views.Menus
 
             BindingContext = new ProcessingViewModel();
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            // PF固有のグローバル アクティビティ インジケーターでビジー状態が表示される
+            // らしいが、Android(Pixel3) / UWP では何も起きなかった…
+            this.IsBusy = true;
+            await Task.Delay(3000);
+            this.IsBusy = false;
+        }
     }
 
     class ProcessingViewModel : INotifyPropertyChanged
@@ -29,14 +38,14 @@ namespace XFControlSamples.Views.Menus
         public double ProgressRatio
         {
             get => _progressRatio;
-            set => SetProperty(ref _progressRatio, value);
+            private set => SetProperty(ref _progressRatio, value);
         }
         private double _progressRatio;
 
         public bool IsProcessing
         {
             get => _isProcessing;
-            set => SetProperty(ref _isProcessing, value);
+            private set => SetProperty(ref _isProcessing, value);
         }
         private bool _isProcessing;
 
@@ -57,7 +66,6 @@ namespace XFControlSamples.Views.Menus
                 IsProcessing = false;
             }));
         private ICommand _startProcess;
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)

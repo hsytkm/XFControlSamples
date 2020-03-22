@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+            NavigationPage.HasNavigationBar="False"
+            mc:Ignorable="d"
+            x:Class="XFControlSamples.Views.Menus.BottomTabPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="Blue"
+            android:TabbedPage.BarSelectedItemColor="Red" >
+
+    <!--
+        https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/platform/android/tabbedpage-toolbar-placement-color
+        https://www.project-respite.com/recent-xamarin-update/
+    -->
+    <TabbedPage.Children>
+        <!-- アイコンを設定したら iOS のような見た目になるはず(未確認)
+        <ContentPage Title="Tab 1" Icon="Icon.png" />
+        -->
+        <ContentPage Title="Tab 1" BackgroundColor="LightPink" />
+        <ContentPage Title="Tab 2" BackgroundColor="LightGreen" />
+        <ContentPage Title="Tab 3" BackgroundColor="LightBlue" />
+    </TabbedPage.Children>
+    
+</TabbedPage>

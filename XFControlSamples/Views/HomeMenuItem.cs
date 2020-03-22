@@ -14,7 +14,7 @@ namespace XFControlSamples.Views
         public enum Type
         {
             Systems,
-            //Pages,
+            BottomTab,
             UIFunctions,
             LayoutSingle,
             LayoutMultiple,
@@ -31,10 +31,10 @@ namespace XFControlSamples.Views
         }
 
         /// <summary>各メニューに対応するページ辞書</summary>
-        public static IDictionary<Type, Page> PagesMap => new Dictionary<Type, Page>()
+        public static IDictionary<Type, Page> PagesMap { get; } = new Dictionary<Type, Page>()
         {
             [Type.Systems] = new SystemsMenuPage(),
-            //Type.Pages] = new Page(),
+            [Type.BottomTab] = new BottomTabPage(),
             [Type.UIFunctions] = new UIFunctionsMenuPage(),
             [Type.LayoutSingle] = new LayoutSingleMenuPage(),
             [Type.LayoutMultiple] = new LayoutMultipleMenuPage(),
@@ -56,7 +56,7 @@ namespace XFControlSamples.Views
 
         public HomeMenuItem(Type id, string title) => (Id, Title) = (id, title);
 
-        public static IList<HomeMenuItem> AllItems =>
+        public static IList<HomeMenuItem> AllItems { get; } =
             MyArrayExtension.GetEnums<Type>()
                 .Select(t => new HomeMenuItem(t, Enum.GetName(typeof(Type), t))).ToList();
     }

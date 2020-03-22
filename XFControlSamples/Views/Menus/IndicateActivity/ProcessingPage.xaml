@@ -10,7 +10,7 @@
              x:Class="XFControlSamples.Views.Menus.ProcessingPage">
 
     <StackLayout>
-        <Label Text="Not implement processing click" />
+        <Label Text="処理中のクリック防止は未実装" />
 
         <Button Text="StartProcess"
                 HeightRequest="100"
@@ -33,7 +33,11 @@
         <ProgressBar Progress="{Binding ProgressRatio, Mode=OneWay}" />
         
         <ActivityIndicator IsRunning="{Binding IsProcessing, Mode=OneWay}" />
-        
+
+        <Button Text="Page.IsBusy (the platform specific global activity indicator)"
+                HeightRequest="100"
+                Clicked="Button_Clicked" />
+
     </StackLayout>
 
 </ContentPage>

@@ -19,8 +19,16 @@ namespace XFControlSamples.Views.Menus
             InitializeComponent();
 
             // 方向の切り替え画面サイズ閾値
-            var widthThresh = (Device.RuntimePlatform == Device.UWP) ? 1000 :  600;
-            BindingContext = widthThresh;
+            double widthThresh = (Device.RuntimePlatform == Device.UWP) ? 1000 :  600;
+
+            // 直接バインドすると、DoubleにCastできないと警告出るのでClass用意してみた
+            //BindingContext = widthThresh;
+            BindingContext = new AdaptiveTriggerViewModel() { WidthThresh = widthThresh };
         }
+    }
+
+    class AdaptiveTriggerViewModel
+    {
+        public double WidthThresh { get; set; }
     }
 }

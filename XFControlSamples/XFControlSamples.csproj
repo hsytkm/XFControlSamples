@@ -102,6 +102,9 @@
     <Compile Update="Views\Menus\LayoutSingle\ScrollViewPage.xaml.cs">
       <DependentUpon>ScrollViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\Pages\BottomTabPage.xaml.cs">
+      <DependentUpon>BottomTabPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\StateTriggers\OrientationStateTriggerPage.xaml.cs">
       <DependentUpon>OrientationStateTriggerPage.xaml</DependentUpon>
     </Compile>

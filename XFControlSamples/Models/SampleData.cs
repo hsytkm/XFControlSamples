@@ -10,13 +10,13 @@ namespace XFControlSamples.Models
 {
     static class SampleData
     {
-        public static IList<string> Data =>
+        public static IList<string> Data { get; } =
             Enumerable.Range(1, 20).Select(x => "Data " + x).ToList();
 
         /// <summary>
         /// Xamarin.Forms.Colorの色リスト
         /// </summary>
-        public static IList<(string Name, Color Color)> XamarinFormsColors =>
+        public static IList<(string Name, Color Color)> XamarinFormsColors { get; } =
             typeof(Color).GetFields(BindingFlags.Static | BindingFlags.Public)
                 .Where(x => x.FieldType == typeof(Color))
                 .Select(x => (x.Name, (Color)x.GetValue(null)))
@@ -92,7 +92,7 @@ namespace XFControlSamples.Models
         /// <summary>
         ///  System.Reflection.Assembly
         /// </summary>
-        public static IList<NameValueKey> AssemblyList =>
+        public static IList<NameValueKey> AssemblyList { get; } =
             new List<NameValueKey>()
             {
                 new NameValueKey("AssemblyVersion", Assembly.GetExecutingAssembly().GetName().Version.ToString()),

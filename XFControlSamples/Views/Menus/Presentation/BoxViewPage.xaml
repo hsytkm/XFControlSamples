@@ -3,21 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
              mc:Ignorable="d"
              Title="BoxView"
+             x:DataType="local:BoxViewViewModel"
              x:Class="XFControlSamples.Views.Menus.BoxViewPage"
              SizeChanged="ContentPage_SizeChanged" >
 
     <!-- Xamarin.Forms 描画で考慮すべき２つのこと http://furuya02.hatenablog.com/entry/2014/11/23/001448 -->
 
-    <Grid>
-        <!-- コードビハインドにて Page*90% で描画 (割合指定するならAbsoluteLayoutの方がシンプル)-->
-        <BoxView x:Name="boxView"
-                 BackgroundColor="{StaticResource BackgroundColor1}"
-                 HorizontalOptions="Center" VerticalOptions="Center" />
+    <StackLayout>
+        <Grid>
+            <!-- コードビハインドにてWidthを Page*90% で描画
+                 (割合指定するならAbsoluteLayout/Gridの方がシンプル)
+            -->
+            <BoxView x:Name="boxView"
+                     HeightRequest="100"
+                     BackgroundColor="LightBlue"
+                     HorizontalOptions="Center" VerticalOptions="Center" />
 
-        <Label x:Name="labelSize"
-               HorizontalOptions="Center" VerticalOptions="Center" />
-    </Grid>
+            <Label x:Name="labelSize"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+
+        <Label Margin="0,20,0,0"
+               Text="Top:SizeSlider ,  Bottom:RadiusSlider" />
+
+        <Label TextColor="Red"
+               Text="UWP は Radius 指定が動作しないっぽい。う～ん…" >
+            <Label.IsVisible>
+                <OnPlatform x:TypeArguments="x:Boolean" >
+                    <On Platform="Android, iOS" Value="False" />
+                    <On Platform="UWP" Value="True" />
+                </OnPlatform>
+            </Label.IsVisible>
+        </Label>
+
+        <Slider Margin="20"
+                MinimumTrackColor="Blue" MaximumTrackColor="Red"
+                Minimum="{Binding SizeSliderMin, Mode=OneTime}"
+                Maximum="{Binding SizeSliderMax, Mode=OneTime}"
+                Value="{Binding SizeSliderValue, Mode=TwoWay}" />
+
+        <Slider Margin="20"
+                MinimumTrackColor="Blue" MaximumTrackColor="Red"
+                Minimum="{Binding RadiusSliderMin, Mode=OneTime}"
+                Maximum="{Binding RadiusSliderMax, Mode=OneTime}"
+                Value="{Binding RadiusSliderValue, Mode=TwoWay}" />
+
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="{Binding SizeMessage, Mode=OneWay}" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="{Binding RadiusMessage, Mode=OneWay}" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <BoxView BackgroundColor="LightPink"
+                 HorizontalOptions="Center" VerticalOptions="Center"
+                 HeightRequest="{Binding SizeSliderValue, Mode=OneWay}"
+                 WidthRequest="{Binding SizeSliderValue, Mode=OneWay}"
+                 CornerRadius="{Binding BoxCornerRadius, Mode=OneWay}" />
+
+    </StackLayout>
     
 </ContentPage>

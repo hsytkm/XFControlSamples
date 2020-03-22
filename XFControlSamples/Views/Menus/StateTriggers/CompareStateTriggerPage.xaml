@@ -12,7 +12,7 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <Style x:Key="StackLayoutCompareStateStyle" TargetType="{x:Type StackLayout}" >
+            <Style x:Key="GridCompareStateStyle" TargetType="{x:Type Grid}" >
                 <Setter Property="Padding" Value="20,10" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -24,7 +24,7 @@
                                         Value="True" />
                                 </VisualState.StateTriggers>
                                 <VisualState.Setters>
-                                    <Setter Property="StackLayout.BackgroundColor"
+                                    <Setter Property="Grid.BackgroundColor"
                                             Value="LightPink" />
                                 </VisualState.Setters>
                             </VisualState>
@@ -36,7 +36,7 @@
                                         Value="False" />
                                 </VisualState.StateTriggers>
                                 <VisualState.Setters>
-                                    <Setter Property="StackLayout.BackgroundColor"
+                                    <Setter Property="Grid.BackgroundColor"
                                             Value="LightBlue" />
                                 </VisualState.Setters>
                             </VisualState>
@@ -63,7 +63,7 @@
             </Label.FormattedText>
         </Label>
 
-        <Grid Style="{StaticResource StackLayoutCompareStateStyle}" >
+        <Grid Style="{StaticResource GridCompareStateStyle}" >
             <Frame BackgroundColor="White"
                    CornerRadius="12"
                    Margin="24"
