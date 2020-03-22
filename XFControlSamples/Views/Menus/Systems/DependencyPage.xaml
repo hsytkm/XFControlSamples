@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="Dependency"
+             x:DataType="local:DependencyPageViewModel"
+             x:Class="XFControlSamples.Views.Menus.DependencyPage">
+
+    <StackLayout Padding="20" >
+        <Label FontSize="Medium" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="DependencyService: IPlatformInfo" />
+   
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="OS: " />
+                        <Span Text="{Binding Os}" TextColor="Blue"/>
+
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Model: " />
+                        <Span Text="{Binding Model}" TextColor="Blue"/>
+
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="New instance counter: " />
+                        <Span Text="{Binding NewInstanceCount}" FontAttributes="Bold" TextColor="Blue" />
+
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Global instance counter: " />
+                        <Span Text="{Binding GlobalInstanceCount}" FontAttributes="Bold" TextColor="Blue" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button Text="Count up (NewInstance)"
+                Command="{Binding IncrementNewInstance, Mode=OneTime}" />
+
+        <Button Text="Count up (GlobalInstance)"
+                Command="{Binding IncrementGlobalInstance, Mode=OneTime}" />
+
+        <Button Text="Set zero to counter"
+                Command="{Binding ClearCommand, Mode=OneTime}" />
+
+    </StackLayout>
+</ContentPage>

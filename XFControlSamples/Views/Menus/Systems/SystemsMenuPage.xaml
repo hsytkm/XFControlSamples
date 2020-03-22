@@ -54,9 +54,15 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="FileVerInfo" >
+        <NavigationPage Title="FileVer" >
             <x:Arguments>
                 <local:FileVerInfoPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Dependency" >
+            <x:Arguments>
+                <local:DependencyPage />
             </x:Arguments>
         </NavigationPage>
 
