@@ -22,11 +22,11 @@
                 Command="{Binding SomeChoicesCommand1, Mode=OneTime}"
                 CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
 
-        <Button Text="SomeChoices (With Cancel)"
+        <Button Text="SomeChoices2 (With Cancel)"
                 Command="{Binding SomeChoicesCommand2, Mode=OneTime}"
                 CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
 
-        <Button Text="SomeChoices (With Cancel and Destruction)"
+        <Button Text="SomeChoices3 (With Cancel and Destruction)"
                 Command="{Binding SomeChoicesCommand3, Mode=OneTime}"
                 CommandParameter="{Binding Text, Source={RelativeSource Self}}" />
 

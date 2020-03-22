@@ -102,6 +102,9 @@
     <Compile Update="Views\Menus\LayoutSingle\ScrollViewPage.xaml.cs">
       <DependentUpon>ScrollViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\MessagingCenter\MessagingCenterPage.xaml.cs">
+      <DependentUpon>MessagingCenterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\Pages\BottomTabPage.xaml.cs">
       <DependentUpon>BottomTabPage.xaml</DependentUpon>
     </Compile>
