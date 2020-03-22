@@ -16,21 +16,15 @@
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Carousel*" >
+        <NavigationPage Title="Carousel" >
             <x:Arguments>
-                <local:BlankPage Title="CarouselView(Preview)" />
+                <local:CarouselViewPage />
             </x:Arguments>
         </NavigationPage>
 
         <NavigationPage Title="Collection" >
             <x:Arguments>
                 <local:CollectionViewPage />
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Indicator*" >
-            <x:Arguments>
-                <local:BlankPage Title="IndicatorView(Preview)" />
             </x:Arguments>
         </NavigationPage>
 

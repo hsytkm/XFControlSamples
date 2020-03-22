@@ -11,7 +11,7 @@ namespace XFControlSamples.Views
     {
         // 下記ページを参考に区分
         // https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/
-        public enum Type
+        public enum PageType
         {
             Systems,
             BottomTab,
@@ -32,34 +32,34 @@ namespace XFControlSamples.Views
         }
 
         /// <summary>各メニューに対応するページ辞書</summary>
-        public static IDictionary<Type, Page> PagesMap { get; } = new Dictionary<Type, Page>()
+        public static IDictionary<PageType, Type> PagesMap { get; } = new Dictionary<PageType, Type>()
         {
-            [Type.Systems] = new SystemsMenuPage(),
-            [Type.BottomTab] = new BottomTabPage(),
-            [Type.UIFunctions] = new UIFunctionsMenuPage(),
-            [Type.LayoutSingle] = new LayoutSingleMenuPage(),
-            [Type.LayoutMultiple] = new LayoutMultipleMenuPage(),
-            [Type.Presentation] = new PresentationMenuPage(),
-            [Type.InitiateCommands] = new InitiateCommandsMenuPage(),
-            [Type.SettingValues] = new SettingValuesMenuPage(),
-            [Type.EditingText] = new EditingTextMenuPage(),
-            [Type.IndicateActivity] = new IndicateActivityMenuPage(),
-            [Type.DisplayCollections] = new DisplayCollectionsMenuPage(),
-            [Type.ItemTemplate] = new ItemTemplateMenuPage(),
-            [Type.Triggers] = new TriggersMenuPage(),
-            [Type.StateTriggers] = new StateTriggersMenuPage(),
-            [Type.MessagingCenter] = new MessagingCenterPage(),
-            [Type.About] = new AboutPage(),
+            [PageType.Systems] = typeof(SystemsMenuPage),
+            [PageType.BottomTab] = typeof(BottomTabPage),
+            [PageType.UIFunctions] = typeof(UIFunctionsMenuPage),
+            [PageType.LayoutSingle] = typeof(LayoutSingleMenuPage),
+            [PageType.LayoutMultiple] = typeof(LayoutMultipleMenuPage),
+            [PageType.Presentation] = typeof(PresentationMenuPage),
+            [PageType.InitiateCommands] = typeof(InitiateCommandsMenuPage),
+            [PageType.SettingValues] = typeof(SettingValuesMenuPage),
+            [PageType.EditingText] = typeof(EditingTextMenuPage),
+            [PageType.IndicateActivity] = typeof(IndicateActivityMenuPage),
+            [PageType.DisplayCollections] = typeof(DisplayCollectionsMenuPage),
+            [PageType.ItemTemplate] = typeof(ItemTemplateMenuPage),
+            [PageType.Triggers] = typeof(TriggersMenuPage),
+            [PageType.StateTriggers] = typeof(StateTriggersMenuPage),
+            [PageType.MessagingCenter] = typeof(MessagingCenterPage),
+            [PageType.About] = typeof(AboutPage),
         };
 
-        public Type Id { get; }
+        public PageType Type { get; }
 
         public string Title { get; }
 
-        public HomeMenuItem(Type id, string title) => (Id, Title) = (id, title);
+        public HomeMenuItem(PageType type, string title) => (Type, Title) = (type, title);
 
         public static IList<HomeMenuItem> AllItems { get; } =
-            MyArrayExtension.GetEnums<Type>()
-                .Select(t => new HomeMenuItem(t, Enum.GetName(typeof(Type), t))).ToList();
+            MyArrayExtension.GetEnums<PageType>()
+                .Select(t => new HomeMenuItem(t, Enum.GetName(typeof(PageType), t))).ToList();
     }
 }

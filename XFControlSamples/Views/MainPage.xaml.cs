@@ -14,8 +14,8 @@ namespace XFControlSamples.Views
     {
         // MasterDetailPageのコードは新規プロジェクトのskeltonから取得した
 
-        private readonly IDictionary<HomeMenuItem.Type, Page> _menuPages =
-            new Dictionary<HomeMenuItem.Type, Page>();
+        private readonly IDictionary<HomeMenuItem.PageType, Page> _menuPages =
+            new Dictionary<HomeMenuItem.PageType, Page>();
 
         public MainPage()
         {
@@ -24,14 +24,17 @@ namespace XFControlSamples.Views
             //_menuPages.Add(HomeMenuUtil.GetTypeFirst(), (NavigationPage)this.Detail);
         }
 
-        internal async Task NavigateFromMenu(HomeMenuItem.Type id)
+        internal async Task NavigateFromMenu(HomeMenuItem.PageType pageType)
         {
-            if (!_menuPages.ContainsKey(id))
+            // ページが存在しなければ、その都度作成する
+            if (!_menuPages.ContainsKey(pageType))
             {
-                _menuPages.Add(id, new NavigationPage(HomeMenuItem.PagesMap[id]));
+                var type = HomeMenuItem.PagesMap[pageType];
+                var page = (Page)Activator.CreateInstance(type);
+                _menuPages.Add(pageType, new NavigationPage(page));
             }
 
-            var newPage = _menuPages[id];
+            var newPage = _menuPages[pageType];
 
             if (newPage != null && this.Detail != newPage)
             {

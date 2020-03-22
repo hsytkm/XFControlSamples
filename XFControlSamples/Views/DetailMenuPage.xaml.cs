@@ -26,7 +26,7 @@ namespace XFControlSamples.Views
             {
                 if (e.SelectedItem is null) return;
 
-                var id = ((HomeMenuItem)e.SelectedItem).Id;
+                var id = ((HomeMenuItem)e.SelectedItem).Type;
                 await RootPage.NavigateFromMenu(id);
             };
         }

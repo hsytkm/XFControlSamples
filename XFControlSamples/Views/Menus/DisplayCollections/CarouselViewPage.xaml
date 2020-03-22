@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="CarouselView / IndicatorView"
+             x:DataType="local:CarouselViewModel"
+             x:Class="XFControlSamples.Views.Menus.CarouselViewPage" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/carouselview/
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/indicatorview
+    -->
+
+    <StackLayout Padding="10" >
+        <Label LineHeight="2.0" FontSize="Micro" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Xamarin4.5ではPreviewなので各プロジェクトに下記コードが必要" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Xamarin.Forms.Forms.SetFlags(&quot;CarouselView_Experimental&quot;);" TextColor="Blue" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Xamarin.Forms.Forms.SetFlags(&quot;IndicatorView_Experimental&quot;);" TextColor="Blue" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span TextColor="Red"
+                              Text="CarouselView is available on iOS and Android, but some functionality may only be partially available on the UWP." />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <CarouselView ItemsSource="{Binding SourceColors, Mode=OneTime}"
+                      IndicatorView="indicatorView" >
+            <!--
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" />
+            </CarouselView.ItemsLayout>
+            -->
+
+            <!-- XF4.5.0.356 の Android では、ItemTemplate を設定しないと、System.NullReferenceException が表示されて使えなかった -->
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout x:DataType="local:ColorListViewItem" >
+                        <Frame HasShadow="True"
+                               BorderColor="DarkGray"
+                               BackgroundColor="{Binding Color, Mode=OneTime}"
+                               CornerRadius="5"
+                               Margin="20"
+                               HeightRequest="300"
+                               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" >
+                            <Label Text="{Binding Name, Mode=OneTime}" 
+                                   FontAttributes="Bold" FontSize="Large"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView x:Name="indicatorView"
+                       IndicatorColor="LightGray"
+                       SelectedIndicatorColor="DarkGray"
+                       HorizontalOptions="Center" />
+
+    </StackLayout>
+</ContentPage>
