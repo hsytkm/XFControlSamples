@@ -54,10 +54,7 @@
                         <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="ウィンドウが指定した高さ/幅になると、VisualState で Orientation を切り替える" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
-
-                        <Span Text="WindowWidth が " />
-                        <Span Text="{Binding WidthThresh}" />
-                        <Span Text=" 以上なら Vertical になる" />
+                        <Span Text="{Binding WidthThresh, Mode=OneWay, StringFormat='WindowWidth が {0} 以上なら Vertical になる'}" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
 
                         <Span Text="R → G → B の順序" />

@@ -17,12 +17,29 @@
         https://www.project-respite.com/recent-xamarin-update/
     -->
     <TabbedPage.Children>
-        <!-- アイコンを設定したら iOS のような見た目になるはず(未確認)
-        <ContentPage Title="Tab 1" Icon="Icon.png" />
-        -->
-        <ContentPage Title="Tab 1" BackgroundColor="LightPink" />
-        <ContentPage Title="Tab 2" BackgroundColor="LightGreen" />
-        <ContentPage Title="Tab 3" BackgroundColor="LightBlue" />
+        <ContentPage Title="Tab 1" BackgroundColor="LightPink" >
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="{StaticResource StillCamIcon}"
+                                 FontFamily="{StaticResource IconFontFamily}"
+                                 Size="64" />
+            </ContentPage.IconImageSource>
+        </ContentPage>
+
+        <ContentPage Title="Tab 2" BackgroundColor="LightGreen" >
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="{StaticResource MovieCamIcon}"
+                                 FontFamily="{StaticResource IconFontFamily}"
+                                 Size="64" />
+            </ContentPage.IconImageSource>
+        </ContentPage>
+
+        <ContentPage Title="Tab 3" BackgroundColor="LightBlue" >
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="{StaticResource TwitterIcon}"
+                                 FontFamily="{StaticResource IconFontFamily}"
+                                 Size="64" />
+            </ContentPage.IconImageSource>
+        </ContentPage>
+
     </TabbedPage.Children>
-    
 </TabbedPage>

@@ -30,14 +30,8 @@
 
         <Label Margin="0,20"
                FontSize="Medium"
-               HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="SliderValue: "/>
-                    <Span Text="{Binding SliderValue, Mode=OneWay}" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Start"
+               Text="{Binding SliderValue, Mode=OneWay, StringFormat='SliderValue:  {0}'}" />
 
         <Stepper HorizontalOptions="Center" VerticalOptions="Center"
                  Increment="0.5"
@@ -62,14 +56,8 @@
 
         <Label Margin="0,20"
                FontSize="Medium"
-               HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="SliderIntValue: "/>
-                    <Span Text="{Binding SliderIntValue, Mode=OneWay}" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Start"
+               Text="{Binding SliderIntValue, Mode=OneWay, StringFormat='SliderIntValue:  {0}'}" />
 
     </StackLayout>
 

@@ -96,12 +96,13 @@
             <Label Text="&lt;Panel Margin=&quot;10,0&quot; /&gt;   &amp;" FontSize="Large" />
             <Label Text="{}{で始まる場合は先頭に {} 付ける（先頭の{}は表示されない)" />
 
-            <!-- 行間 -->
-            <StackLayout BackgroundColor="LightCoral" Padding="10" >
-                <Label Text="{Binding En}"
-                       LineBreakMode="WordWrap"
-                       LineHeight="1.8" />
-            </StackLayout>
+            <!-- 行間 + StringFormat -->
+            <Label BackgroundColor="LightCoral"
+                   Padding="10"
+                   LineBreakMode="WordWrap"
+                   LineHeight="1.8" 
+                   Text="{Binding En, Mode=OneWay,
+                                  StringFormat='行間サンプル: {0}'}" />
 
             <!-- &#xD; がCRで、&#xA; がLFを表す らしい https://www.nuits.jp/entry/2016/07/30/213257 -->
             <Label Text="改行文字、何か凄いよね&#xD;&#xA;CR=＆＃ｘＤ；  LF=＆＃ｘＡ；　←これを半角にする"

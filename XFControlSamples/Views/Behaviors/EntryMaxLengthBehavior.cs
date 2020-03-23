@@ -23,13 +23,15 @@ namespace XFControlSamples.Views.Behaviors
         protected override void OnAttachedTo(Entry bindable)
         {
             base.OnAttachedTo(bindable);
+
             bindable.TextChanged += Entry_TextChanged;
         }
 
         protected override void OnDetachingFrom(Entry bindable)
         {
-            base.OnDetachingFrom(bindable);
             bindable.TextChanged -= Entry_TextChanged;
+
+            base.OnDetachingFrom(bindable);
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)

@@ -48,16 +48,9 @@
         </StackLayout>
 
         <!-- SelectedItem(Single/Multi) -->
-        <Label Padding="5" BackgroundColor="LightGray" >
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="SelectedItem(s):  " />
-                        <Span Text="{Binding Message, Mode=OneWay}" />
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+        <Label Padding="5" BackgroundColor="LightGray"
+               Text="{Binding Message, Mode=OneWay,
+                      StringFormat='SelectedItem(s):  {0}'}" />
 
         <CollectionView Footer="This area is Footer."
                         EmptyView="アイテムがない場合に表示される。SearchBarとの組合せで便利っぽい"

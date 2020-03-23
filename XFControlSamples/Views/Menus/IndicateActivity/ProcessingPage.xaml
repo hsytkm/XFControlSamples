@@ -21,11 +21,9 @@
                HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="ProgressRatio: "/>
-                    <Span Text="{Binding ProgressRatio, Mode=OneWay, StringFormat='{0:P2}'}" />
+                    <Span Text="{Binding ProgressRatio, Mode=OneWay, StringFormat='ProgressRatio: {0:P2}'}" />
                     <Span Text="{x:Static x:Environment.NewLine}" />
-                    <Span Text="IsProcessing: "/>
-                    <Span Text="{Binding IsProcessing, Mode=OneWay}" />
+                    <Span Text="{Binding IsProcessing, Mode=OneWay, StringFormat='IsProcessing: {0}'}" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>

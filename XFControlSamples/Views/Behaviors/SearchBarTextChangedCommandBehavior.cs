@@ -14,9 +14,9 @@ namespace XFControlSamples.Views.Behaviors
 
         protected override void OnDetachingFrom(SearchBar bindable)
         {
-            base.OnDetachingFrom(bindable);
-
             bindable.TextChanged -= SearchBar_TextChanged;
+
+            base.OnDetachingFrom(bindable);
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

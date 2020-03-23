@@ -32,6 +32,58 @@
                    IsAnimationPlaying="{Binding Source={x:Reference check}, Path=IsChecked}" />
         </StackLayout>
 
+        <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" Padding="20,5" >
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource AndroidIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource AppleIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource WindowsIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource PlayStationIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource XBoxIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource TwitterIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource GitHubIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
+        </StackLayout>
+
     </StackLayout>
     
 </ContentPage>

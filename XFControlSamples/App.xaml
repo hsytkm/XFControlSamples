@@ -7,22 +7,58 @@
              mc:Ignorable="d"
              x:Class="XFControlSamples.App">
 
+    <!-- https://stackoverflow.com/questions/34966066/xamarin-forms-how-can-i-load-resourcedictionary-from-another-file/37971305 -->
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
-            </Style>
+            <ResourceDictionary>
+                <!-- Converters -->
+                <conv:BooleanToInverseBooleanConverter x:Key="BoolToInvBoolConverter" />
 
-            <Color x:Key="BackgroundColor1">LightBlue</Color>
-            <Color x:Key="BackgroundColor2">LightPink</Color>
-            <Color x:Key="BackgroundColor3">LightYellow</Color>
+                <!-- IconFont
+                     フォントバイナリの在り処
+                         https://github.com/ionic-team/ionicons/blob/master/docs/fonts/ionicons.ttf
 
-            <conv:BooleanToInverseBooleanConverter x:Key="BoolToInvBoolConverter" />
-            
-        </ResourceDictionary>
+                     Xamarin.Forms でアイコンフォントを使う
+                        https://qiita.com/amay077/items/4c315e7f212834183316
+
+                     Xamarin Formsでアイコンフォントを表示する
+                        https://blog.yamamoworks.net/entry/2016/07/03/Xamarin_Forms_IconFont
+
+                     フォント内のコード確認(一覧のウェブ在り処が分からなかったのでツールで無理やり見た…)
+                        https://www.vector.co.jp/soft/dl/winnt/writing/se244187.html
+                -->
+                <OnPlatform x:Key="IconFontFamily" x:TypeArguments="x:String" >
+                    <On Platform="Android" Value="ionicons.ttf#ionicons" />
+                    <On Platform="iOS" Value="IonIcons" />
+                    <On Platform="UWP" Value="Assets/ionicons.ttf#ionicons" />
+                </OnPlatform>
+                <x:String x:Key="PlusMarkIcon">&#xf101;</x:String>
+                <x:String x:Key="AndroidIcon">&#xf225;</x:String>
+                <x:String x:Key="AppleIcon">&#xf229;</x:String>
+                <x:String x:Key="WindowsIcon">&#xf32f;</x:String>
+                <x:String x:Key="GoodIcon">&#xf392;</x:String>
+                <x:String x:Key="BadIcon">&#xf391;</x:String>
+                <x:String x:Key="HeartIcon">&#xf308;</x:String>
+                <x:String x:Key="TwitterIcon">&#xf2b0;</x:String>
+                <x:String x:Key="GitHubIcon">&#xf239;</x:String>
+                <x:String x:Key="PlayStationIcon">&#xf245;</x:String>
+                <x:String x:Key="XBoxIcon">&#xf34c;</x:String>
+                <x:String x:Key="StillCamIcon">&#xf2ad;</x:String>
+                <x:String x:Key="MovieCamIcon">&#xf39f;</x:String>
+
+                <!--Global Styles-->
+                <Color x:Key="NavigationPrimary">#2196F3</Color>
+                <Style TargetType="NavigationPage">
+                    <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                    <Setter Property="BarTextColor" Value="White" />
+                </Style>
+
+                <Color x:Key="BackgroundColor1">LightBlue</Color>
+                <Color x:Key="BackgroundColor2">LightPink</Color>
+                <Color x:Key="BackgroundColor3">LightYellow</Color>
+
+            </ResourceDictionary>
+        </ResourceDictionary>            
     </Application.Resources>
     
 </Application>
