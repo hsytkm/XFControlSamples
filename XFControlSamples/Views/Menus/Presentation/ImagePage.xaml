@@ -82,6 +82,13 @@
                                      Size="64" />
                 </Image.Source>
             </Image>
+            <Image>
+                <Image.Source>
+                    <FontImageSource Glyph="{StaticResource TakumiIcon}"
+                                     FontFamily="{StaticResource IconFontFamily}"
+                                     Size="64" />
+                </Image.Source>
+            </Image>
         </StackLayout>
 
     </StackLayout>

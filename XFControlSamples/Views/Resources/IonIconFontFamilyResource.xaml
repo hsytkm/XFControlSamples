@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="XFControlSamples.Views.Resources.IonIconFontFamilyResource" >
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/resource-dictionaries
+         このようなファイルを作成するには、新しい ContentView または ContentPage をプロジェクトに追加します
+         XAMLファイルとC#ファイルの両方で、基底クラスの名前を ResourceDictionary に変更します。
+    -->
+    <!-- IconFont
+         フォントバイナリの在り処
+            https://github.com/ionic-team/ionicons/blob/master/docs/fonts/ionicons.ttf
+
+         Xamarin.Forms でアイコンフォントを使う
+            https://qiita.com/amay077/items/4c315e7f212834183316
+
+         Xamarin Formsでアイコンフォントを表示する
+            https://blog.yamamoworks.net/entry/2016/07/03/Xamarin_Forms_IconFont
+
+         フォント内のコード確認(一覧のウェブ在り処が分からなかったのでツールで無理やり見た…)
+            https://www.vector.co.jp/soft/dl/winnt/writing/se244187.html
+    -->
+    <OnPlatform x:Key="IconFontFamily" x:TypeArguments="x:String" >
+        <On Platform="Android" Value="ionicons.ttf#ionicons" />
+        <On Platform="UWP" Value="Assets/ionicons.ttf#ionicons" />
+
+        <!-- WPFは動作しなかった -->
+        <On Platform="WPF" Value="Assets/ionicons.ttf#ionicons" />
+
+        <!-- iOSは動作未確認 -->
+        <On Platform="iOS" Value="IonIcons" />
+    </OnPlatform>
+
+    <!-- code (ユニバーサル文字名) -->
+    <x:String x:Key="PlusMarkIcon">&#xf101;</x:String>
+    <x:String x:Key="AndroidIcon">&#xf225;</x:String>
+    <x:String x:Key="AppleIcon">&#xf229;</x:String>
+    <x:String x:Key="WindowsIcon">&#xf32f;</x:String>
+    <x:String x:Key="GoodIcon">&#xf392;</x:String>
+    <x:String x:Key="BadIcon">&#xf391;</x:String>
+    <x:String x:Key="HeartIcon">&#xf308;</x:String>
+    <x:String x:Key="TwitterIcon">&#xf2b0;</x:String>
+    <x:String x:Key="GitHubIcon">&#xf239;</x:String>
+    <x:String x:Key="PlayStationIcon">&#xf245;</x:String>
+    <x:String x:Key="XBoxIcon">&#xf34c;</x:String>
+    <x:String x:Key="StillCamIcon">&#xf2ad;</x:String>
+    <x:String x:Key="MovieCamIcon">&#xf39f;</x:String>
+    <x:String x:Key="TakumiIcon">&#x5320;</x:String>
+
+</ResourceDictionary>
