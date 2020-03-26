@@ -105,7 +105,7 @@
                                   StringFormat='行間サンプル: {0}'}" />
 
             <!-- &#xD; がCRで、&#xA; がLFを表す らしい https://www.nuits.jp/entry/2016/07/30/213257 -->
-            <Label Text="改行文字、何か凄いよね&#xD;&#xA;CR=＆＃ｘＤ；  LF=＆＃ｘＡ；　←これを半角にする"
+            <Label Text="改行文字、何か凄いよね。&#xD;&#xA;　CR=＆＃ｘＤ；  LF=＆＃ｘＡ；　←これを半角にする"
                    BackgroundColor="Gray" />
 
             <StackLayout BackgroundColor="LightBlue" Padding="10" >

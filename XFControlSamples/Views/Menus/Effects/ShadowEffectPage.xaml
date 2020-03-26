@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="ShadowEffect"
+             x:Class="XFControlSamples.Views.Menus.ShadowEffectPage" >
+
+    <!--
+        Xamarin.Forms のエフェクト
+            https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/effects/
+
+        Xamarin.Forms でエフェクトを使用する
+            https://docs.microsoft.com/ja-jp/learn/modules/use-effects-in-xamarin-forms/
+    -->
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EffectLabelStyle" TargetType="{x:Type Label}" >
+                <Setter Property="Padding" Value="15" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackLayout Padding="30" Spacing="20" >
+        <Label Text="Change Effect Color from code behind when button is pressed." />
+
+        <Label TextColor="Red"
+               Text="Implement only Android.&#xD;&#xA;(iOS / UWP are not implemented.)"  />
+
+        <!-- Label -->
+        <Label x:Name="_labelShadow"
+               Style="{StaticResource EffectLabelStyle}"
+               Text="Label with ShadowEffect"
+               local:ShadowEffect.Color="Blue" >
+            <Element.Effects>
+                <local:ShadowEffect />
+            </Element.Effects>
+        </Label>
+
+        <!-- Button -->
+        <Button x:Name="_buttonShadow"
+                HeightRequest="100"
+                Text="Button with ShadowEffect"
+                BackgroundColor="LightGray"
+                local:ButtonGradientEffect.Color="{Binding BackgroundColor, Source={RelativeSource Self}, Mode=OneWay}"
+                Clicked="Button_Clicked" >
+
+            <!-- Effects は IList<Effect>型 なので複数指定できる-->
+            <Element.Effects>
+                <local:ShadowEffect />
+                <local:ButtonGradientEffect />
+            </Element.Effects>
+        </Button>
+
+    </StackLayout>
+
+</ContentPage>

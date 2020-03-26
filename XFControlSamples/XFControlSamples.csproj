@@ -51,6 +51,12 @@
     <Compile Update="Views\Menus\EditingText\EntryPage.xaml.cs">
       <DependentUpon>EntryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\Effects\ShadowEffectPage.xaml.cs">
+      <DependentUpon>ShadowEffectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\Effects\EffectsMenuPage.xaml.cs">
+      <DependentUpon>EffectsMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\Gestures\PopupPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
