@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:mkup="clr-namespace:XFControlSamples.Views.MarkupExtensions"
+             mc:Ignorable="d"
+             Title="IMarkupExtension"
+             x:Class="XFControlSamples.Views.Menus.MarkupExtensionPage" >
+
+    <!-- XAML マークアップ拡張の作成
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/markup-extensions/creating
+    -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleLabel" TargetType="{x:Type Label}" >
+                <Setter Property="Margin" Value="0,15,0,0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" >
+        <Label Style="{StaticResource TitleLabel}"
+               Text="IMarkupExtension&lt;T&gt; " FontSize="Large" />
+
+        <!-- Color.FromHsla() -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="HSLA to Color" />
+        <StackLayout Orientation="Horizontal" >
+            <VisualElement.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="BoxView">
+                        <Setter Property="WidthRequest" Value="40" />
+                        <Setter Property="HeightRequest" Value="40" />
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                    </Style>
+                </ResourceDictionary>
+            </VisualElement.Resources>
+
+            <BoxView>
+                <BoxView.Color>
+                    <mkup:HslColorExtension H="0" S="1" L="0.5" A="1" />
+                </BoxView.Color>
+            </BoxView>
+
+            <BoxView>
+                <BoxView.Color>
+                    <mkup:HslColor H="0.33" S="1" L="0.5" />
+                </BoxView.Color>
+            </BoxView>
+
+            <BoxView Color="{mkup:HslColorExtension H=0.67, S=1, L=0.5}" />
+
+            <BoxView Color="{mkup:HslColor H=0, S=0, L=0.5}" />
+
+            <BoxView Color="{mkup:HslColor A=0.5}" />
+        </StackLayout>
+
+        <!-- Color.FromHsla() -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="埋め込みリソース形式の画像をBinding&#xD;&#xA;EmbeddedImageResourceExtension" />
+        <Label Text="Resources.Images.xama_logo_in_shared_project.png" FontSize="Micro" />
+        <Image Source="{mkup:EmbeddedImageResource Resources.Images.xama_logo_in_shared_project.png}" />
+
+    </StackLayout>
+
+</ContentPage>

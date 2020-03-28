@@ -1,0 +1,24 @@
+﻿using System;
+using System.Globalization;
+using Xamarin.Forms;
+
+namespace XFControlSamples.Views.Converters
+{
+    class DoubleToIntegerConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) =>
+            (int)Math.Round((double)value * GetParameter(parameter));
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) =>
+            (int)value / GetParameter(parameter);
+
+        private double GetParameter(object parameter)
+        {
+            if (parameter is double d) return (int)Math.Round(d);
+            if (parameter is int i) return i;
+            if (parameter is string s) return double.Parse(s);
+
+            throw new NotSupportedException();
+        }
+    }
+}

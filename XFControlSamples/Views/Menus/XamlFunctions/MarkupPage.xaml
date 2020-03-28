@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="Markup"
+             x:Class="XFControlSamples.Views.Menus.MarkupPage" >
+
+    <!-- XAML マークアップ拡張機能の使用
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/markup-extensions/consuming
+    -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleLabel" TargetType="{x:Type Label}" >
+                <Setter Property="Margin" Value="0,10,0,0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" >
+        <!-- OnPlatform -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="OnPlatform" />
+        <Label Text="{}{OnPlatform Yellow, iOS=Red, Android=Green, UWP=Blue}"
+               TextColor="{OnPlatform Yellow, iOS=Red, Android=Green, UWP=Blue}" />
+
+        <Label>
+            <Label.Text>
+                <OnPlatform x:TypeArguments="x:String"
+                            Default="Unknown Platform..." >
+                    <OnPlatform.Platforms>
+                        <On Platform="iOS" Value="Platform is iOS." />
+                        <On Platform="Android" Value="Platform is Android." />
+                        <On Platform="UWP" Value="Platform is UWP." />
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Label.Text>
+        </Label>
+
+        <!-- OnIdiom -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="OnIdiom" />
+        <Label Text="{OnIdiom 不明, Phone=OnIdiom is 電話, Tablet=OnIdiom is タブレット, Desktop=OnIdiom is デスクトップ}"
+               TextColor="{OnIdiom Yellow, Phone=Red, Tablet=Green, Desktop=Blue}" />
+
+        <!-- x:Static -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="x:Static" />
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="DateTime.Now = " />
+                        <Span Text="{Binding Source={x:StaticExtension sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+                              TextColor="Blue" />
+                        <!-- XAMLパーサーでは、StaticExtension クラスを x:Staticとして省略することもできます -->
+                        <Span Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='  {0:H:mm:ss zzz}'}"
+                              TextColor="Red" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- x:FactoryMethod
+                https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/passing-arguments
+        -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="x:FactoryMethod" />
+        <StackLayout Orientation="Horizontal">
+            <BoxView HeightRequest="40" WidthRequest="40" HorizontalOptions="Center">
+                <BoxView.Color>
+                    <Color x:FactoryMethod="FromRgba">
+                        <x:Arguments>
+                            <!-- LightBlue -->
+                            <x:Int32>173</x:Int32>
+                            <x:Int32>216</x:Int32>
+                            <x:Int32>230</x:Int32>
+                            <x:Int32>255</x:Int32>
+                        </x:Arguments>
+                    </Color>
+                </BoxView.Color>
+            </BoxView>
+
+            <BoxView HeightRequest="40" WidthRequest="40" HorizontalOptions="Center">
+                <BoxView.Color>
+                    <Color x:FactoryMethod="FromHex">
+                        <x:Arguments>
+                            <!-- LightBlue -->
+                            <x:String>#FFADD8E6</x:String>
+                        </x:Arguments>
+                    </Color>
+                </BoxView.Color>
+            </BoxView>
+        </StackLayout>
+
+        <!-- x:Array -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="x:Array" />
+        <ListView BackgroundColor="LightGray">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}" >
+                    <x:Int32>1</x:Int32>
+                    <x:Int32>2</x:Int32>
+                    <x:Int32>3</x:Int32>
+                </x:Array>
+            </ListView.ItemsSource>
+        </ListView>
+
+    </StackLayout>
+</ContentPage>

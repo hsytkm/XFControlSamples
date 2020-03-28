@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             mc:Ignorable="d"
+             Title="Binding Source"
+             x:Class="XFControlSamples.Views.Menus.BindingSourcePage" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleLabel" TargetType="{x:Type Label}" >
+                <Setter Property="Margin" Value="0,10,0,0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" >
+        <!-- x:Reference / RelativeSource Self -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="x:Reference / Self" />
+        <StackLayout Orientation="Horizontal" >
+            <Slider x:Name="slider"
+                    MinimumTrackColor="Blue"
+                    MaximumTrackColor="Red"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="30,0" Minimum="0" Maximum="100" />
+
+            <BoxView HorizontalOptions="Center"
+                     BackgroundColor="LightBlue"
+                     WidthRequest="{Binding Source={x:Reference Name=slider}, Path=Value}"
+                     HeightRequest="{Binding Source={RelativeSource Self}, Path=WidthRequest}" />
+        </StackLayout>
+
+        <!-- RelativeSource AncestorType -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="AncestorType" />
+        <Grid BackgroundColor="LightCoral" >
+            <Label BackgroundColor="LightGray"
+                   Padding="10"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   TextColor="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=BackgroundColor}"
+                   Text="Binding Ancestor Panel Color" />
+        </Grid>
+
+        <!-- TargetNullValue / FallbackValue
+             https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/data-binding/binding-fallbacks
+        -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="TargetNullValue / FallbackValue" />
+        <Label TextColor="Blue" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="{}{Binding MessageNull, TargetNullValue='Use TargetNullValue when null.'}"
+                              FontSize="Micro" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="{Binding MessageNull, TargetNullValue='Use TargetNullValue when null.'}" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label TextColor="Green" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="{}{Binding MessageNulllll, FallbackValue='Use FallbackValue when doesn't exist.'}"
+                              FontSize="Micro" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="{Binding MessageNulllll, FallbackValue='Use FallbackValue when fallback.'}" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+    </StackLayout>
+</ContentPage>

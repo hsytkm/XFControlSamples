@@ -12,6 +12,15 @@ namespace XFControlSamples.Views.Menus
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BlankPage : ContentPage
     {
+        public static readonly BindableProperty MessageProperty =
+            BindableProperty.Create(nameof(Message), typeof(string), typeof(BlankPage), nameof(BlankPage));
+
+        public string Message
+        {
+            get => (string)GetValue(MessageProperty);
+            set => SetValue(MessageProperty, value);
+        }
+
         public BlankPage()
         {
             InitializeComponent();

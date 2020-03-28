@@ -6,10 +6,8 @@
              mc:Ignorable="d"
              x:Class="XFControlSamples.Views.Menus.BlankPage">
 
-    <StackLayout>
-        <Label Text="BlankPage"
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-    </StackLayout>
+    <Label Text="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=Message}"
+           VerticalOptions="CenterAndExpand" 
+           HorizontalOptions="CenterAndExpand" />
 
 </ContentPage>

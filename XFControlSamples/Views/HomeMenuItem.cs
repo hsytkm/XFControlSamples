@@ -15,6 +15,7 @@ namespace XFControlSamples.Views
         {
             Systems,
             BottomTab,
+            XamlFunctions,
             UIFunctions,
             Effects,
             LayoutSingle,
@@ -37,6 +38,7 @@ namespace XFControlSamples.Views
         {
             [PageType.Systems] = typeof(SystemsMenuPage),
             [PageType.BottomTab] = typeof(BottomTabPage),
+            [PageType.XamlFunctions] = typeof(XamlFunctionsMenuPage),
             [PageType.UIFunctions] = typeof(UIFunctionsMenuPage),
             [PageType.Effects] = typeof(EffectsMenuPage),
             [PageType.LayoutSingle] = typeof(LayoutSingleMenuPage),

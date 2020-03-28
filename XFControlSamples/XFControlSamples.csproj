@@ -198,6 +198,21 @@
     <Compile Update="Views\Menus\Triggers\TriggersMenuPage.xaml.cs">
       <DependentUpon>TriggersMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\MarkupExtensionPage.xaml.cs">
+      <DependentUpon>MarkupExtensionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\ValueConverterPage.xaml.cs">
+      <DependentUpon>ValueConverterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\BindingSourcePage.xaml.cs">
+      <DependentUpon>BindingSourcePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\MarkupPage.xaml.cs">
+      <DependentUpon>MarkupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\XamlFunctionsMenuPage.xaml.cs">
+      <DependentUpon>XamlFunctionsMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Resources\IonIconFontFamilyResource.xaml.cs">
       <DependentUpon>IonIconFontFamilyResource.xaml</DependentUpon>
     </Compile>
@@ -252,5 +267,9 @@
     <EmbeddedResource Update="Views\Resources\IonIconFontFamilyResource.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\MarkupExtensions\" />
   </ItemGroup>
 </Project>

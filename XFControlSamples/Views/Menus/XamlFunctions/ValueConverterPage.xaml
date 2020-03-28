@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:conv="clr-namespace:XFControlSamples.Views.Converters"
+             mc:Ignorable="d"
+             Title="IValueConverter"
+             x:Class="XFControlSamples.Views.Menus.ValueConverterPage" >
+
+    <!-- Xamarin.Forms バインディングの値コンバーター
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/data-binding/converters
+    -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleLabel" TargetType="{x:Type Label}" >
+                <Setter Property="Margin" Value="0,10,0,0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>            
+            
+            <conv:DoubleToIntegerConverter x:Key="DoubleToIntConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" >
+        <Label Style="{StaticResource TitleLabel}"
+               Text="IValueConverter" FontSize="Large" />
+
+        <!-- DoubleToIntConverter -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="入力値doubleに指定値を乗算する&#xD;&#xA;(use ConverterParameter)&#xD;&#xA;DoubleToIntConverter" />
+        <StackLayout BackgroundColor="LightGray" Padding="20" Margin="10" >
+            <Slider x:Name="slider1" Margin="30,0" Minimum="0" Maximum="1" />
+
+            <Label Text="{Binding Source={x:Reference slider1}, Path=Value, StringFormat='Raw value is {0:f2}'}" />
+
+            <Label Text="{Binding Source={x:Reference slider1}, Path=Value, StringFormat='Raw value * 100 is {0}',
+                                  Converter={StaticResource DoubleToIntConverter},
+                                  ConverterParameter=100}" />
+
+            <Label Text="{Binding Source={x:Reference slider1}, Path=Value, StringFormat='Raw value * 255 is {0}',
+                                  Converter={StaticResource DoubleToIntConverter},
+                                  ConverterParameter=255}" />
+        </StackLayout>
+
+        <!-- BooleanToObjectConverter -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="bool値に応じて色々と切り替える&#xD;&#xA;BooleanToObjectConverter" />
+        <StackLayout Orientation="Horizontal" Spacing="30" >
+            <Label Text="Switch State" />
+            <Switch x:Name="switch1" />
+            <Label>
+                <Label.Text>
+                    <Binding Source="{x:Reference switch1}" Path="IsToggled" >
+                        <Binding.Converter>
+                            <conv:BooleanToObjectConverter x:TypeArguments="x:String"
+                                                           TrueObject="switch is true."
+                                                           FalseObject="switch is false." />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.Text>
+                <Label.TextColor>
+                    <Binding Source="{x:Reference switch1}" Path="IsToggled" >
+                        <Binding.Converter>
+                            <conv:BooleanToObjectConverter x:TypeArguments="Color"
+                                                           TrueObject="Blue"
+                                                           FalseObject="Gray" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.TextColor>
+            </Label>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
