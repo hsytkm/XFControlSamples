@@ -198,6 +198,9 @@
     <Compile Update="Views\Menus\Triggers\TriggersMenuPage.xaml.cs">
       <DependentUpon>TriggersMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\EventToCommandPage.xaml.cs">
+      <DependentUpon>EventToCommandPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\XamlFunctions\MarkupExtensionPage.xaml.cs">
       <DependentUpon>MarkupExtensionPage.xaml</DependentUpon>
     </Compile>
@@ -267,9 +270,5 @@
     <EmbeddedResource Update="Views\Resources\IonIconFontFamilyResource.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\MarkupExtensions\" />
   </ItemGroup>
 </Project>

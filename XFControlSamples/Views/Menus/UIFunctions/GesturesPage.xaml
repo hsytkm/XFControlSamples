@@ -62,7 +62,8 @@
             <Label Grid.Row="2" Text="Gesture Area: Pinch, Pan" />
             <BoxView Grid.Row="3" BackgroundColor="LightPink" >
                 <View.GestureRecognizers>
-                    <!-- These gestures don't have command... Why? -->
+                    <!-- これらの Gestures は Comannd プロパティが存在しないが、
+                         EventToCommandBehavior を使えば Command をバインドできるかも？(未確認) -->
                     <PinchGestureRecognizer PinchUpdated="OnPinchUpdated" />
                     <PanGestureRecognizer PanUpdated="OnPanUpdated" />
                 </View.GestureRecognizers>

@@ -26,16 +26,14 @@ namespace XFControlSamples.Views.Menus
         {
             if (!(BindingContext is GesturesPageViewModel vm)) return;
 
-            // 無理やりだけどshoganai
-            vm.Message = "Pinched";
+            vm.Message = "Pinched : " + e.Status.ToString();
         }
 
         private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
             if (!(BindingContext is GesturesPageViewModel vm)) return;
 
-            // 無理やりだけどshoganai
-            vm.Message = "Panned";
+            vm.Message = "Panned  : " + e.StatusType.ToString();
         }
     }
 

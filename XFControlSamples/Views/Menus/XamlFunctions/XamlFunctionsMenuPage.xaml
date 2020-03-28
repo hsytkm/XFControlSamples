@@ -45,7 +45,7 @@
             </x:Arguments>
         </NavigationPage>
 
-        <!-- ValueConverter -->
+        <!-- IValueConverter -->
         <NavigationPage Title="ValConv" >
             <x:Arguments>
                 <local:ValueConverterPage />
@@ -57,12 +57,13 @@
         <!-- AttachedProperty -->
 
         <!-- MarkupExtension -->
-        <NavigationPage Title="MarkupEx" >
+        <NavigationPage Title="MkupEx" >
             <x:Arguments>
                 <local:MarkupExtensionPage />
             </x:Arguments>
         </NavigationPage>
 
+        <!-- IMarkupExtension -->
         <NavigationPage Title="MultiConv" >
             <x:Arguments>
                 <!-- https://github.com/hsytkm/XFMultiValueConverter -->
@@ -71,6 +72,13 @@
             </x:Arguments>
         </NavigationPage>
 
+        <!-- EventToCommand -->
+        <NavigationPage Title="Evt2Cmd" >
+            <x:Arguments>
+                <local:EventToCommandPage />
+            </x:Arguments>
+        </NavigationPage>
+        
     </TabbedPage.Children>
 
 </TabbedPage>

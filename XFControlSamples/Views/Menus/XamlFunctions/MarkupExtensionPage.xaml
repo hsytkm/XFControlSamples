@@ -20,6 +20,7 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
+            <x:Int32 x:Key="int32value">123</x:Int32>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -61,11 +62,16 @@
             <BoxView Color="{mkup:HslColor A=0.5}" />
         </StackLayout>
 
-        <!-- Color.FromHsla() -->
+        <!-- Image of embedded resource -->
         <Label Style="{StaticResource TitleLabel}"
                Text="埋め込みリソース形式の画像をBinding&#xD;&#xA;EmbeddedImageResourceExtension" />
         <Label Text="Resources.Images.xama_logo_in_shared_project.png" FontSize="Micro" />
         <Image Source="{mkup:EmbeddedImageResource Resources.Images.xama_logo_in_shared_project.png}" />
+
+        <!-- StaticResource を string に組み込んで、Textプロパティに表示 -->
+        <Label Style="{StaticResource TitleLabel}"
+               Text="StaticResource&#xD;&#xA;StringFormatExtension" />
+        <Label Text="{mkup:StringFormat int32value, StringFormat='int32value of StaticResource is {0}.'}" />
 
     </StackLayout>
 

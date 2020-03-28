@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:conv="clr-namespace:XFControlSamples.Views.Converters"
+             xmlns:behavior="clr-namespace:XFControlSamples.Views.Behaviors"
+             xmlns:mkup="clr-namespace:XFControlSamples.Views.MarkupExtensions"
+             mc:Ignorable="d"
+             Title="EventToCommandBehavior"
+             x:DataType="local:EventToCommandViewModel"
+             x:Class="XFControlSamples.Views.Menus.EventToCommandPage" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Int32 x:Key="addValue">10</x:Int32>
+            <conv:ObjectToIntegerConverter x:Key="ObjToIntConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="30">
+        <Button HeightRequest="100"
+                Text="Add 1 to Counter" >
+            <VisualElement.Behaviors>
+                <behavior:EventToCommandBehavior
+                    EventName="Clicked"
+                    Command="{Binding Add1Command, Mode=OneTime}" />
+            </VisualElement.Behaviors>
+        </Button>
+
+        <Button HeightRequest="100"
+                Text="{mkup:StringFormat addValue, StringFormat='Add {0} to Counter'}" >
+            <VisualElement.Behaviors>
+                <behavior:EventToCommandBehavior
+                    EventName="Clicked"
+                    Command="{Binding AddXCommand, Mode=OneTime}"
+                    CommandParameter="{StaticResource addValue}"
+                    Converter="{StaticResource ObjToIntConverter}"/>
+            </VisualElement.Behaviors>
+        </Button>
+
+        <Label HorizontalOptions="Center"
+               FontAttributes="Bold"
+               Text="{Binding Counter, Mode=OneWay, StringFormat='Button Counter: {0}'}" />
+
+    </StackLayout>
+
+</ContentPage>
