@@ -30,6 +30,11 @@ namespace XFControlSamples.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            var width = (Resources.DisplayMetrics.WidthPixels - 0.5f) / Resources.DisplayMetrics.Density;
+            var height = (Resources.DisplayMetrics.HeightPixels - 0.5f) / Resources.DisplayMetrics.Density;
+            App.ScreenSize = (width, height);
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

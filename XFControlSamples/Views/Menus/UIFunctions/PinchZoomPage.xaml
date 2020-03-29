@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:ctrl="clr-namespace:XFControlSamples.Views.Controls"
+             xmlns:mkup="clr-namespace:XFControlSamples.Views.MarkupExtensions"
+             xmlns:behavior="clr-namespace:XFControlSamples.Views.Behaviors"
+             mc:Ignorable="d"
+             Title="PinchZoom"
+             x:Class="XFControlSamples.Views.Menus.PinchZoomPage" >
+
+    <!-- PinchToZoom コンテナーの作成
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/gestures/pinch
+    -->
+
+    <StackLayout BackgroundColor="LightGray" Spacing="0" >
+        <Label Margin="10,20" FontAttributes="Bold" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Pinch de image zoom (source size is 1280x960)" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="  上：自作Control,  下：Behavior (同じ動き)" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <ctrl:PinchToZoomContainer BackgroundColor="LightBlue" >
+            <Image Source="{mkup:EmbeddedImageResource Resources.Images.dish_1280x960.jpg}" />
+        </ctrl:PinchToZoomContainer>
+
+        <ContentView BackgroundColor="LightPink" >
+            <ContentView.Behaviors>
+                <behavior:PinchToZoomBehavior />
+            </ContentView.Behaviors>
+
+            <Image Source="{mkup:EmbeddedImageResource Resources.Images.dish_1280x960.jpg}" />
+        </ContentView>
+
+    </StackLayout>
+</ContentPage>

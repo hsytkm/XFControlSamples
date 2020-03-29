@@ -11,12 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\dish_1280x960.jpg" />
     <None Remove="Resources\Images\dish_qvga.jpg" />
     <None Remove="Resources\Images\xama_logo_in_shared_project.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Images\dish_qvga.jpg" />
+    <EmbeddedResource Include="Resources\Images\dish_1280x960.jpg" />
     <EmbeddedResource Include="Resources\Images\xama_logo_in_shared_project.png" />
   </ItemGroup>
 
@@ -143,8 +144,14 @@
     <Compile Update="Views\Menus\Systems\SystemTopPage.xaml.cs">
       <DependentUpon>SystemTopPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Menus\UIFunctions\ImageZoomPage.xaml.cs">
-      <DependentUpon>ImageZoomPage.xaml</DependentUpon>
+    <Compile Update="Views\Menus\UIFunctions\PanPinchPage.xaml.cs">
+      <DependentUpon>PanPinchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\UIFunctions\PanShiftPage.xaml.cs">
+      <DependentUpon>PanShiftPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\UIFunctions\PinchZoomPage.xaml.cs">
+      <DependentUpon>PinchZoomPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\UIFunctions\RotateDisplayPage.xaml.cs">
       <DependentUpon>RotateDisplayPage.xaml</DependentUpon>

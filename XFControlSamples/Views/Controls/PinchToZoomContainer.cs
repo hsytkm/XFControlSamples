@@ -4,6 +4,8 @@ using Xamarin.Forms.Internals;
 
 namespace XFControlSamples.Views.Controls
 {
+    // PinchToZoom コンテナーの作成
+    //  https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/gestures/pinch
     class PinchToZoomContainer : ContentView
     {
         private double currentScale = 1;
@@ -20,14 +22,16 @@ namespace XFControlSamples.Views.Controls
 
         private void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
         {
+            var content = Content;
+
             switch (e.Status)
             {
                 case GestureStatus.Started:
                     // Store the current scale factor applied to the wrapped user interface element,
                     // and zero the components for the center point of the translate transform.
-                    startScale = Content.Scale;
-                    Content.AnchorX = 0;
-                    Content.AnchorY = 0;
+                    startScale = content.Scale;
+                    content.AnchorX = 0;
+                    content.AnchorY = 0;
                     break;
                 case GestureStatus.Running:
                     // Calculate the scale factor to be applied.
@@ -36,33 +40,33 @@ namespace XFControlSamples.Views.Controls
 
                     // The ScaleOrigin is in relative coordinates to the wrapped user interface element,
                     // so get the X pixel coordinate.
-                    double renderedX = Content.X + xOffset;
-                    double deltaX = renderedX / Width;
-                    double deltaWidth = Width / (Content.Width * startScale);
+                    double renderedX = content.X + xOffset;
+                    double deltaX = renderedX / this.Width;
+                    double deltaWidth = this.Width / (content.Width * startScale);
                     double originX = (e.ScaleOrigin.X - deltaX) * deltaWidth;
 
                     // The ScaleOrigin is in relative coordinates to the wrapped user interface element,
                     // so get the Y pixel coordinate.
-                    double renderedY = Content.Y + yOffset;
-                    double deltaY = renderedY / Height;
-                    double deltaHeight = Height / (Content.Height * startScale);
+                    double renderedY = content.Y + yOffset;
+                    double deltaY = renderedY / this.Height;
+                    double deltaHeight = this.Height / (content.Height * startScale);
                     double originY = (e.ScaleOrigin.Y - deltaY) * deltaHeight;
 
                     // Calculate the transformed element pixel coordinates.
-                    double targetX = xOffset - (originX * Content.Width) * (currentScale - startScale);
-                    double targetY = yOffset - (originY * Content.Height) * (currentScale - startScale);
+                    double targetX = xOffset - (originX * content.Width) * (currentScale - startScale);
+                    double targetY = yOffset - (originY * content.Height) * (currentScale - startScale);
 
                     // Apply translation based on the change in origin.
-                    Content.TranslationX = targetX.Clamp(-Content.Width * (currentScale - 1), 0);
-                    Content.TranslationY = targetY.Clamp(-Content.Height * (currentScale - 1), 0);
+                    content.TranslationX = targetX.Clamp(-content.Width * (currentScale - 1), 0);
+                    content.TranslationY = targetY.Clamp(-content.Height * (currentScale - 1), 0);
 
                     // Apply scale factor.
-                    Content.Scale = currentScale;
+                    content.Scale = currentScale;
                     break;
                 case GestureStatus.Completed:
                     // Store the translation delta's of the wrapped user interface element.
-                    xOffset = Content.TranslationX;
-                    yOffset = Content.TranslationY;
+                    xOffset = content.TranslationX;
+                    yOffset = content.TranslationY;
                     break;
             }
         }

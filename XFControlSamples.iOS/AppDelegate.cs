@@ -32,6 +32,9 @@ namespace XFControlSamples.iOS
                 );
 
             global::Xamarin.Forms.Forms.Init();
+
+            App.ScreenSize = (UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

@@ -8,6 +8,10 @@ namespace XFControlSamples
 {
     public partial class App : Application
     {
+        // Panジェスチャで使ってます
+        // https://docs.microsoft.com/ja-jp/samples/xamarin/xamarin-forms-samples/workingwithgestures-pangesture/
+        public static (double Width, double Height) ScreenSize;
+
         public App()
         {
             InitializeComponent();

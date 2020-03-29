@@ -18,8 +18,12 @@
             <conv:ObjectToIntegerConverter x:Key="ObjToIntConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-
+    
     <StackLayout Padding="30">
+        <Label Margin="0,15" 
+               FontAttributes="Bold" FontSize="Medium"
+               Text="UIEvent で Command を実行するBehavior"  />
+
         <Button HeightRequest="100"
                 Text="Add 1 to Counter" >
             <VisualElement.Behaviors>
@@ -42,7 +46,8 @@
 
         <Label HorizontalOptions="Center"
                FontAttributes="Bold"
-               Text="{Binding Counter, Mode=OneWay, StringFormat='Button Counter: {0}'}" />
+               FontSize="Large"
+               Text="{Binding Counter, Mode=OneWay, StringFormat='Counter: {0}'}" />
 
     </StackLayout>
 

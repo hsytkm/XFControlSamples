@@ -17,15 +17,16 @@
         https://www.project-respite.com/recent-xamarin-update/
     -->
     <TabbedPage.Children>
-        <ContentPage Title="Tab 1" BackgroundColor="LightPink" >
-            <ContentPage.IconImageSource>
+        <local:BlankPage Title="Tab 1" BackgroundColor="LightBlue"
+                         Message="Android なら画面左端をスワイプすればメニューが表示される" >
+            <Page.IconImageSource>
                 <FontImageSource Glyph="{StaticResource StillCamIcon}"
                                  FontFamily="{StaticResource IconFontFamily}"
                                  Size="64" />
-            </ContentPage.IconImageSource>
-        </ContentPage>
+            </Page.IconImageSource>
+        </local:BlankPage>
 
-        <ContentPage Title="Tab 2" BackgroundColor="LightGreen" >
+        <ContentPage Title="Tab 2" BackgroundColor="LightPink" >
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="{StaticResource MovieCamIcon}"
                                  FontFamily="{StaticResource IconFontFamily}"
@@ -33,7 +34,7 @@
             </ContentPage.IconImageSource>
         </ContentPage>
 
-        <ContentPage Title="Tab 3" BackgroundColor="LightBlue" >
+        <ContentPage Title="Tab 3" BackgroundColor="LightGreen" >
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="{StaticResource TwitterIcon}"
                                  FontFamily="{StaticResource IconFontFamily}"

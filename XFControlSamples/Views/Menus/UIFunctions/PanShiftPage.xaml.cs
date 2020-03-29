@@ -13,9 +13,9 @@ using Xamarin.Forms.Xaml;
 namespace XFControlSamples.Views.Menus
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ImageZoomPage : ContentPage
+    public partial class PanShiftPage : ContentPage
     {
-        public ImageZoomPage()
+        public PanShiftPage()
         {
             InitializeComponent();
         }

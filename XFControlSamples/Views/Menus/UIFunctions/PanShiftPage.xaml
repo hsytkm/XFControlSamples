@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:ctrl="clr-namespace:XFControlSamples.Views.Controls"
+             xmlns:mkup="clr-namespace:XFControlSamples.Views.MarkupExtensions"
+             xmlns:behavior="clr-namespace:XFControlSamples.Views.Behaviors"
+             mc:Ignorable="d"
+             Title="PanShift"
+             x:Class="XFControlSamples.Views.Menus.PanShiftPage" >
+
+    <!-- パン コンテナーの作成
+         https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/gestures/pan
+    -->
+
+    <StackLayout BackgroundColor="LightGray" Spacing="0" >
+        <Label Margin="10,20" FontAttributes="Bold"
+               Text="Pan de image shift" />
+
+        <ctrl:PanToShiftContainer VerticalOptions="EndAndExpand"
+                                  BackgroundColor="LightBlue" >
+            <Image Source="{mkup:EmbeddedImageResource Resources.Images.dish_1280x960.jpg}"
+                   VerticalOptions="StartAndExpand"
+                   WidthRequest="2560" />
+        </ctrl:PanToShiftContainer>
+
+    </StackLayout>
+</ContentPage>

@@ -42,7 +42,7 @@
             <Label Text="Defaultフォント, Defaultサイズ"
                    Font="Default" FontSize="Default"/>
 
-            <Label>
+            <Label> <!-- 改行 -->
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
@@ -50,7 +50,7 @@
                             <Span Text="Medium " FontSize="Medium" />
                             <Span Text="Small " FontSize="Small" />
                             <Span Text="Micro " FontSize="Micro" />
-                            <Span Text="{x:Static x:Environment.NewLine}" />    <!-- 改行 -->
+                            <Span Text="{x:Static x:Environment.NewLine}" />
                             <Span Text="Title " FontSize="Title" />
                             <Span Text="Subtitle " FontSize="Subtitle" />
                             <Span Text="Header " FontSize="Header" />
