@@ -11,10 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Images\dish_qvga.jpg" />
     <None Remove="Resources\Images\xama_logo_in_shared_project.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\dish_qvga.jpg" />
     <EmbeddedResource Include="Resources\Images\xama_logo_in_shared_project.png" />
   </ItemGroup>
 
@@ -140,6 +142,9 @@
     </Compile>
     <Compile Update="Views\Menus\Systems\SystemTopPage.xaml.cs">
       <DependentUpon>SystemTopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\UIFunctions\ImageZoomPage.xaml.cs">
+      <DependentUpon>ImageZoomPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Menus\UIFunctions\RotateDisplayPage.xaml.cs">
       <DependentUpon>RotateDisplayPage.xaml</DependentUpon>

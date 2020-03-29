@@ -29,6 +29,12 @@
             </x:Arguments>
         </NavigationPage>
 
+        <NavigationPage Title="Zoom" >
+            <x:Arguments>
+                <local:ImageZoomPage />
+            </x:Arguments>
+        </NavigationPage>
+        
     </TabbedPage.Children>
     
 </TabbedPage>
