@@ -4,9 +4,10 @@ namespace XFControlSamples.Views.Menus
 {
     public class ButtonGradientEffect : RoutingEffect
     {
-        public ButtonGradientEffect()
-            : base("XFControlSamples." + nameof(ButtonGradientEffect))
-        { }
+        public static readonly string Group = "XFControlSamples"; // this.GetType().GetTypeInfo().Assembly.GetName().Name;
+        public static readonly string Name = nameof(ButtonGradientEffect);
+
+        public ButtonGradientEffect() : base(Group + "." + Name){ }
 
         // Attached Property
         public static readonly BindableProperty ColorProperty =

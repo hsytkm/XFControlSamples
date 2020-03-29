@@ -20,7 +20,7 @@ namespace XFControlSamples.Views.MarkupExtensions
                 throw new XamlParseException($"{nameof(EmbeddedImageResourceExtension)} requires {nameof(Source)} property to be set", lineInfo);
             }
 
-            var assemblyName = GetType().GetTypeInfo().Assembly.GetName().Name;
+            var assemblyName = this.GetType().GetTypeInfo().Assembly.GetName().Name;
             return ImageSource.FromResource(assemblyName + "." + Source, typeof(EmbeddedImageResourceExtension).GetTypeInfo().Assembly);
         }
 

@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:behavior="clr-namespace:XFControlSamples.Views.Behaviors"
              mc:Ignorable="d"
              Title="ShadowEffect"
              x:Class="XFControlSamples.Views.Menus.ShadowEffectPage" >
@@ -57,6 +58,24 @@
                 <local:ButtonGradientEffect />
             </Element.Effects>
         </Button>
+
+        <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/app-fundamentals/behaviors/reusable/effect-behavior
+             ビヘイビアでEffectを付けるパターン
+             ビヘイビアを使うメリットは以下らしい。
+                『エフェクトの定型コードを分離コード ファイルから削除できることです』
+             今回のエフェクトでは添付プロパティを使用しており、*.cs を作らざる得ないので、
+             あまり効果が得られない。
+             添付プロパティがないエフェクトなら *.cs を用意する必要がなくなるで良さげ。
+        -->
+        <Label Style="{StaticResource EffectLabelStyle}"
+               Text="Label with ShadowEffect using behavior"
+               local:ShadowEffect.Color="Red" >
+            <Label.Behaviors>
+                <!-- Group を 指定しない場合は AssemblyName になる (="XFControlSamples")  -->
+                <!-- EffectType があれば型名 を、なければ Name を使用する -->
+                <behavior:EffectBehavior EffectType="{x:Type local:ShadowEffect}" />
+            </Label.Behaviors>
+        </Label>
 
     </StackLayout>
 

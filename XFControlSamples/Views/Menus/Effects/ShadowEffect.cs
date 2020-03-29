@@ -4,9 +4,10 @@ namespace XFControlSamples.Views.Menus
 {
     public class ShadowEffect : RoutingEffect
     {
-        public ShadowEffect()
-            : base("XFControlSamples." + nameof(ShadowEffect))
-        { }
+        public static readonly string Group = "XFControlSamples"; // this.GetType().GetTypeInfo().Assembly.GetName().Name;
+        public static readonly string Name = nameof(ShadowEffect);
+
+        public ShadowEffect() : base(Group + "." + Name) { }
 
         // Attached Property
         public static readonly BindableProperty ColorProperty =
