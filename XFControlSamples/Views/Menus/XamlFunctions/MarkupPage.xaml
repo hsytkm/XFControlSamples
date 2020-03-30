@@ -20,13 +20,16 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
+
+            <!-- x:String の定義-->
+            <x:String x:Key="OnPlatformString">OnPlatform</x:String>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <StackLayout Padding="10" >
         <!-- OnPlatform -->
         <Label Style="{StaticResource TitleLabel}"
-               Text="OnPlatform" />
+               Text="{StaticResource OnPlatformString}" />
         <Label Text="{}{OnPlatform Yellow, iOS=Red, Android=Green, UWP=Blue}"
                TextColor="{OnPlatform Yellow, iOS=Red, Android=Green, UWP=Blue}" />
 
@@ -56,6 +59,8 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
+                        <Span Text="{Binding Source={x:Static sys:Math.PI}, StringFormat='Math.PI(f10) = {0:f10}'}" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="DateTime.Now = " />
                         <Span Text="{Binding Source={x:StaticExtension sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
                               TextColor="Blue" />

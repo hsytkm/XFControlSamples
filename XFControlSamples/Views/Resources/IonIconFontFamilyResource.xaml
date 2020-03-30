@@ -47,4 +47,19 @@
     <x:String x:Key="MovieCamIcon">&#xf39f;</x:String>
     <x:String x:Key="TakumiIcon">&#x5320;</x:String>
 
+    <OnPlatform x:Key="PlatformBrandIconGlyph" x:TypeArguments="x:String" >
+        <On Platform="Android" Value="{StaticResource AndroidIcon}" />
+        <On Platform="UWP" Value="{StaticResource WindowsIcon}" />
+        <On Platform="WPF" Value="{StaticResource XBoxIcon}" />
+        <On Platform="iOS" Value="{StaticResource AppleIcon}" />
+    </OnPlatform>
+
+    <!-- 以下の色はテキトー(雰囲気) -->
+    <OnPlatform x:Key="PlatformBrandIconColor" x:TypeArguments="Color" >
+        <On Platform="Android" Value="{x:Static Color.GreenYellow}" />
+        <On Platform="UWP" Value="{x:Static Color.LightSkyBlue}" />
+        <On Platform="WPF" Value="{x:Static Color.DarkGreen}" />
+        <On Platform="iOS" Value="{x:Static Color.LightSlateGray}" />
+    </OnPlatform>
+
 </ResourceDictionary>

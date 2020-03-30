@@ -25,43 +25,47 @@
                Placeholder="Phone Number" Text=""
                Keyboard="Telephone" />
 
-        <StackLayout Orientation="Horizontal" Spacing="20" >
-            <Button Text="OR" IsEnabled="True" >
-                <Button.Triggers>
-                    <MultiTrigger TargetType="{x:Type Button}">
-                        <MultiTrigger.Conditions>
-                            <BindingCondition Binding="{Binding Source={x:Reference email},
-                                                                Path=Text.Length}"
-                                              Value="0" />
-                            <BindingCondition Binding="{Binding Source={x:Reference phone},
-                                                                Path=Text.Length}"
-                                              Value="0" />
-                        </MultiTrigger.Conditions>
-                        <Setter Property="IsEnabled" Value="False" />
-                        <!-- multiple Setter elements are allowed -->
-                    </MultiTrigger>
-                </Button.Triggers>
-            </Button>
+        <Label Margin="0,20,0,0"
+               FontAttributes="Bold" TextColor="Blue"
+               Text="基本は押せるが、両方のText長が 0 なら押せない" />
+        <Button Text="OR" IsEnabled="True" >
+            <Button.Triggers>
+                <MultiTrigger TargetType="{x:Type Button}">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding Source={x:Reference email},
+                                                            Path=Text.Length}"
+                                          Value="0" />
+                        <BindingCondition Binding="{Binding Source={x:Reference phone},
+                                                            Path=Text.Length}"
+                                          Value="0" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="IsEnabled" Value="False" />
+                    <!-- multiple Setter elements are allowed -->
+                </MultiTrigger>
+            </Button.Triggers>
+        </Button>
 
-            <Button Text="AND" IsEnabled="False" >
-                <Button.Triggers>
-                    <MultiTrigger TargetType="{x:Type Button}">
-                        <MultiTrigger.Conditions>
-                            <BindingCondition Binding="{Binding Source={x:Reference email},
-                                                                Path=Text.Length,
-                                                                Converter={StaticResource textHasBeenEntered}}"
-                                              Value="True" />
-                            <BindingCondition Binding="{Binding Source={x:Reference phone},
-                                                                Path=Text.Length,
-                                                                Converter={StaticResource textHasBeenEntered}}"
-                                              Value="True" />
-                        </MultiTrigger.Conditions>
-                        <Setter Property="IsEnabled" Value="True" />
-                        <!-- multiple Setter elements are allowed -->
-                    </MultiTrigger>
-                </Button.Triggers>
-            </Button>
-        </StackLayout>
+        <Label Margin="0,20,0,0"
+               FontAttributes="Bold" TextColor="Blue"
+               Text="基本は押せない、両方に文字が入っていたら押せる" />
+        <Button Text="AND" IsEnabled="False" >
+            <Button.Triggers>
+                <MultiTrigger TargetType="{x:Type Button}">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding Source={x:Reference email},
+                                                            Path=Text.Length,
+                                                            Converter={StaticResource textHasBeenEntered}}"
+                                          Value="True" />
+                        <BindingCondition Binding="{Binding Source={x:Reference phone},
+                                                            Path=Text.Length,
+                                                            Converter={StaticResource textHasBeenEntered}}"
+                                          Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="IsEnabled" Value="True" />
+                    <!-- multiple Setter elements are allowed -->
+                </MultiTrigger>
+            </Button.Triggers>
+        </Button>
 
     </StackLayout>
 

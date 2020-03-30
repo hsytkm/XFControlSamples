@@ -4,9 +4,32 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:models="clr-namespace:XFControlSamples.Models"
+             xmlns:mkup="clr-namespace:XFControlSamples.Views.MarkupExtensions"
              mc:Ignorable="d"
              Title="Top"
              x:Class="XFControlSamples.Views.Menus.SystemTopPage">
+
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/toolbaritem
+         Order: 折りたたみグループ指定
+         Priority: ToolbarItems コレクションの表示順序を決定する(int型)
+    -->
+    <ContentPage.ToolbarItems>
+        <!-- Priority順で並ぶ。SecondaryにIcon設定しても表示されない(UWP/Android) -->
+        <ToolbarItem Text="Item3" Order="Primary" Priority="33"
+                     IconImageSource="{mkup:EmbeddedImageResource Resources.Images.xama_logo_in_shared_project.png}" />
+        <ToolbarItem Text="Item2" Order="Primary" Priority="2" />
+        <ToolbarItem Text="Item1" Order="Primary" Priority="-1" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource Glyph="{StaticResource PlatformBrandIconGlyph}"
+                                 Color="{StaticResource PlatformBrandIconColor}"
+                                 FontFamily="{StaticResource IconFontFamily}"
+                                 Size="{OnPlatform 64, UWP=8}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Text="Item4" Order="Secondary" Priority="444" />
+        <ToolbarItem Text="Item5" Order="Secondary" Priority="445"
+                     IconImageSource="{mkup:EmbeddedImageResource Resources.Images.xama_logo_in_shared_project.png}" />
+    </ContentPage.ToolbarItems>
 
     <StackLayout>
         <Label Margin="0,10" FontSize="Large" FontAttributes="Bold"

@@ -77,11 +77,11 @@ namespace XFControlSamples.Views.Behaviors
             var group = Group;
             if (string.IsNullOrWhiteSpace(group))
             {
-                group = this.GetType().GetTypeInfo().Assembly.GetName().Name;
+                Group = group = this.GetType().GetTypeInfo().Assembly.GetName().Name;
             }
 
             // Effect型名を優先するが、名前指定があれば優先する
-            var name = EffectType.Name;
+            var name = EffectType?.Name;
             if (string.IsNullOrWhiteSpace(name)) name = Name;
 
             if (string.IsNullOrWhiteSpace(group) || string.IsNullOrWhiteSpace(name))

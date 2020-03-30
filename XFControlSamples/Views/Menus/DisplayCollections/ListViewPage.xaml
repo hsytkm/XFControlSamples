@@ -16,13 +16,21 @@
     -->
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/listview/performance -->
+    <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/menuitem -->
+
     <StackLayout>
+        <!-- MenuItem の表示方法 -->
+        <Label Text="{OnPlatform Display MenuItem : Unknown,
+                                 UWP=Display MenuItem : context menu by right-clicking,
+                                 Android=Display MenuItem : long-pressing,
+                                 iOS=Display MenuItem : swiping}"
+               FontAttributes="Bold" />
+
         <StackLayout Orientation="Horizontal" >
             <CheckBox IsChecked="{Binding IsSelectionSingle, Mode=TwoWay}" />
             <Label FontSize="Large" VerticalTextAlignment="Center"
                    Text="ListViewSelectionMode.Single" />
         </StackLayout>
-
         <Label Padding="10,3"
                HorizontalTextAlignment="Center"
                FontSize="Large"
@@ -38,11 +46,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:DataType="local:ColorListViewItem" >
-                        <!-- SimpleViewCell
-                        <Label VerticalTextAlignment="Center"
-                               BackgroundColor="{Binding Color}"
-                               Text="{Binding Name}" />
-                        -->
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Edit" />
+                            <MenuItem Text="Delete" />
+                        </ViewCell.ContextActions>
+
                         <ContentView Padding="0" >
                             <Frame OutlineColor="Accent" Padding="10" BackgroundColor="White" >
                                 <StackLayout Orientation="Horizontal" >
