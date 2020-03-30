@@ -10,26 +10,16 @@
             mc:Ignorable="d"
             x:Class="XFControlSamples.Views.Menus.XamlFunctionsMenuPage">
 
-    <!--
-        https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions
-            ConstraintExpression 
-                なぞ
+    <!-- 以下は未確認
+        
+            https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions
+                ConstraintExpression (意味わからん）
 
-        https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/bindable-properties
-            BindableProperty
-                プロパティの変更の検出
-                検証コールバック
-                強制値のコールバック
-                Func を使用して既定値を作成する
+            https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/field-modifiers
+                x:FieldModifier="internal"
 
-        https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/attached-properties
-            添付プロパティ
-
-        https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/field-modifiers
-            x:FieldModifier="internal"
-
-        https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/runtime-load
-            実行時の Xamarin 形式での XAML の読み込み
+            https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/runtime-load
+                実行時の Xamarin 形式での XAML の読み込み
     -->
 
     <!-- https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/controls/views -->
@@ -55,22 +45,23 @@
         </NavigationPage>
 
         <!-- BindableProperty -->
+        <NavigationPage Title="BindProp" >
+            <x:Arguments>
+                <local:BindablePropertyPage />
+            </x:Arguments>
+        </NavigationPage>
 
         <!-- AttachedProperty -->
+        <NavigationPage Title="AttaProp" >
+            <x:Arguments>
+                <local:AttachedPropertyPage />
+            </x:Arguments>
+        </NavigationPage>
 
         <!-- MarkupExtension -->
         <NavigationPage Title="MkupEx" >
             <x:Arguments>
                 <local:MarkupExtensionPage />
-            </x:Arguments>
-        </NavigationPage>
-
-        <!-- IMarkupExtension -->
-        <NavigationPage Title="MultiConv" >
-            <x:Arguments>
-                <!-- https://github.com/hsytkm/XFMultiValueConverter -->
-                <local:BlankPage Title="MultiValueConverter"
-                                 Message="https://github.com/xxx/XFMultiValueConverter"/>
             </x:Arguments>
         </NavigationPage>
 
@@ -80,7 +71,15 @@
                 <local:EventToCommandPage />
             </x:Arguments>
         </NavigationPage>
-        
+
+        <!-- IMarkupExtension -->
+        <NavigationPage Title="MultiConv" >
+            <x:Arguments>
+                <local:BlankPage Title="MultiValueConverter"
+                                 Message="https://github.com/xxx/XFMultiValueConverter"/>
+            </x:Arguments>
+        </NavigationPage>
+
     </TabbedPage.Children>
 
 </TabbedPage>

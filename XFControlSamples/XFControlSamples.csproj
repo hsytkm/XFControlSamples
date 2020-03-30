@@ -210,6 +210,12 @@
     <Compile Update="Views\Menus\Triggers\TriggersMenuPage.xaml.cs">
       <DependentUpon>TriggersMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\AttachedPropertyPage.xaml.cs">
+      <DependentUpon>AttachedPropertyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\BindablePropertyPage.xaml.cs">
+      <DependentUpon>BindablePropertyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\XamlFunctions\EventToCommandPage.xaml.cs">
       <DependentUpon>EventToCommandPage.xaml</DependentUpon>
     </Compile>
