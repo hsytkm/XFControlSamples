@@ -4,15 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:mkup="clr-namespace:XFControlSamples.Views.MarkupExtensions"
              mc:Ignorable="d"
              Title="Progress"
              x:DataType="local:ProcessingViewModel"
              x:Class="XFControlSamples.Views.Menus.ProcessingPage">
 
     <StackLayout>
-        <Label Text="処理中のクリック防止は未実装" />
-
-        <Button Text="StartProcess"
+        <Button Text="{Binding WaitSeconds, Mode=OneWay, StringFormat='HeavyProcess (Wait {0} sec)'}"
                 HeightRequest="100"
                 Command="{Binding StartProcess, Mode=OneTime}" />
 

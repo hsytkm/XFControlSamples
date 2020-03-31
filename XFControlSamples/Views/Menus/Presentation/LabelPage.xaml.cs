@@ -26,6 +26,7 @@ namespace XFControlSamples.Views.Menus
         public string En => "New Corona Virus is prevalent worldwide in 2020. The world is confused. You keep in mind to wash your hands and gargle.";
         public string Jp => "2020年 世界は 新型コロナ Virus で Panic 状態 です。手洗い と うがい を心掛けましょう！";
 
+        // ◆Launcher と Browser の違いは？？
         //public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
         public ICommand TapCommand => new Command<string>(async (url) => await Browser.OpenAsync(url));
 

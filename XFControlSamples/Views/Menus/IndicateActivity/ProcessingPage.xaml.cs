@@ -33,7 +33,7 @@ namespace XFControlSamples.Views.Menus
 
     class ProcessingViewModel : INotifyPropertyChanged
     {
-        private const int TimeCounterMax = 6;   // 6秒計測
+        public int WaitSeconds { get; } = 6;   // 計測時間
 
         public double ProgressRatio
         {
@@ -45,7 +45,14 @@ namespace XFControlSamples.Views.Menus
         public bool IsProcessing
         {
             get => _isProcessing;
-            private set => SetProperty(ref _isProcessing, value);
+            private set
+            {
+                if (SetProperty(ref _isProcessing, value))
+                {
+                    // 処理実行中はコマンド開始を禁止する
+                    (StartProcess as Command).ChangeCanExecute();
+                }
+            }
         }
         private bool _isProcessing;
 
@@ -59,12 +66,13 @@ namespace XFControlSamples.Views.Menus
                 do
                 {
                     await Task.Delay(1000);
-                    ProgressRatio = (++sec) / (double)TimeCounterMax;
+                    ProgressRatio = (++sec) / (double)WaitSeconds;
                 }
-                while (sec < TimeCounterMax);
+                while (sec < WaitSeconds);
 
                 IsProcessing = false;
-            }));
+            },
+            () => !IsProcessing));
         private ICommand _startProcess;
 
         public event PropertyChangedEventHandler PropertyChanged;

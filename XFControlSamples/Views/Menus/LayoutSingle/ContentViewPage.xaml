@@ -15,7 +15,8 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <ControlTemplate x:Key="CardViewCompressed" >
+            <!-- Use TemplateBinding -->
+            <ControlTemplate x:Key="CardViewTemplate1" >
                 <Frame Margin="30,0"
                        HasShadow="False"
                        BorderColor="{TemplateBinding BorderColor}" >
@@ -31,10 +32,9 @@
                                    HorizontalOptions="CenterAndExpand"
                                    FontSize="Title" FontAttributes="Bold,Italic" />
                         </Frame>
-
                         <Label Grid.Column="1"
                                TextColor="DarkGray" FontSize="Subtitle" LineHeight="1.5" 
-                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                               HorizontalOptions="CenterAndExpand" >
                             <Label.FormattedText>
                                 <FormattedString>
                                     <FormattedString.Spans>
@@ -48,27 +48,57 @@
                     </Grid>
                 </Frame>
             </ControlTemplate>
+
+            <!-- Use RelativeSource -->
+            <ControlTemplate x:Key="CardViewTemplate2" >
+                <Frame Margin="50,0"
+                       CornerRadius="30"
+                       BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
+                       BorderColor="{Binding BorderColor}"
+                       BackgroundColor="{Binding CardColor}" >
+                    <StackLayout>
+                        <Label Text="{Binding CardTitle}"
+                               TextColor="{Binding TextColor}"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="Large" FontAttributes="Bold" />
+                        <Label Text="{Binding CardDescription}"
+                               TextColor="{Binding TextColor}"
+                               FontSize="Micro"
+                               HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </Frame>
+            </ControlTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Padding="20,5">
-        <Label Text="Default Card" />
-        <local:CardView />
+    <ScrollView>
+        <StackLayout Padding="20,10" >
+            <Label Text="Default Card" />
+            <local:CardView />
 
-        <Label Text="Default Template Card" Margin="0,20,0,0" />
-        <local:CardView CardTitle="au"
-                        CardDescription="CashCard"
-                        CardColor="White" 
-                        TextColor="DarkOrange"
-                        BorderColor="LightGray" />
+            <Label Text="Default Template Card" Margin="0,20,0,0" />
+            <local:CardView CardTitle="au"
+                            CardDescription="CashCard"
+                            CardColor="White" 
+                            TextColor="DarkOrange"
+                            BorderColor="LightGray" />
 
-        <Label Text="Override Custom Template Card" Margin="0,20,0,0" />
-        <local:CardView ControlTemplate="{StaticResource CardViewCompressed}" 
-                        CardTitle="CocaCora"
-                        CardDescription="PointCard"
-                        CardColor="Red" 
-                        TextColor="White"
-                        BorderColor="Red" />
+            <Label Text="Override Custom Template1  (Use TemplateBinding)" Margin="0,20,0,0" />
+            <local:CardView ControlTemplate="{StaticResource CardViewTemplate1}" 
+                            CardTitle="CocaCora"
+                            CardDescription="PointCard"
+                            CardColor="Red" 
+                            TextColor="White"
+                            BorderColor="Red" />
 
-    </StackLayout>
+            <Label Text="Override Custom Template2  (Use RelativeSource)" Margin="0,20,0,0" />
+            <local:CardView ControlTemplate="{StaticResource CardViewTemplate2}" 
+                            CardTitle="ニトリ"
+                            CardDescription="StampCard"
+                            CardColor="MediumTurquoise" 
+                            TextColor="White"
+                            BorderColor="MediumTurquoise" />
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:XFControlSamples.Views.Menus"
+             xmlns:ctrl="clr-namespace:XFControlSamples.Views.Controls"
              mc:Ignorable="d"
              Title="Label"
              x:DataType="local:LabelViewModel"
@@ -42,7 +43,8 @@
             <Label Text="Defaultフォント, Defaultサイズ"
                    Font="Default" FontSize="Default"/>
 
-            <Label> <!-- 改行 -->
+            <Label>
+                <!-- 改行 -->
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
@@ -150,24 +152,40 @@
                        LineBreakMode="TailTruncation"/>
             </StackLayout>
 
-            <Label Padding="20" BackgroundColor="LightGray" >
+            <Label Padding="20" BackgroundColor="LightGray" FontSize="Large" >
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Click " FontSize="Large" />
-                        <Span Text="here" FontSize="Large" 
-                              TextColor="Blue"
-                              TextDecorations="Underline">
+                        <Span Text="Click  " />
+                        <Span Text="here"
+                              TextColor="Blue" TextDecorations="Underline" >
                             <Span.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TapCommand}"
-                                                      CommandParameter="https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/text/label" />
+                                <TapGestureRecognizer
+                                    Command="{Binding TapCommand}"
+                                    CommandParameter="https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/text/label" />
                             </Span.GestureRecognizers>
                         </Span>
-                        <Span Text=" to view Xamarin label documentation." FontSize="Large" />
+                        <Span Text="  to view Xamarin label documentation." />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-        </StackLayout>
 
+            <!-- ハイパーリンク専用Spanの使用(上よりもこちらがオススメ)
+                 https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/user-interface/text/label -->
+            <Label Padding="20" BackgroundColor="LightGray" FontSize="Large" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Alternatively, click  " />
+                        <ctrl:HyperlinkSpan
+                            Text="here"
+                            Url="https://docs.microsoft.com/appcenter/" />
+                        <Span Text="  to view AppCenter documentation." />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="(This link is used HyperlinkSpan Control.)" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
