@@ -1,22 +1,20 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using Xamarin.Forms;
 
 namespace XFControlSamples.Views.Menus
 {
-    class AttachedBgColor
+    static class AttachedBgColor
     {
         // 添付プロパティ
         // https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/xaml/attached-properties
 
-        // ◆あんまちゃんとした例になってない…
         public static readonly BindableProperty BgColorProperty =
             BindableProperty.CreateAttached(
                 propertyName: "BgColor",
-                returnType: typeof(Color),
-                declaringType: typeof(AttachedPropertyPage),
-                defaultValue: Color.Transparent,
+                returnType: typeof(string),
+                declaringType: typeof(AttachedBgColor),
+                defaultValue: "",
                 // 以降はデフォルト引数あり省略可
                 defaultBindingMode: BindingMode.OneWay,
                 validateValue: IsValidBgColor,
@@ -25,16 +23,16 @@ namespace XFControlSamples.Views.Menus
                 coerceValue: CoerceBgColor,
                 defaultValueCreator: DefaultBgColorCreator);
 
-        public static Color GetBgColor(BindableObject bindable) =>
-            (Color)bindable.GetValue(BgColorProperty);
+        public static string GetBgColor(BindableObject bindable) =>
+            (string)bindable.GetValue(BgColorProperty);
 
-        public static void SetBgColor(BindableObject bindable, Color value) =>
+        public static void SetBgColor(BindableObject bindable, string value) =>
             bindable.SetValue(BgColorProperty, value);
 
         // 検証コールバックによって false が返されると、例外が発生します。
         private static bool IsValidBgColor(BindableObject bindable, object value)
         {
-            var isValid = (value is Color);
+            var isValid = (value is string);
 
             Debug.WriteLine($"{nameof(AttachedBgColor)}_validateValue: {isValid}");
             return isValid;
@@ -42,14 +40,13 @@ namespace XFControlSamples.Views.Menus
 
         private static void OnBgColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (bindable is VisualElement visual && newValue is Color newColor)
+            if (bindable is VisualElement visual && newValue is string name)
             {
-                visual.BackgroundColor = newColor;
+                visual.BackgroundColor = GetExistColorKeyValue(name).Color;
             }
             Debug.WriteLine($"{nameof(AttachedBgColor)}_propertyChanged: {oldValue} -> {newValue}");
         }
 
-        // ◆Changed よりも先に呼ばれるが、どのように使い分けるのか謎…
         private static void OnBgColorPropertyChanging(BindableObject bindable, object oldValue, object newValue)
         {
             Debug.WriteLine($"{nameof(AttachedBgColor)}_propertyChanging: {oldValue} -> {newValue}");
@@ -58,25 +55,28 @@ namespace XFControlSamples.Views.Menus
         // 値を補正できる ※Coerce=(人に)強制して(力ずくで)～させる
         private static object CoerceBgColor(BindableObject bindable, object value)
         {
-            if (value is Color color)
-            {
-                if (color == Color.Transparent) color = Color.Red;
+            var color = (value is string name)
+                ? GetExistColorKeyValue(name) : GetDefaultBgColorKeyValue();
 
-                Debug.WriteLine($"{nameof(AttachedBgColor)}_coerceValue: {color}");
-                return color;
-            }
-            return value;
+            Debug.WriteLine($"{nameof(AttachedBgColor)}_coerceValue: {value} -> {color}");
+            return color.Name;
         }
 
         // デフォルト値を生成できる
-        private static object DefaultBgColorCreator(BindableObject bindable)
-        {
-            var list = Models.SampleData.XamarinFormsColors;
-            var index = new Random().Next(0, list.Count());  // maxValueは含まれない
-            var color = list[index].Color;
+        private static object DefaultBgColorCreator(BindableObject bindable) =>
+            GetDefaultBgColorKeyValue().Name;
 
-            Debug.WriteLine($"{nameof(AttachedBgColor)}_defaultValueCreator: {color}");
-            return color;
+        private static (string Name, Color Color) GetDefaultBgColorKeyValue() =>
+            (nameof(Color.Transparent), Color.Transparent);
+
+        // 引数の名前が存在したらColorを返す(存在しなければデフォ色)
+        private static (string Name, Color Color) GetExistColorKeyValue(string name)
+        {
+            var n = name.ToLower();
+            var key = Models.SampleData.XamarinFormsColors
+                .FirstOrDefault(x => x.Name.ToLower() == n);
+
+            return (key != default) ? key : GetDefaultBgColorKeyValue();
         }
 
     }

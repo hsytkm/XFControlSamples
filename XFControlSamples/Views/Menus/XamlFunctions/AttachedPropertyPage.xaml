@@ -28,22 +28,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <!-- ◆あんまちゃんとした例になってない… -->
     <StackLayout Padding="10" >
         <Label Style="{StaticResource TitleLabel}"
                Text="AttachedProperty" />
 
-        <Label Margin="0,20"
-               FontSize="Medium" TextColor="Red"
-               Text="Transparent is replaced Red." />
-
-        <StackLayout Orientation="Horizontal" Spacing="20" >
-            <BoxView local:AttachedBgColor.BgColor="LightBlue" />
-            <BoxView local:AttachedBgColor.BgColor="Transparent" />
-            <BoxView local:AttachedBgColor.BgColor="LightPink" />
-            <BoxView local:AttachedBgColor.BgColor="LightYellow" />
-            <BoxView local:AttachedBgColor.BgColor="LightGreen" />
-        </StackLayout>
+        <Label Margin="0,20" FontSize="Medium"
+               Text="Change Background color if it exists." />
+        <Entry Text="LightGreen"
+               local:AttachedBgColor.BgColor="{Binding Text, Source={RelativeSource Self}}" />
 
     </StackLayout>
 </ContentPage>
