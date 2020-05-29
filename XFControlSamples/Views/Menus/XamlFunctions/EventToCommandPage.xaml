@@ -12,6 +12,8 @@
              x:DataType="local:EventToCommandViewModel"
              x:Class="XFControlSamples.Views.Menus.EventToCommandPage" >
 
+    <!-- WPF なら EventTrigger と InvokeCommandAction の組合せで実現できる -->
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <x:Int32 x:Key="addValue">10</x:Int32>

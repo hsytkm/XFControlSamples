@@ -10,7 +10,7 @@ namespace XFControlSamples.Views.Converters
             (int)Math.Round((double)value * GetParameter(parameter));
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) =>
-            (int)value / GetParameter(parameter);
+            throw new NotSupportedException();
 
         private double GetParameter(object parameter)
         {

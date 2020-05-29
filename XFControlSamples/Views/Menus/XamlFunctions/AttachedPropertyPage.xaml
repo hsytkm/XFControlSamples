@@ -19,12 +19,6 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
-            <Style TargetType="{x:Type BoxView}" >
-                <Setter Property="Margin" Value="0,10,0,0" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="WidthRequest" Value="60" />
-                <Setter Property="HeightRequest" Value="60" />
-            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 

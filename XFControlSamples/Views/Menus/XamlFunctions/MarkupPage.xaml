@@ -62,7 +62,7 @@
                         <Span Text="{Binding Source={x:Static sys:Math.PI}, StringFormat='Math.PI(f10) = {0:f10}'}" />
                         <Span Text="{x:Static x:Environment.NewLine}" />
                         <Span Text="DateTime.Now = " />
-                        <Span Text="{Binding Source={x:StaticExtension sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+                        <Span Text="{Binding Source={x:StaticExtension sys:DateTime.Now}, StringFormat='{}{0:MMMM dd, yyyy}'}"
                               TextColor="Blue" />
                         <!-- XAMLパーサーでは、StaticExtension クラスを x:Staticとして省略することもできます -->
                         <Span Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='  {0:H:mm:ss zzz}'}"

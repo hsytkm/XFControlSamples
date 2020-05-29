@@ -48,7 +48,7 @@
 
         <!-- BooleanToObjectConverter -->
         <Label Style="{StaticResource TitleLabel}"
-               Text="bool値に応じて色々と切り替える&#xD;&#xA;BooleanToObjectConverter" />
+               Text="bool値に応じてobjectを切り替える&#xD;&#xA;BooleanToObjectConverter" />
         <StackLayout Orientation="Horizontal" Spacing="30" >
             <Label Text="Switch State" />
             <Switch x:Name="switch1" />
