@@ -23,13 +23,7 @@ namespace XFControlSamples.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             // Preview機能を使用するには、Forms.Initを呼び出す前にフラグ設定が必要
-            global::Xamarin.Forms.Forms.SetFlags(
-                //"MediaElement_Experimental",
-                "IndicatorView_Experimental",
-                "CarouselView_Experimental",
-                "StateTriggers_Experimental",   // Xamarin.Forms4.5以降
-                "SwipeView_Experimental"        // Xamarin.Forms4.4以降
-                );
+            global::Xamarin.Forms.Forms.SetFlags(FormsSetting.GetSetFlags());
 
             global::Xamarin.Forms.Forms.Init();
 

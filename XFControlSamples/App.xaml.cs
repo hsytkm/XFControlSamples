@@ -34,4 +34,21 @@ namespace XFControlSamples
         }
 
     }
+
+    // どこに書いたらよいか分からなかったので…
+    public static class FormsSetting
+    {
+        // Preview機能を使用するためには、Forms.Initを呼び出す前にフラグ設定が必要
+        private static readonly string[] _setFlags = new[]
+        {
+            "RadioButton_Experimental",     // Xamarin.Forms4.6以降
+            //"MediaElement_Experimental",
+            "IndicatorView_Experimental",
+            "CarouselView_Experimental",
+            "StateTriggers_Experimental",   // Xamarin.Forms4.5以降
+            "SwipeView_Experimental"        // Xamarin.Forms4.4以降
+        };
+
+        public static string[] GetSetFlags() => _setFlags;
+    }
 }
