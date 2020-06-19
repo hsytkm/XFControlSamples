@@ -75,8 +75,7 @@
         <!-- IMarkupExtension -->
         <NavigationPage Title="MultiConv" >
             <x:Arguments>
-                <local:BlankPage Title="MultiValueConverter"
-                                 Message="https://github.com/xxx/XFMultiValueConverter"/>
+                <local:MultiValueConverterPage />
             </x:Arguments>
         </NavigationPage>
 

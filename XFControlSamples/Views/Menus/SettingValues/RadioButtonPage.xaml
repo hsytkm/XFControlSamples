@@ -13,6 +13,17 @@
     
     <StackLayout Padding="100"
                  BackgroundColor="{Binding SelectedColor, Mode=OneWay}" >
+        <Label LineHeight="2.0" FontSize="Micro" >
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Xamarin4.6ではPreviewなので各プロジェクトに下記コードが必要" />
+                        <Span Text="{x:Static x:Environment.NewLine}" />
+                        <Span Text="Xamarin.Forms.Forms.SetFlags(&quot;RadioButton_Experimental&quot;);" TextColor="Blue" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
         <Label Text="BackgroundColor" FontSize="Large" />
         

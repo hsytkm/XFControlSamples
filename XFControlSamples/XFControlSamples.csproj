@@ -222,6 +222,9 @@
     <Compile Update="Views\Menus\XamlFunctions\MarkupExtensionPage.xaml.cs">
       <DependentUpon>MarkupExtensionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Menus\XamlFunctions\MultiValueConverterPage.xaml.cs">
+      <DependentUpon>MultiValueConverterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Menus\XamlFunctions\ValueConverterPage.xaml.cs">
       <DependentUpon>ValueConverterPage.xaml</DependentUpon>
     </Compile>
