@@ -14,6 +14,9 @@ namespace XFControlSamples
 
         public App()
         {
+            // ここに書いておけば、各プロジェクト共通で設定できた
+            Device.SetFlags(FormsSetting.GetSetFlags());
+
             InitializeComponent();
             MainPage = new MainPage();
         }
@@ -35,7 +38,7 @@ namespace XFControlSamples
 
     }
 
-    // どこに書いたらよいか分からなかったので…
+    // どこに書いたらよいか分からなかったので… ⇒ 判明した！
     public static class FormsSetting
     {
         // Preview機能を使用するためには、Forms.Initを呼び出す前にフラグ設定が必要

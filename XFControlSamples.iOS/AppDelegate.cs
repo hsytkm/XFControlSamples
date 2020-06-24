@@ -23,7 +23,7 @@ namespace XFControlSamples.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             // Preview機能を使用するには、Forms.Initを呼び出す前にフラグ設定が必要
-            global::Xamarin.Forms.Forms.SetFlags(FormsSetting.GetSetFlags());
+            //global::Xamarin.Forms.Forms.SetFlags(FormsSetting.GetSetFlags());     // PCLプロジェクトに引っ越した
 
             global::Xamarin.Forms.Forms.Init();
 

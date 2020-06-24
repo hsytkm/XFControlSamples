@@ -12,7 +12,7 @@ namespace XFControlSamples.WPF
             InitializeComponent();
 
             // Preview機能を使用するには、Forms.Initを呼び出す前にフラグ設定が必要
-            Xamarin.Forms.Forms.SetFlags(FormsSetting.GetSetFlags());
+            //Xamarin.Forms.Forms.SetFlags(FormsSetting.GetSetFlags());     // PCLプロジェクトに引っ越した
 
             Xamarin.Forms.Forms.Init();
             LoadApplication(new XFControlSamples.App());
